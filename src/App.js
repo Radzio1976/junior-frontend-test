@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Route, Link, Routes} from 'react-router-dom';
 
 import ProductsPage from './components/ProductsPage';
 import ProductPage from './components/ProductPage';
+import Cart from './components/Cart';
 
 class App extends React.Component {
   render() {
@@ -12,6 +13,7 @@ class App extends React.Component {
           <Routes>
             <Route path="/" element={<ProductsPage />} />
             <Route path="/product" element={<ProductPage />} />
+            <Route path="/cart" element={<Cart />} />
           </Routes>
         </Router>
       </div>
