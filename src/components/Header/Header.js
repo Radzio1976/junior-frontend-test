@@ -3,6 +3,8 @@ import React from 'react';
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
 
+import LeftNav from './LeftNav';
+
 import './Header.css';
 import Basket from '../../images/basket.png';
 
@@ -28,24 +30,10 @@ class Header extends React.Component {
         super(props);
       }
     render() {
+        const changeCategory = this.props.changeCategory;
         return(
             <header>
-                <nav className="left-nav">
-                    <ul>
-                        <Query query={productsCategories}>
-                            {({loading, data}) => {
-                                if (loading) return "Loading...";
-                                //console.log(data);
-                                const categories = data.categories;
-                                return categories.map((category, i) => {
-                                    return(
-                                        <li key={i} onClick={() => this.props.changeCategory(category.name)}>{category.name}</li>
-                                    )
-                                })
-                            }}
-                        </Query>
-                    </ul>
-                </nav>
+                <LeftNav changeCategory={changeCategory} />
                 <div className="logo">
                     <h1>Logo</h1>
                 </div>

@@ -27,7 +27,7 @@ class App extends React.Component {
   }
 
   render() {
-    console.log(this.state.productsCategories);
+    console.log(this.state.categoryOfProduct);
     return(
       <ApolloProvider client={client}>
         <div id="App">
