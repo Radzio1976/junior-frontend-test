@@ -17,22 +17,28 @@ const client = new ApolloClient({
 class App extends React.Component {
   state = {
     categoryOfProduct: "all",
-    currencies: "$ USD"
+    currency: "$ USD"
   }
 
+  // Function to change category of products on Products Page
   changeCategory = (category) => {
     this.setState({
       categoryOfProduct: category
     })
   }
 
+  changeCurrency = (key, value) => {
+    this.setState({
+      [key]: value
+    })
+  }
+
   render() {
-    console.log(this.state.categoryOfProduct);
     return(
       <ApolloProvider client={client}>
         <div id="App">
           <Router>
-            <Header changeCategory={this.changeCategory} />
+            <Header changeCategory={this.changeCategory} changeCurrency={this.changeCurrency} currency={this.state.currency} />
             <Routes>
               <Route path="/" element={<ProductsPage categoryOfProduct={this.state.categoryOfProduct} />} />
               <Route path="/product" element={<ProductPage />} />

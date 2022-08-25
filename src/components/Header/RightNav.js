@@ -20,8 +20,8 @@ class RightNav extends React.Component {
         return(
             <nav className="right-nav">
                 <div className="currency-switch">
-                    <p className="current-currency">$</p>
-                    <select>
+                    <p className="current-currency">{this.props.currency.slice(0, 1)}</p>
+                    <select type="text" name="currency" onChange={(e) => this.props.changeCurrency(e.target.name, e.target.value)} value={this.props.currency} >
                         <Query query={currencies}>
                             {({loading, data}) => {
                                 if (loading) return "Loading...";
@@ -29,7 +29,7 @@ class RightNav extends React.Component {
                                 const currencies = data.currencies;
                                 return currencies.map((currency, i) => {
                                     return(
-                                        <option key={i}>{currency.symbol} {currency.label}</option>
+                                        <option key={i} value={`${currency.symbol} ${currency.label}`}>{currency.symbol} {currency.label}</option>
                                     )
                                 })
                             }}
