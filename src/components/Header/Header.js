@@ -4,17 +4,10 @@ import { Query } from "react-apollo";
 import gql from "graphql-tag";
 
 import LeftNav from './LeftNav';
+import Logo from './Logo';
 
 import './Header.css';
 import Basket from '../../images/basket.png';
-
-const productsCategories = gql`
-query ProductsCategories {
-	categories {
-    name
-  }
-}
-`
 
 const currencies = gql`
 query Currencies {
@@ -26,17 +19,12 @@ query Currencies {
 `
 
 class Header extends React.Component {
-    constructor(props) {
-        super(props);
-      }
     render() {
         const changeCategory = this.props.changeCategory;
         return(
             <header>
                 <LeftNav changeCategory={changeCategory} />
-                <div className="logo">
-                    <h1>Logo</h1>
-                </div>
+                <Logo />
                 <nav className="right-nav">
                     <div className="currency-switch">
                         <p className="current-currency">$</p>
