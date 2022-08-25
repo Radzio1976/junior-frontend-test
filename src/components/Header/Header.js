@@ -12,7 +12,7 @@ class Header extends React.Component {
         const changeCurrency = this.props.changeCurrency;
         const currency = this.props.currency;
         return(
-            <header>
+            <header id="Header">
                 <LeftNav changeCategory={changeCategory} />
                 <Logo />
                 <RightNav currency={currency} changeCurrency={changeCurrency} />
