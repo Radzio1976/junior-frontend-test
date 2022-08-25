@@ -1,0 +1,17 @@
+header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.left-nav ul {
+    display: flex;
+    list-style-type: none;
+}
+
+.left-nav li {
+   margin-right: 10px;
+}
+
+.right-nav {
+    display: flex;
+}
