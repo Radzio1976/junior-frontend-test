@@ -40,7 +40,7 @@ class App extends React.Component {
           <Router>
             <Header changeCategory={this.changeCategory} changeCurrency={this.changeCurrency} currency={this.state.currency} />
             <Routes>
-              <Route path="/" element={<ProductsPage categoryOfProduct={this.state.categoryOfProduct} />} />
+              <Route path="/" element={<ProductsPage categoryOfProduct={this.state.categoryOfProduct} currency={this.state.currency} />} />
               <Route path="/product" element={<ProductPage />} />
               <Route path="/cart" element={<Cart />} />
             </Routes>

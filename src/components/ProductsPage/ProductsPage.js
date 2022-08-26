@@ -4,6 +4,7 @@ import { Query } from "react-apollo";
 import gql from "graphql-tag";
 
 import CategorySection from './CategorySection';
+import ProductsSection from './ProductsSection';
 
 const products = gql`
     query MyQuery {
@@ -35,29 +36,11 @@ const products = gql`
 class ProductsPage extends React.Component {
     render() {
       const categoryOfProduct = this.props.categoryOfProduct;
+      const currency = this.props.currency;
         return(
         <div id="ProductsPage">
           <CategorySection categoryOfProduct={categoryOfProduct} />
-          <section className="products-section">
-            <Query query={products}>
-                  {({loading, data}) => {
-                      if (loading) return "Loading...";
-                      //console.log(data);
-                      const products = data.category.products; 
-                          return products.filter(product => {
-                              return categoryOfProduct !== "all" ? product.category === categoryOfProduct : product
-                          }).map(product => {
-                              return(
-                                  <div key={product.id}>
-                                      <h1>{product.name}</h1>
-                                      <img src={product.gallery[0]} alt={product.name} />
-                                  </div>
-                              )
-                          })
-
-                  }}
-              </Query>
-          </section>
+          <ProductsSection categoryOfProduct={categoryOfProduct} currency={currency} />
         </div>
         )
     }
