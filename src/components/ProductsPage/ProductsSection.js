@@ -49,7 +49,7 @@ class ProductsSection extends React.Component {
                               return categoryOfProduct !== "all" ? product.category === categoryOfProduct : product
                           }).map(product => {
                               return(
-                                <ProductBox product={product} currency={currency} />
+                                <ProductBox product={product} currency={currency} key={product.id} />
                               )
                           })
 
