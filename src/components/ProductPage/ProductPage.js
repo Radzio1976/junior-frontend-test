@@ -1,72 +1,63 @@
 import React from 'react';
 import {withRouter} from 'react-router-dom';
 import gql from "graphql-tag";
-import { client } from '../../App';
+import { Query } from "react-apollo";
 
 import ProductImages from './ProductImages';
 
-class ProductPage extends React.Component {
-    state = {
-        product: {}
+const GET_PRODUCT = gql`
+query getProduct ($id: String!) {
+  product(id: $id) {
+    id
+    name
+    inStock
+    gallery
+    description
+    category
+    attributes {
+      id
+      name
+      type
+      items {
+        displayValue
+        value
+        id
+      }
     }
-
-    componentDidMount() {
-        const id = this.props.history.location.pathname.substring(9);
-
-        const query = gql`
-        query getProduct ($id: String!) {
-          product(id: $id) {
-            id
-            name
-            inStock
-            gallery
-            description
-            category
-            attributes {
-              id
-              name
-              type
-              items {
-                displayValue
-                value
-                id
-              }
-            }
-            prices {
-              currency {
-                label
-                symbol
-              }
-              amount
-            }
-            brand
-          }
-        }`
-        
-        client.query({
-          query: query,
-          variables: {
-            id
-          }
-      })
-      .then((result) => {
-        this.setState({
-          product: result.data.product
-        })
-      });
+    prices {
+      currency {
+        label
+        symbol
+      }
+      amount
     }
+    brand
+  }
+}
+`
 
+class ProductPage extends React.Component {    
     render() {
-        console.log(this.state.product)
+      const id = this.props.history.location.pathname.substring(9);
         return(
-            <div className="ProductBox">
-
+          <Query query={GET_PRODUCT} variables={{id}}>
+          {({ loading, error, data }) => {
+            if (loading) return null;
+            if (error) return `Error! ${error}`;
+            const product = data.product;
+            console.log(product);
+            return (
+              <div className="ProductBox">
+              <ProductImages item={product} />
                 <div className="product-description-container">
-                  <p key={this.state.product.id}>{this.state.product.id}</p>
+                  <p key={product.id}>{product.id}</p>
                 </div>
             </div>
+            );
+          }}
+        </Query>
         )
-    }
+}
 }
 
 export default withRouter(ProductPage);

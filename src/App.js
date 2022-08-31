@@ -99,5 +99,4 @@ class App extends React.Component {
   }
 }
 
-export {client};
 export default App;
