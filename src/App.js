@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter as Router, Route, Link, Routes} from 'react-router-dom';
+import {BrowserRouter, Switch, Route} from 'react-router-dom';
 
 import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "react-apollo";
@@ -16,14 +16,62 @@ const client = new ApolloClient({
 
 class App extends React.Component {
   state = {
+    productsMainBase: [],
+    products: [],
     categoryOfProduct: "all",
     currency: "$ USD"
   }
 
+  componentDidMount() {
+    client
+        .query({
+          query: gql`
+          query GetProduts {
+            category {
+              products {
+                id
+                name
+                inStock
+                gallery
+                description
+                category
+                attributes {
+                  id
+                  name
+                  type
+                }
+                prices {
+                  currency {
+                    label
+                    symbol
+                  }
+                  amount
+                }
+                brand
+              }
+            }
+          }`,
+      })
+      .then((result) => {
+        this.setState({
+          productsMainBase: result.data.category.products,
+          products: result.data.category.products
+        })
+      });
+  }
+
   // Function to change category of products on Products Page
-  changeCategory = (category) => {
+  sortProductsByCategory = (category) => {
+    let products = this.state.productsMainBase;
     this.setState({
       categoryOfProduct: category
+    }, () => {
+      const filteredProducts = products.filter(product => {
+        return this.state.categoryOfProduct !== "all" ? product.category === this.state.categoryOfProduct : product
+    })
+      this.setState({
+        products: filteredProducts
+      })
     })
   }
 
@@ -36,19 +84,20 @@ class App extends React.Component {
   render() {
     return(
       <ApolloProvider client={client}>
-        <div id="App">
-          <Router>
-            <Header changeCategory={this.changeCategory} changeCurrency={this.changeCurrency} currency={this.state.currency} />
-            <Routes>
-              <Route path="/" element={<ProductsPage categoryOfProduct={this.state.categoryOfProduct} currency={this.state.currency} />} />
-              <Route path="/product" element={<ProductPage />} />
-              <Route path="/cart" element={<Cart />} />
-            </Routes>
-          </Router>
+        <div id="App" style={{width: "1440px"}}>
+          <BrowserRouter>
+            <Header sortProductsByCategory={this.sortProductsByCategory} changeCurrency={this.changeCurrency} currency={this.state.currency} />
+            <Switch>
+              <Route path="/" exact component={() => <ProductsPage categoryOfProduct={this.state.categoryOfProduct} currency={this.state.currency} products={this.state.products} />} />
+              <Route path="/product/:id" component={() => <ProductPage productsMainBase={this.state.productsMainBase} />} />
+              <Route path="/cart" component={() => <Cart />} />
+            </Switch>
+          </BrowserRouter>
         </div>
       </ApolloProvider>
     )
   }
 }
 
+export {client};
 export default App;

@@ -1,11 +1,12 @@
 import React from 'react';
+import {withRouter} from 'react-router-dom';
 
 class ProductBox extends React.Component {
     render() {
         const product = this.props.product;
         const currency = this.props.currency;
         return(
-            <div className="product-box" key={product.id}>
+            <div className="product-box" key={product.id} onClick={() => this.props.history.push(`/product/${product.id}`)}>
             <div className="product-image-container">
               <img src={product.gallery[0]} alt={product.name} />
             </div>
@@ -26,4 +27,4 @@ class ProductBox extends React.Component {
     }
 }
 
-export default ProductBox;
+export default withRouter(ProductBox);
