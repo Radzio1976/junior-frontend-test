@@ -1,10 +1,6 @@
 import React from 'react';
 
 class ProductDescription extends React.Component {
-    state = {
-        chosenProductAttributes: []
-    }
-
     render() {
         const product = this.props.product;
         const currency = this.props.currency;

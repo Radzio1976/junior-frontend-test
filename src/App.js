@@ -90,14 +90,6 @@ class App extends React.Component {
     })
   }
 
-  addProductToCart = (product) => {
-    const cart = this.state.cart;
-    cart.push(product)
-    this.setState({
-      cart: cart
-    })
-  }
-
   chooseProductAttribute = (value) => {
     const chosenAttributes = this.state.chosenProductAttributes;
     
@@ -114,10 +106,40 @@ class App extends React.Component {
     this.setState({
         chosenAttributes
     })        
-}
+  }
+
+  addProductToCart = (product) => {
+    const chosenProductAttributes = this.state.chosenProductAttributes;
+    if (chosenProductAttributes.length === product.attributes.length) {
+      product.chosenAttributes = chosenProductAttributes;
+
+
+      this.setState({
+        cart: JSON.parse(localStorage.getItem("addedProducts")) === null ? [] : JSON.parse(localStorage.getItem("addedProducts"))
+    }, () => {
+        let cart = this.state.cart;
+
+        if (cart === []) {
+            cart.push(product)
+            localStorage.setItem("addedProducts", JSON.stringify(cart))
+        } else {
+            cart.push(product);
+            localStorage.setItem("addedProducts", JSON.stringify(cart))
+        }
+
+        this.setState({
+            cart,
+            chosenProductAttributes: []
+        })
+    })
+    } else {
+      return
+    }
+  }
 
   render() {
     console.log(this.state.chosenProductAttributes);
+    console.log(this.state.cart);
     return(
       <ApolloProvider client={client}>
         <div id="App" style={{width: "1440px"}}>
