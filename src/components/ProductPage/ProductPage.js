@@ -43,6 +43,8 @@ class ProductPage extends React.Component {
       const currency = this.props.currency;
       const changeProductMainImageURL = this.props.changeProductMainImageURL;
       const productMainImageURL = this.props.productMainImageURL;
+      const chooseProductAttribute = this.props.chooseProductAttribute;
+      const addProductToCart = this.props.addProductToCart;
         return(
           <Query query={GET_PRODUCT} variables={{id}}>
           {({ loading, error, data }) => {
@@ -53,7 +55,7 @@ class ProductPage extends React.Component {
             return (
               <div className="ProductBox" style={{display: "flex"}}>
               <ProductImages product={product} changeProductMainImageURL={changeProductMainImageURL} productMainImageURL={productMainImageURL} />
-              <ProductDescription product={product} currency={currency} />
+              <ProductDescription product={product} currency={currency} chooseProductAttribute={chooseProductAttribute} addProductToCart={addProductToCart} />
             </div>
             );
           }}

@@ -1,11 +1,16 @@
 import React from 'react';
 
 class ProductDescription extends React.Component {
+    state = {
+        chosenProductAttributes: []
+    }
+
     render() {
         const product = this.props.product;
         const currency = this.props.currency;
         const currencyLabel = currency.slice(currency.length -3, currency.length);
-        console.log(currencyLabel)
+        const chooseProductAttribute = this.props.chooseProductAttribute;
+        const addProductToCart = this.props.addProductToCart;
 
         return(
             <div className="product-description-container">
@@ -25,11 +30,16 @@ class ProductDescription extends React.Component {
                                     {
                                         attr.items.map(value => {
                                             return(
-                                                <div key={value.id} className="product-attribute-value" 
-                                                style={{backgroundColor: `${value.value}`,
+                                                <div 
+                                                key={value.id} 
+                                                className="product-attribute-value" 
+                                                style={{
+                                                        backgroundColor: `${value.value}`,
                                                         width: "30px",
                                                         height: "30px"
-                                                }}>
+                                                }}
+                                                onClick={() => chooseProductAttribute({attr, value})}
+                                                >
                                                     {attr.name !== "Color" ? <p>{value.displayValue}</p> : ""}
                                                 </div>
                                             )
@@ -52,7 +62,7 @@ class ProductDescription extends React.Component {
                 }
             </div>
             <div className="product-add-to-cart-button-container">
-                <button>Add to cart</button>
+                <button onClick={() => addProductToCart(product)}>Add to cart</button>
             </div>
             <div className="product-desc-container" dangerouslySetInnerHTML={{__html: product.description}}>
             </div>
