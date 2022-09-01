@@ -4,6 +4,7 @@ import gql from "graphql-tag";
 import { Query } from "react-apollo";
 
 import ProductImages from './ProductImages';
+import ProductDescription from './ProductDescription';
 
 const GET_PRODUCT = gql`
 query getProduct ($id: String!) {
@@ -39,6 +40,9 @@ query getProduct ($id: String!) {
 class ProductPage extends React.Component {    
     render() {
       const id = this.props.history.location.pathname.substring(9);
+      const currency = this.props.currency;
+      const changeProductMainImageURL = this.props.changeProductMainImageURL;
+      const productMainImageURL = this.props.productMainImageURL;
         return(
           <Query query={GET_PRODUCT} variables={{id}}>
           {({ loading, error, data }) => {
@@ -47,11 +51,9 @@ class ProductPage extends React.Component {
             const product = data.product;
             console.log(product);
             return (
-              <div className="ProductBox">
-              <ProductImages item={product} />
-                <div className="product-description-container">
-                  <p key={product.id}>{product.id}</p>
-                </div>
+              <div className="ProductBox" style={{display: "flex"}}>
+              <ProductImages product={product} changeProductMainImageURL={changeProductMainImageURL} productMainImageURL={productMainImageURL} />
+              <ProductDescription product={product} currency={currency} />
             </div>
             );
           }}

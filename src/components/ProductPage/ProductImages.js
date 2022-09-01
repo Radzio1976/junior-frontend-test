@@ -2,22 +2,23 @@ import React from 'react';
 
 class ProductImages extends React.Component {
     render() {
-        const item = this.props.item;
-            console.log(item);
+        const product = this.props.product;
+        const changeProductMainImageURL = this.props.changeProductMainImageURL;
+        const productMainImageURL = this.props.productMainImageURL;
 
         return(
             <div className="product-images-container" style={{display: "flex", width: "60%"}}>
             <div className="product-thumbnails-container" style={{width: "87px"}}>
                 {
-                    item.gallery.map((image, i) => {
+                    product.gallery.map((image, i) => {
                         return(
-                            <img key={i} src={image} alt={item.name} style={{width: "100%"}} />
+                            <img onClick={() => changeProductMainImageURL(image)} key={i} src={image} alt={product.name} style={{width: "100%"}} />
                         )
                     })
                 }
             </div>
             <div className="product-main-image-container" style={{width: "559px"}}>
-                <img src={item.gallery[0]} alt={item.name} style={{width: "100%"}} />
+                <img src={productMainImageURL === "" ? product.gallery[0] : productMainImageURL} alt={product.name} style={{width: "100%"}} />
             </div>
         </div>
         )

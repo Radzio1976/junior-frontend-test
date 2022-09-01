@@ -19,7 +19,8 @@ class App extends React.Component {
     productsMainBase: [],
     products: [],
     categoryOfProduct: "all",
-    currency: "$ USD"
+    currency: "$ USD",
+    productMainImageURL: ""
   }
 
   componentDidMount() {
@@ -81,7 +82,14 @@ class App extends React.Component {
     })
   }
 
+  changeProductMainImageURL = (url) => {
+    this.setState({
+      productMainImageURL: url
+    })
+  }
+
   render() {
+    console.log(this.state.productMainImageURL);
     return(
       <ApolloProvider client={client}>
         <div id="App" style={{width: "1440px"}}>
@@ -89,7 +97,7 @@ class App extends React.Component {
             <Header sortProductsByCategory={this.sortProductsByCategory} changeCurrency={this.changeCurrency} currency={this.state.currency} />
             <Switch>
               <Route path="/" exact component={() => <ProductsPage categoryOfProduct={this.state.categoryOfProduct} currency={this.state.currency} products={this.state.products} />} />
-              <Route path="/product/:id" component={() => <ProductPage productsMainBase={this.state.productsMainBase} />} />
+              <Route path="/product/:id" component={() => <ProductPage productsMainBase={this.state.productsMainBase} currency={this.state.currency} changeProductMainImageURL={this.changeProductMainImageURL} productMainImageURL={this.state.productMainImageURL} />} />
               <Route path="/cart" component={() => <Cart />} />
             </Switch>
           </BrowserRouter>
