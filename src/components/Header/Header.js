@@ -11,11 +11,12 @@ class Header extends React.Component {
         const sortProductsByCategory = this.props.sortProductsByCategory;
         const changeCurrency = this.props.changeCurrency;
         const currency = this.props.currency;
+        const getTotal = this.props.getTotal;
         return(
             <header id="Header">
                 <LeftNav sortProductsByCategory={sortProductsByCategory} />
                 <Logo />
-                <RightNav currency={currency} changeCurrency={changeCurrency} />
+                <RightNav currency={currency} changeCurrency={changeCurrency} getTotal={getTotal} />
             </header>
         )
     }

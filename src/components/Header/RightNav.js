@@ -17,10 +17,11 @@ query Currencies {
 
 class RightNav extends React.Component {
     render() {
+        const currency = this.props.currency;
         return(
             <nav className="right-nav">
                 <div className="currency-switch">
-                    <p className="current-currency">{this.props.currency.slice(0, 1)}</p>
+                    <p className="current-currency">{currency.slice(0, 1)}</p>
                     <select type="text" name="currency" onChange={(e) => this.props.changeCurrency(e.target.name, e.target.value)} value={this.props.currency} >
                         <Query query={currencies}>
                             {({loading, data}) => {

@@ -22,10 +22,17 @@ class App extends React.Component {
     currency: "USD",
     productMainImageURL: "",
     chosenProductAttributes: [],
-    cart: []
+    cart: [],
+    total: 0
   }
 
   componentDidMount() {
+    this.setState({
+      cart: JSON.parse(localStorage.getItem("addedProducts")) === null ? [] : JSON.parse(localStorage.getItem("addedProducts"))
+    }, () => {
+      this.getTotal(this.state.currency);
+    })
+
     client
         .query({
           query: gql`
@@ -81,6 +88,8 @@ class App extends React.Component {
   changeCurrency = (key, value) => {
     this.setState({
       [key]: value
+    }, () => {
+      this.getTotal(this.state.currency)
     })
   }
 
@@ -136,9 +145,26 @@ class App extends React.Component {
     }
   }
 
+  getTotal = (currency) => {
+    
+    const cart = this.state.cart;
+    let sum = 0;
+    
+    cart.forEach(product => {
+      sum += product.prices.filter(price => {
+        return price.currency.label === currency
+      })[0].amount
+    })
+
+    this.setState({
+      total: sum
+    })
+  }
+
   render() {
+    console.log(this.state.total);
     //console.log(this.state.chosenProductAttributes);
-    //console.log(this.state.cart);
+    console.log(this.state.cart);
     return(
       <ApolloProvider client={client}>
         <div id="App" style={{width: "1440px"}}>
@@ -147,6 +173,7 @@ class App extends React.Component {
               sortProductsByCategory={this.sortProductsByCategory} 
               changeCurrency={this.changeCurrency} 
               currency={this.state.currency} 
+              getTotal={this.getTotal}
               />
             <Switch>
               <Route path="/" exact component={() => <ProductsPage 
