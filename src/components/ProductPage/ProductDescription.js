@@ -4,7 +4,6 @@ class ProductDescription extends React.Component {
     render() {
         const product = this.props.product;
         const currency = this.props.currency;
-        const currencyLabel = currency.slice(currency.length -3, currency.length);
         const chooseProductAttribute = this.props.chooseProductAttribute;
         const addProductToCart = this.props.addProductToCart;
 
@@ -52,7 +51,7 @@ class ProductDescription extends React.Component {
                 {
                 product.prices.map((price, i) => {
                         return(
-                            <h3 key={i} style={{display: currencyLabel === price.currency.label ? "block" : "none"}}>{price.currency.symbol}{price.amount}</h3>
+                            <h3 key={i} style={{display: currency === price.currency.label ? "block" : "none"}}>{price.currency.symbol}{price.amount}</h3>
                         )
                     })
                 }

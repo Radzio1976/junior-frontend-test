@@ -19,7 +19,7 @@ class App extends React.Component {
     productsMainBase: [],
     products: [],
     categoryOfProduct: "all",
-    currency: "$ USD",
+    currency: "USD",
     productMainImageURL: "",
     chosenProductAttributes: [],
     cart: []
@@ -113,7 +113,6 @@ class App extends React.Component {
     if (chosenProductAttributes.length === product.attributes.length) {
       product.chosenAttributes = chosenProductAttributes;
 
-
       this.setState({
         cart: JSON.parse(localStorage.getItem("addedProducts")) === null ? [] : JSON.parse(localStorage.getItem("addedProducts"))
     }, () => {
@@ -138,8 +137,8 @@ class App extends React.Component {
   }
 
   render() {
-    console.log(this.state.chosenProductAttributes);
-    console.log(this.state.cart);
+    //console.log(this.state.chosenProductAttributes);
+    //console.log(this.state.cart);
     return(
       <ApolloProvider client={client}>
         <div id="App" style={{width: "1440px"}}>

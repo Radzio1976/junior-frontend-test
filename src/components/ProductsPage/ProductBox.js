@@ -14,7 +14,7 @@ class ProductBox extends React.Component {
               <p>{product.name}</p>
               {
                 product.prices.filter(price => {
-                  return price.currency.symbol === currency.substring(0, currency.indexOf(" "))
+                  return price.currency.label === currency
                 }).map((price, i) => {
                   return(
                     <p key={i}>{price.currency.symbol} {price.amount}</p>

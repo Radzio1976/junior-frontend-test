@@ -29,7 +29,7 @@ class RightNav extends React.Component {
                                 const currencies = data.currencies;
                                 return currencies.map((currency, i) => {
                                     return(
-                                        <option key={i} value={`${currency.symbol} ${currency.label}`}>{currency.symbol} {currency.label}</option>
+                                        <option key={i} value={currency.label}>{currency.symbol} {currency.label}</option>
                                     )
                                 })
                             }}
