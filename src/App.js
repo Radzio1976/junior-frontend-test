@@ -173,7 +173,6 @@ class App extends React.Component {
               sortProductsByCategory={this.sortProductsByCategory} 
               changeCurrency={this.changeCurrency} 
               currency={this.state.currency} 
-              getTotal={this.getTotal}
               />
             <Switch>
               <Route path="/" exact component={() => <ProductsPage 
@@ -189,7 +188,7 @@ class App extends React.Component {
                                                             chooseProductAttribute={this.chooseProductAttribute}
                                                             addProductToCart={this.addProductToCart}
                                                             />} />
-              <Route path="/cart" component={() => <Cart />} />
+              <Route path="/cart" component={() => <Cart cart={this.state.cart} total={this.state.total} currency={this.state.currency} />} />
             </Switch>
           </BrowserRouter>
         </div>

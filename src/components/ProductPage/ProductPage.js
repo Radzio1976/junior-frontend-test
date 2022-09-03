@@ -53,7 +53,7 @@ class ProductPage extends React.Component {
             const product = data.product;
             console.log(product);
             return (
-              <div className="ProductBox" style={{display: "flex"}}>
+              <div id="ProductBox" style={{display: "flex"}}>
               <ProductImages product={product} changeProductMainImageURL={changeProductMainImageURL} productMainImageURL={productMainImageURL} />
               <ProductDescription product={product} currency={currency} chooseProductAttribute={chooseProductAttribute} addProductToCart={addProductToCart} />
             </div>
