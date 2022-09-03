@@ -19,7 +19,9 @@ class App extends React.Component {
     productsMainBase: [],
     products: [],
     categoryOfProduct: "all",
-    currency: "USD",
+    currency: "",
+    currencyLabel: "USD",
+    currencySymbol: "$",
     productMainImageURL: "",
     chosenProductAttributes: [],
     cart: [],
@@ -30,7 +32,7 @@ class App extends React.Component {
     this.setState({
       cart: JSON.parse(localStorage.getItem("addedProducts")) === null ? [] : JSON.parse(localStorage.getItem("addedProducts"))
     }, () => {
-      this.getTotal(this.state.currency);
+      this.getTotal(this.state.currencyLabel);
     })
 
     client
@@ -87,9 +89,11 @@ class App extends React.Component {
 
   changeCurrency = (key, value) => {
     this.setState({
-      [key]: value
+      [key]: value,
+      currencyLabel: value.substring(0, 3),
+      currencySymbol: value.substring(3, value.length)
     }, () => {
-      this.getTotal(this.state.currency)
+      this.getTotal(this.state.currencyLabel)
     })
   }
 
@@ -145,14 +149,14 @@ class App extends React.Component {
     }
   }
 
-  getTotal = (currency) => {
+  getTotal = (currencyLabel) => {
     
     const cart = this.state.cart;
     let sum = 0;
     
     cart.forEach(product => {
       sum += product.prices.filter(price => {
-        return price.currency.label === currency
+        return price.currency.label === currencyLabel
       })[0].amount
     })
 
@@ -162,9 +166,10 @@ class App extends React.Component {
   }
 
   render() {
-    console.log(this.state.total);
+    console.log(this.state.currencySymbol.length);
+    //console.log(this.state.total);
     //console.log(this.state.chosenProductAttributes);
-    console.log(this.state.cart);
+    //console.log(this.state.cart);
     return(
       <ApolloProvider client={client}>
         <div id="App" style={{width: "1440px"}}>
@@ -172,23 +177,30 @@ class App extends React.Component {
             <Header 
               sortProductsByCategory={this.sortProductsByCategory} 
               changeCurrency={this.changeCurrency} 
-              currency={this.state.currency} 
+              currencyLabel={this.state.currencyLabel} 
+              currencySymbol={this.state.currencySymbol}
               />
             <Switch>
               <Route path="/" exact component={() => <ProductsPage 
                                                         categoryOfProduct={this.state.categoryOfProduct} 
-                                                        currency={this.state.currency} 
+                                                        currencyLabel={this.state.currencyLabel} 
                                                         products={this.state.products} 
                                                         />} />
               <Route path="/product/:id" component={() => <ProductPage 
                                                             productsMainBase={this.state.productsMainBase} 
-                                                            currency={this.state.currency} 
+                                                            currencyLabel={this.state.currencyLabel} 
                                                             changeProductMainImageURL={this.changeProductMainImageURL} 
                                                             productMainImageURL={this.state.productMainImageURL} 
                                                             chooseProductAttribute={this.chooseProductAttribute}
                                                             addProductToCart={this.addProductToCart}
                                                             />} />
-              <Route path="/cart" component={() => <Cart cart={this.state.cart} total={this.state.total} currency={this.state.currency} />} />
+              <Route path="/cart" component={() => <Cart 
+                                                      cart={this.state.cart} 
+                                                      total={this.state.total} 
+                                                      currencyLabel={this.state.currencyLabel}
+                                                      currencySymbol={this.state.currencySymbol}
+                                                      chooseProductAttribute={this.chooseProductAttribute}
+                                                       />} />
             </Switch>
           </BrowserRouter>
         </div>

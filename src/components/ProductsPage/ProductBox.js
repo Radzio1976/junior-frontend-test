@@ -4,7 +4,7 @@ import {withRouter} from 'react-router-dom';
 class ProductBox extends React.Component {
     render() {
         const product = this.props.product;
-        const currency = this.props.currency;
+        const currencyLabel = this.props.currencyLabel;
         return(
             <div className="product-box" key={product.id} onClick={() => this.props.history.push(`/product/${product.id}`)}>
             <div className="product-image-container">
@@ -14,7 +14,7 @@ class ProductBox extends React.Component {
               <p>{product.name}</p>
               {
                 product.prices.filter(price => {
-                  return price.currency.label === currency
+                  return price.currency.label === currencyLabel
                 }).map((price, i) => {
                   return(
                     <p key={i}>{price.currency.symbol} {price.amount}</p>

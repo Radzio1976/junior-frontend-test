@@ -19,11 +19,12 @@ class RightNav extends React.Component {
     render() {
         const changeCurrency = this.props.changeCurrency;
         const currency = this.props.currency;
+        const currencySymbol = this.props.currencySymbol;
         return(
             <nav className="right-nav">
                 <div className="currency-switch">
-                    <p className="current-currency">{currency.slice(0, 1)}</p>
-                    <select type="text" name="currency" onChange={(e) => changeCurrency(e.target.name, e.target.value)} value={this.props.currency} >
+                    <p className="current-currency">{currencySymbol}</p>
+                    <select type="text" name="currency" onChange={(e) => changeCurrency(e.target.name, e.target.value)} value={currency} >
                         <Query query={currencies}>
                             {({loading, data}) => {
                                 if (loading) return "Loading...";
@@ -31,7 +32,7 @@ class RightNav extends React.Component {
                                 const currencies = data.currencies;
                                 return currencies.map((currency, i) => {
                                     return(
-                                        <option key={i} value={currency.label}>{currency.symbol} {currency.label}</option>
+                                        <option key={i} value={`${currency.label}${currency.symbol}`}>{currency.symbol} {currency.label}</option>
                                     )
                                 })
                             }}

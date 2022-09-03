@@ -40,7 +40,7 @@ query getProduct ($id: String!) {
 class ProductPage extends React.Component {    
     render() {
       const id = this.props.history.location.pathname.substring(9);
-      const currency = this.props.currency;
+      const currencyLabel = this.props.currencyLabel;
       const changeProductMainImageURL = this.props.changeProductMainImageURL;
       const productMainImageURL = this.props.productMainImageURL;
       const chooseProductAttribute = this.props.chooseProductAttribute;
@@ -55,7 +55,7 @@ class ProductPage extends React.Component {
             return (
               <div id="ProductBox" style={{display: "flex"}}>
               <ProductImages product={product} changeProductMainImageURL={changeProductMainImageURL} productMainImageURL={productMainImageURL} />
-              <ProductDescription product={product} currency={currency} chooseProductAttribute={chooseProductAttribute} addProductToCart={addProductToCart} />
+              <ProductDescription product={product} currencyLabel={currencyLabel} chooseProductAttribute={chooseProductAttribute} addProductToCart={addProductToCart} />
             </div>
             );
           }}

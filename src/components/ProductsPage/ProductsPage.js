@@ -7,11 +7,11 @@ class ProductsPage extends React.Component {
     render() {
       const products = this.props.products;
       const categoryOfProduct = this.props.categoryOfProduct;
-      const currency = this.props.currency;
+      const currencyLabel = this.props.currencyLabel;
         return(
         <div id="ProductsPage">
           <CategorySection categoryOfProduct={categoryOfProduct} />
-          <ProductsSection products={products} categoryOfProduct={categoryOfProduct} currency={currency} />
+          <ProductsSection products={products} categoryOfProduct={categoryOfProduct} currencyLabel={currencyLabel} />
         </div>
         )
     }
