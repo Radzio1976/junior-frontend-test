@@ -1,6 +1,7 @@
 import React from 'react';
 
-import ProductBrandContainer from '../ReusableComponents/ProductBrandContainer';
+import ProductBrand from '../ReusableComponents/ProductBrand';
+import ProductName from '../ReusableComponents/ProductName';
 
 class Cart extends React.Component {
     render() {
@@ -18,10 +19,8 @@ class Cart extends React.Component {
                             return(
                                 <div key={product.id} className="cart-product-box">
                                     <div className="cart-product-description">
-                                    <ProductBrandContainer product={product} />
-                                    <div className="cart-product-name-container">
-                                        <h3>{product.name}</h3>
-                                    </div>
+                                    <ProductBrand product={product} />
+                                    <ProductName product={product} />
                                     <div className="cart-product-price-container">
                                         <h3>Price:</h3>
                                         {

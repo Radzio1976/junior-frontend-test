@@ -1,6 +1,7 @@
 import React from 'react';
 
-import ProductBrandContainer from '../ReusableComponents/ProductBrandContainer';
+import ProductBrand from '../ReusableComponents/ProductBrand';
+import ProductName from '../ReusableComponents/ProductName';
 
 class ProductDescription extends React.Component {
     render() {
@@ -11,10 +12,8 @@ class ProductDescription extends React.Component {
 
         return(
             <div className="product-description-container">
-                <ProductBrandContainer product={product} />
-                <div className="product-name-container">
-                    <h3>{product.name}</h3>
-                </div>
+                <ProductBrand product={product} />
+                <ProductName product={product} />
                 <div className="product-attributes-container">
                     {
                         product.attributes.slice(0).reverse().map((attr, i) => {
