@@ -12,6 +12,7 @@ class Cart extends React.Component {
         const currencyLabel = this.props.currencyLabel
         const currencySymbol = this.props.currencySymbol;
         const chooseProductAttribute = this.props.chooseProductAttribute;
+        const uniqueProductsInCart = this.props.uniqueProductsInCart;
         return(
             <div id="Cart">
                 <div className="cart-title-container">
@@ -19,7 +20,7 @@ class Cart extends React.Component {
                 </div>
                 <div className="cart-products-container">
                     {
-                        cart.map(product => {
+                        uniqueProductsInCart().map(product => {
                             return(
                                 <div key={product.id} className="cart-product-box">
                                     <div className="cart-product-description">
@@ -28,8 +29,15 @@ class Cart extends React.Component {
                                         <ProductPrice product={product} currencyLabel={currencyLabel} />
                                         <ProductAttributes product={product} chooseProductAttribute={chooseProductAttribute} />
                                     </div>
-                                    <div className="cart-product-image">
-                                        
+                                    <div className="cart-product-images-and-add-remove">
+                                        <div className="cart-product-add-remove">
+                                            <p>Add</p>
+                                            <p>Qty</p>
+                                            <p>Remove</p>
+                                        </div>
+                                        <div className="cart-product-images">
+
+                                        </div>                                       
                                     </div>
                                 </div>
                             )

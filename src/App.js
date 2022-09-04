@@ -165,6 +165,15 @@ class App extends React.Component {
     })
   }
 
+  uniqueProductsInCart = () => {
+    let cart = this.state.cart;
+    const uniqueProductsInCart = Array.from(new Set(cart.map(product => product.id)))
+    .map(id => {
+      return cart.find(product => product.id === id)
+    })
+    return uniqueProductsInCart
+  }
+
   render() {
     console.log(this.state.currencySymbol.length);
     //console.log(this.state.total);
@@ -200,6 +209,7 @@ class App extends React.Component {
                                                       currencyLabel={this.state.currencyLabel}
                                                       currencySymbol={this.state.currencySymbol}
                                                       chooseProductAttribute={this.chooseProductAttribute}
+                                                      uniqueProductsInCart={this.uniqueProductsInCart}
                                                        />} />
             </Switch>
           </BrowserRouter>
