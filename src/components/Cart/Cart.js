@@ -13,6 +13,7 @@ class Cart extends React.Component {
         const currencySymbol = this.props.currencySymbol;
         const chooseProductAttribute = this.props.chooseProductAttribute;
         const uniqueProductsInCart = this.props.uniqueProductsInCart;
+        const inCartProductsQty = this.props.inCartProductsQty;
         return(
             <div id="Cart">
                 <div className="cart-title-container">
@@ -32,7 +33,7 @@ class Cart extends React.Component {
                                     <div className="cart-product-images-and-add-remove">
                                         <div className="cart-product-add-remove">
                                             <p>Add</p>
-                                            <p>Qty</p>
+                                            <p>{inCartProductsQty(product.id)}</p>
                                             <p>Remove</p>
                                         </div>
                                         <div className="cart-product-images">

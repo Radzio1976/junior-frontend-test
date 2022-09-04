@@ -174,6 +174,18 @@ class App extends React.Component {
     return uniqueProductsInCart
   }
 
+  inCartProductsQty = (productID) => {
+    const cart = this.state.cart;
+    let qty = 0;
+
+    cart.forEach(product => {
+      if (product.id === productID) {
+        qty += 1
+      }
+    })
+    return qty
+  }
+
   render() {
     console.log(this.state.currencySymbol.length);
     //console.log(this.state.total);
@@ -210,6 +222,7 @@ class App extends React.Component {
                                                       currencySymbol={this.state.currencySymbol}
                                                       chooseProductAttribute={this.chooseProductAttribute}
                                                       uniqueProductsInCart={this.uniqueProductsInCart}
+                                                      inCartProductsQty={this.inCartProductsQty}
                                                        />} />
             </Switch>
           </BrowserRouter>
