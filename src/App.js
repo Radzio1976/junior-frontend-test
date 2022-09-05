@@ -25,7 +25,6 @@ class App extends React.Component {
     productMainImageURL: "",
     chosenProductAttributes: [],
     cart: [],
-    uniqueProductsInCart: [],
     total: 0,
     displayedImages: [] 
   }
@@ -230,6 +229,18 @@ class App extends React.Component {
      })
   }
 
+  prevProductImage = (imageIndex, productIndex) => {
+    let displayedImages = this.state.displayedImages;
+
+    if (imageIndex > 0) {
+     displayedImages[productIndex] = imageIndex - 1
+
+     this.setState({
+         displayedImages
+     })
+    } else return
+  }
+
   nextProductImage = (imageIndex, productIndex, array) => {
     let displayedImages = this.state.displayedImages;
 
@@ -277,6 +288,7 @@ class App extends React.Component {
                                                       addProductToCart={this.addProductToCart}
                                                       removeProductFromCart={this.removeProductFromCart}
                                                       inCartProductsQty={this.inCartProductsQty}
+                                                      prevProductImage={this.prevProductImage}
                                                       nextProductImage={this.nextProductImage}
                                                       displayedImages={this.state.displayedImages}
                                                        />} />

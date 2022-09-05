@@ -18,6 +18,7 @@ class Cart extends React.Component {
             uniqueProductsInCart, 
             inCartProductsQty, 
             displayedImages,
+            prevProductImage,
             nextProductImage
         } = this.props;
 
@@ -58,7 +59,7 @@ class Cart extends React.Component {
                                                             <div className="cart-product-image-prev-next-button" style={{
                                                                 display: imageIndex === displayedImages[productIndex] ? "block" : "none"
                                                             }}>
-                                                            <p>Prev</p>
+                                                            <p onClick={() => prevProductImage(imageIndex, productIndex, array)}>Prev</p>
                                                             <p onClick={() => nextProductImage(imageIndex, productIndex, array)}>Next</p>
                                                         </div>
                                                         </React.Fragment>
