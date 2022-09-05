@@ -25,7 +25,9 @@ class App extends React.Component {
     productMainImageURL: "",
     chosenProductAttributes: [],
     cart: [],
-    total: 0
+    uniqueProductsInCart: [],
+    total: 0,
+    displayedImages: [] 
   }
 
   componentDidMount() {
@@ -33,6 +35,8 @@ class App extends React.Component {
       cart: JSON.parse(localStorage.getItem("addedProducts")) === null ? [] : JSON.parse(localStorage.getItem("addedProducts"))
     }, () => {
       this.getTotal(this.state.currencyLabel);
+      this.uniqueProductsInCart();
+      this.getCartImagesIndexes();
     })
 
     client
@@ -123,6 +127,7 @@ class App extends React.Component {
 
   addProductToCart = (product) => {
     const chosenProductAttributes = this.state.chosenProductAttributes;
+    const currencyLabel = this.state.currencyLabel;
     if (chosenProductAttributes.length === product.attributes.length) {
       product.chosenAttributes = chosenProductAttributes;
 
@@ -137,6 +142,7 @@ class App extends React.Component {
         } else {
             cart.push(product);
             localStorage.setItem("addedProducts", JSON.stringify(cart))
+            this.getTotal(currencyLabel);
         }
 
         this.setState({
@@ -148,6 +154,33 @@ class App extends React.Component {
       return
     }
   }
+
+  
+  removeProductFromCart = (productID) => {
+    const currencyLabel = this.state.currencyLabel;
+    let cart = this.state.cart;
+    let total = this.state.total;
+    let index = 0;
+
+    index = cart.findIndex(product => product.id === productID)
+    if (index === -1) {
+      return
+    } else {
+      cart.splice(index, 1)
+      if (total === 0) {
+        localStorage.removeItem("addedProducts")
+      } else {
+        localStorage.setItem("addedProducts", JSON.stringify(cart))
+        this.getTotal(currencyLabel);
+      }
+      
+      this.setState({
+        cart
+      })
+    }
+  }
+  
+  
 
   getTotal = (currencyLabel) => {
     
@@ -186,11 +219,30 @@ class App extends React.Component {
     return qty
   }
 
+  getCartImagesIndexes = () => {
+    const displayedImages = this.state.displayedImages;
+
+     for (let i=0; i<this.uniqueProductsInCart().length; i++) {
+        displayedImages.push(0)
+     }
+     this.setState({
+        displayedImages
+     })
+  }
+
+  nextProductImage = (imageIndex, productIndex, array) => {
+    let displayedImages = this.state.displayedImages;
+
+    if (imageIndex < array.length - 1) {
+     displayedImages[productIndex] = imageIndex + 1
+
+     this.setState({
+         displayedImages
+     })
+    } else return
+}
+
   render() {
-    console.log(this.state.currencySymbol.length);
-    //console.log(this.state.total);
-    //console.log(this.state.chosenProductAttributes);
-    //console.log(this.state.cart);
     return(
       <ApolloProvider client={client}>
         <div id="App" style={{width: "1440px"}}>
@@ -216,13 +268,17 @@ class App extends React.Component {
                                                             addProductToCart={this.addProductToCart}
                                                             />} />
               <Route path="/cart" component={() => <Cart 
-                                                      cart={this.state.cart} 
+                                                      cart={this.state.cart}
+                                                      uniqueProductsInCart={this.uniqueProductsInCart} 
                                                       total={this.state.total} 
                                                       currencyLabel={this.state.currencyLabel}
                                                       currencySymbol={this.state.currencySymbol}
                                                       chooseProductAttribute={this.chooseProductAttribute}
-                                                      uniqueProductsInCart={this.uniqueProductsInCart}
+                                                      addProductToCart={this.addProductToCart}
+                                                      removeProductFromCart={this.removeProductFromCart}
                                                       inCartProductsQty={this.inCartProductsQty}
+                                                      nextProductImage={this.nextProductImage}
+                                                      displayedImages={this.state.displayedImages}
                                                        />} />
             </Switch>
           </BrowserRouter>

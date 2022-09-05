@@ -4,7 +4,7 @@ import {withRouter} from 'react-router-dom';
 class ProductPrice extends React.Component {
     render() {
         const slug = this.props.history.location.pathname.substring(1);
-        console.log(slug)
+        //console.log(slug)
         const product = this.props.product;
         const currencyLabel = this.props.currencyLabel;
         return(
