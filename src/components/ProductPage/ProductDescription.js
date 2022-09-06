@@ -7,10 +7,8 @@ import ProductPrice from '../ReusableComponents/ProductPrice';
 
 class ProductDescription extends React.Component {
     render() {
-        const product = this.props.product;
-        const currencyLabel = this.props.currencyLabel;
-        const chooseProductAttribute = this.props.chooseProductAttribute;
-        const addProductToCart = this.props.addProductToCart;
+        const {product, currencyLabel, chooseProductAttribute, addProductToCart} = this.props;
+
 
         return(
             <div className="product-description-container">
@@ -25,7 +23,7 @@ class ProductDescription extends React.Component {
                 </div>
             </div>
         )
-    }
+    };
 };
 
 export default ProductDescription;

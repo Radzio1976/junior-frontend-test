@@ -4,9 +4,7 @@ import {withRouter} from 'react-router-dom';
 class ProductPrice extends React.Component {
     render() {
         const slug = this.props.history.location.pathname.substring(1);
-        //console.log(slug)
-        const product = this.props.product;
-        const currencyLabel = this.props.currencyLabel;
+        const {product, currencyLabel} = this.props;
         return(
             <div className="product-price-container">
             <h3 style={{display: slug !== "cart" ? "block" : "none"}}>Price:</h3>
@@ -19,7 +17,7 @@ class ProductPrice extends React.Component {
             }
         </div>
         )
-    }
+    };
 };
 
 export default withRouter(ProductPrice);

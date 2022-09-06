@@ -21,7 +21,6 @@ class LeftNav extends React.Component {
                 <Query query={productsCategories}>
                     {({loading, data}) => {
                         if (loading) return "Loading...";
-                        //console.log(data);
                         const categories = data.categories;
                         return categories.map((category, i) => {
                             return(
@@ -33,7 +32,7 @@ class LeftNav extends React.Component {
             </ul>
         </nav>
         )
-    }
-}
+    };
+};
 
 export default LeftNav;

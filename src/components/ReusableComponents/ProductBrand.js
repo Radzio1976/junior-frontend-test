@@ -8,7 +8,7 @@ class ProductBrandContainer extends React.Component {
                 <h3>{product.brand}</h3>
             </div>
         )
-    }
+    };
 };
 
 export default ProductBrandContainer;

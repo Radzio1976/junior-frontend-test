@@ -3,8 +3,7 @@ import {withRouter} from 'react-router-dom';
 
 class ProductBox extends React.Component {
     render() {
-        const product = this.props.product;
-        const currencyLabel = this.props.currencyLabel;
+        const {product, currencyLabel} = this.props;
         return(
             <div className="product-box" key={product.id} onClick={() => this.props.history.push(`/product/${product.id}`)}>
             <div className="product-image-container">
@@ -24,7 +23,7 @@ class ProductBox extends React.Component {
             </div>
           </div>
         )
-    }
-}
+    };
+};
 
 export default withRouter(ProductBox);

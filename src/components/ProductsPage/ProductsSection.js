@@ -4,9 +4,7 @@ import ProductBox from './ProductBox';
 
 class ProductsSection extends React.Component {
     render() {
-      const products = this.props.products;
-      const currencyLabel = this.props.currencyLabel;
-
+      const {products, currencyLabel} = this.props;
         return(
           <section className="products-section">
             {
@@ -19,7 +17,7 @@ class ProductsSection extends React.Component {
             
           </section>
         )
-    }
-}
+    };
+};
 
 export default ProductsSection;

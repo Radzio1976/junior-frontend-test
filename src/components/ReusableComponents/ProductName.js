@@ -8,7 +8,7 @@ class ProductName extends React.Component {
                 <h3>{product.name}</h3>
             </div>
         )
-    }
+    };
 };
 
 export default ProductName;

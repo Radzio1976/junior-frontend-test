@@ -5,16 +5,14 @@ import ProductsSection from './ProductsSection';
 
 class ProductsPage extends React.Component {
     render() {
-      const products = this.props.products;
-      const categoryOfProduct = this.props.categoryOfProduct;
-      const currencyLabel = this.props.currencyLabel;
+      const {products, categoryOfProduct, currencyLabel} = this.props;
         return(
         <div id="ProductsPage">
           <CategorySection categoryOfProduct={categoryOfProduct} />
           <ProductsSection products={products} categoryOfProduct={categoryOfProduct} currencyLabel={currencyLabel} />
         </div>
         )
-    }
-}
+    };
+};
 
 export default ProductsPage;

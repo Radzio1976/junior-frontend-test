@@ -9,7 +9,7 @@ class Logo extends React.Component {
             <h1>Logo</h1>
         </div>
         )
-    }
+    };
 };
 
 export default Logo;

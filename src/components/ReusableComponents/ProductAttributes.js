@@ -2,8 +2,7 @@ import React from 'react';
 
 class ProductAttributes extends React.Component {
     render() {
-        const product = this.props.product;
-        const chooseProductAttribute = this.props.chooseProductAttribute;
+        const {product, chooseProductAttribute} = this.props;
         return(
             <div className="product-attributes-container">
             {
@@ -37,7 +36,7 @@ class ProductAttributes extends React.Component {
             }
         </div>
         )
-    }
+    };
 };
 
 export default ProductAttributes;

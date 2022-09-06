@@ -2,10 +2,7 @@ import React from 'react';
 
 class ProductImages extends React.Component {
     render() {
-        const product = this.props.product;
-        const changeProductMainImageURL = this.props.changeProductMainImageURL;
-        const productMainImageURL = this.props.productMainImageURL;
-
+        const {product, changeProductMainImageURL, productMainImageURL} = this.props;
         return(
             <div className="product-images-container" style={{display: "flex", width: "60%"}}>
             <div className="product-thumbnails-container" style={{width: "87px"}}>
@@ -22,7 +19,7 @@ class ProductImages extends React.Component {
             </div>
         </div>
         )
-    }
+    };
 };
 
 export default ProductImages;

@@ -40,11 +40,7 @@ query getProduct ($id: String!) {
 class ProductPage extends React.Component {    
     render() {
       const id = this.props.history.location.pathname.substring(9);
-      const currencyLabel = this.props.currencyLabel;
-      const changeProductMainImageURL = this.props.changeProductMainImageURL;
-      const productMainImageURL = this.props.productMainImageURL;
-      const chooseProductAttribute = this.props.chooseProductAttribute;
-      const addProductToCart = this.props.addProductToCart;
+      const {currencyLabel, changeProductMainImageURL, productMainImageURL, chooseProductAttribute, addProductToCart} = this.props;
         return(
           <Query query={GET_PRODUCT} variables={{id}}>
           {({ loading, error, data }) => {
@@ -60,8 +56,8 @@ class ProductPage extends React.Component {
             );
           }}
         </Query>
-        )
-}
-}
+      )
+  };
+};
 
 export default withRouter(ProductPage);

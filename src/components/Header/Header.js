@@ -8,10 +8,7 @@ import './Header.css';
 
 class Header extends React.Component {
     render() {
-        const sortProductsByCategory = this.props.sortProductsByCategory;
-        const changeCurrency = this.props.changeCurrency;
-        const currency = this.props.currency;
-        const currencySymbol = this.props.currencySymbol;
+        const {sortProductsByCategory, changeCurrency, currency, currencySymbol} = this.props;
         return(
             <header id="Header">
                 <LeftNav sortProductsByCategory={sortProductsByCategory} />

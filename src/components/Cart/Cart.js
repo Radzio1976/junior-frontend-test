@@ -4,6 +4,8 @@ import ProductBrand from '../ReusableComponents/ProductBrand';
 import ProductName from '../ReusableComponents/ProductName';
 import ProductPrice from '../ReusableComponents/ProductPrice';
 import ProductAttributes from '../ReusableComponents/ProductAttributes';
+import CartProductAddRemove from './CartProductAddRemove';
+import CartProductImages from './CartProductImages';
 
 class Cart extends React.Component {
     render() {
@@ -39,35 +41,19 @@ class Cart extends React.Component {
                                         <ProductAttributes product={product} chooseProductAttribute={chooseProductAttribute} />
                                     </div>
                                     <div className="cart-product-images-and-add-remove">
-                                        <div className="cart-product-add-remove">
-                                            <p onClick={() => addProductToCart(product)}>Add</p>
-                                            <p>{inCartProductsQty(product.id)}</p>
-                                            <p onClick={() => removeProductFromCart(product.id)}>Remove</p>
-                                        </div>
-                                        <div className="cart-product-images">
-                                            <div className="cart-product-images-wrapper">
-                                                {
-                                                    product.gallery.map((image, imageIndex, array) => {
-                                                        return(
-                                                            <React.Fragment key={imageIndex}>
-                                                            <img src={image} alt={product.id} style={{
-                                                                display: imageIndex === displayedImages[productIndex] ? "block" : "none",
-                                                                width: "100px", 
-                                                                marginRight: "10px", 
-                                                                border: "1px solid black"}} 
-                                                            />
-                                                            <div className="cart-product-image-prev-next-button" style={{
-                                                                display: imageIndex === displayedImages[productIndex] ? "block" : "none"
-                                                            }}>
-                                                            <p onClick={() => prevProductImage(imageIndex, productIndex, array)}>Prev</p>
-                                                            <p onClick={() => nextProductImage(imageIndex, productIndex, array)}>Next</p>
-                                                        </div>
-                                                        </React.Fragment>
-                                                        )
-                                                    })
-                                                }
-                                            </div>
-                                        </div>                                       
+                                        <CartProductAddRemove 
+                                            product={product}
+                                            addProductToCart={addProductToCart}
+                                            removeProductFromCart={removeProductFromCart}
+                                            inCartProductsQty={inCartProductsQty} 
+                                        />
+                                        <CartProductImages
+                                            product={product} 
+                                            productIndex={productIndex}
+                                            displayedImages={displayedImages}
+                                            prevProductImage={prevProductImage}
+                                            nextProductImage={nextProductImage}
+                                        />
                                     </div>
                                 </div>
                             )

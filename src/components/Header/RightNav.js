@@ -17,9 +17,7 @@ query Currencies {
 
 class RightNav extends React.Component {
     render() {
-        const changeCurrency = this.props.changeCurrency;
-        const currency = this.props.currency;
-        const currencySymbol = this.props.currencySymbol;
+        const {changeCurrency, currency, currencySymbol} = this.props;
         return(
             <nav className="right-nav">
                 <div className="currency-switch">
@@ -28,7 +26,6 @@ class RightNav extends React.Component {
                         <Query query={currencies}>
                             {({loading, data}) => {
                                 if (loading) return "Loading...";
-                                //console.log(data);
                                 const currencies = data.currencies;
                                 return currencies.map((currency, i) => {
                                     return(
@@ -44,7 +41,7 @@ class RightNav extends React.Component {
                 </div>
             </nav>
         )
-    }
-}
+    };
+};
 
 export default RightNav;
