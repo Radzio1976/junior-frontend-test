@@ -17,7 +17,7 @@ class ProductDescription extends React.Component {
                 <ProductAttributes product={product} chooseProductAttribute={chooseProductAttribute} />
                 <ProductPrice product={product} currencyLabel={currencyLabel} />
                 <div className="product-add-to-cart-button-container">
-                    <button onClick={() => addProductToCart(product)}>Add to cart</button>
+                    {product.inStock === true ? <button onClick={() => addProductToCart(product)}>Add to cart</button> : null}
                 </div>
                 <div className="product-desc-container" dangerouslySetInnerHTML={{__html: product.description}}>
                 </div>

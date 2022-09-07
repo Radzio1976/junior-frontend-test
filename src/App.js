@@ -251,9 +251,25 @@ class App extends React.Component {
          displayedImages
      });
     } else return;
-};
+  };
+
+  productStyle = (index) => {
+    if (index % 3 === 0) {
+      return {marginRight: "20px"}
+  }
+  
+  if (index % 3 === 1) {
+      return {marginLeft: "20px", marginRight: "20px"}
+  }
+  
+  if (index % 3 === 2) {
+      return {marginLeft: "20px"}
+  }
+  
+}
 
   render() {
+    console.log(this.state.products)
     return(
       <ApolloProvider client={client}>
         <div id="App">
@@ -271,6 +287,7 @@ class App extends React.Component {
                   categoryOfProduct={this.state.categoryOfProduct} 
                   currencyLabel={this.state.currencyLabel} 
                   products={this.state.products} 
+                  productStyle={this.productStyle}
                 />} 
               />
               <Route path="/product/:id" component={() => 
