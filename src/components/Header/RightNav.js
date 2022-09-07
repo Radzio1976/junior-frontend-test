@@ -17,11 +17,10 @@ query Currencies {
 
 class RightNav extends React.Component {
     render() {
-        const {changeCurrency, currency, currencySymbol} = this.props;
+        const {changeCurrency, currency, currencySymbol, cart} = this.props;
         return(
             <nav className="right-nav">
                 <div className="currency-switch">
-                    <p className="current-currency">{currencySymbol}</p>
                     <select type="text" name="currency" onChange={(e) => changeCurrency(e.target.name, e.target.value)} value={currency} >
                         <Query query={currencies}>
                             {({loading, data}) => {
@@ -29,7 +28,7 @@ class RightNav extends React.Component {
                                 const currencies = data.currencies;
                                 return currencies.map((currency, i) => {
                                     return(
-                                        <option key={i} value={`${currency.label}${currency.symbol}`}>{currency.symbol} {currency.label}</option>
+                                        <option key={i} value={`${currency.label}${currency.symbol}`}>{currency.symbol}</option>
                                     )
                                 })
                             }}
@@ -37,6 +36,7 @@ class RightNav extends React.Component {
                     </select>
                 </div>
                 <div className="cart-icon">
+                    {cart.length > 0 ?<p className="products-quantity-icon">{cart.length}</p> : null}
                     <img src={Basket} alt="basket" />
                 </div>
             </nav>

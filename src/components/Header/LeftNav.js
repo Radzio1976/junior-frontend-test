@@ -24,7 +24,7 @@ class LeftNav extends React.Component {
                         const categories = data.categories;
                         return categories.map((category, i) => {
                             return(
-                                <li key={i} onClick={() => this.props.sortProductsByCategory(category.name)}>{category.name}</li>
+                                <li key={i} onClick={() => this.props.sortProductsByCategory(category.name)}><h1>{category.name}</h1></li>
                             )
                         })
                     }}

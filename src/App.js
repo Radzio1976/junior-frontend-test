@@ -5,6 +5,9 @@ import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "react-apollo";
 import gql from "graphql-tag";
 
+import "./App.css";
+import "./index.css";
+
 import Header from './components/Header';
 import ProductsPage from './components/ProductsPage';
 import ProductPage from './components/ProductPage';
@@ -253,13 +256,14 @@ class App extends React.Component {
   render() {
     return(
       <ApolloProvider client={client}>
-        <div id="App" style={{width: "1440px"}}>
+        <div id="App">
           <BrowserRouter>
             <Header 
               sortProductsByCategory={this.sortProductsByCategory} 
               changeCurrency={this.changeCurrency} 
               currencyLabel={this.state.currencyLabel} 
               currencySymbol={this.state.currencySymbol}
+              cart={this.state.cart}
               />
             <Switch>
               <Route path="/" exact component={() => 

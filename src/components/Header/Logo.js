@@ -1,4 +1,6 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
+import LogoImage from '../../images/logo.png'
 
 import './Header.css';
 
@@ -6,10 +8,10 @@ class Logo extends React.Component {
     render() {
         return(
             <div className="logo">
-            <h1>Logo</h1>
+            <img src={LogoImage} alt="Logo" onClick={() => this.props.history.push("/")} />
         </div>
         )
     };
 };
 
-export default Logo;
+export default withRouter(Logo);

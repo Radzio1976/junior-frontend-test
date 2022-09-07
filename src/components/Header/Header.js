@@ -8,12 +8,12 @@ import './Header.css';
 
 class Header extends React.Component {
     render() {
-        const {sortProductsByCategory, changeCurrency, currency, currencySymbol} = this.props;
+        const {sortProductsByCategory, changeCurrency, currency, currencySymbol, cart} = this.props;
         return(
             <header id="Header">
                 <LeftNav sortProductsByCategory={sortProductsByCategory} />
                 <Logo />
-                <RightNav currency={currency} currencySymbol={currencySymbol} changeCurrency={changeCurrency} />
+                <RightNav currency={currency} currencySymbol={currencySymbol} changeCurrency={changeCurrency} cart={cart} />
             </header>
         )
     }
