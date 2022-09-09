@@ -292,6 +292,7 @@ class App extends React.Component {
           <BrowserRouter>
             <Header 
               sortProductsByCategory={this.sortProductsByCategory} 
+              categoryOfProduct={this.state.categoryOfProduct}
               changeCurrency={this.changeCurrency} 
               currencyLabel={this.state.currencyLabel} 
               currencySymbol={this.state.currencySymbol}
