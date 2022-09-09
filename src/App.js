@@ -110,21 +110,37 @@ class App extends React.Component {
   };
 
   chooseProductAttribute = (value) => {
-    const chosenAttributes = this.state.chosenProductAttributes;
-    
-    const attributesObj = {name: value.attr.name, value: value.value.displayValue};
-    
-    const index = chosenAttributes.findIndex(value => value.name === attributesObj.name);
-    if (index !== -1) {
-        chosenAttributes.splice(index, 1);
-        chosenAttributes.push(attributesObj);
-    } else {
-        chosenAttributes.push(attributesObj);
-    };
+    console.log(value)
+    let chosenProductAttributes = this.state.chosenProductAttributes;
+    let chosenAttributes = chosenProductAttributes
 
+    const attributesObj = {id: value.product.id, name: value.attr.name, displayValue: value.value.displayValue, value: value.value.value};
+
+    if (chosenAttributes.length === 0) {
+      console.log("Brak atrybutu")
+      chosenAttributes.push(attributesObj);
+    } 
+
+    if ((chosenAttributes.findIndex(el => el.id === value.product.id) !== -1 && chosenAttributes.length > 0)) {
+      console.log("Jest atrybut ale nie znaleziono atrybutu z innego produktu")
+      const index = chosenAttributes.findIndex(el => el.name === attributesObj.name);
+      if (index !== -1) {
+          chosenAttributes.splice(index, 1);
+          chosenAttributes.push(attributesObj);
+      } else {
+          chosenAttributes.push(attributesObj);
+      };
+    }
+
+    if ((chosenAttributes.findIndex(el => el.id === value.product.id) === -1 && chosenAttributes.length > 0)) {
+      console.log("Znaleziono atrybut z innego produktu")
+      chosenAttributes = [];
+      chosenAttributes.push(attributesObj);
+    }
+   
     this.setState({
-        chosenAttributes
-    });        
+        chosenProductAttributes: chosenAttributes
+    });      
   };
 
   addProductToCart = (product) => {
@@ -253,7 +269,7 @@ class App extends React.Component {
     } else return;
   };
 
-  productStyle = (index) => {
+  productMarginsStyle = (index) => {
     if (index % 3 === 0) {
       return {marginRight: "20px"}
   }
@@ -269,7 +285,7 @@ class App extends React.Component {
 }
 
   render() {
-    console.log(this.state.products)
+    console.log(this.state.chosenProductAttributes)
     return(
       <ApolloProvider client={client}>
         <div id="App">
@@ -287,7 +303,7 @@ class App extends React.Component {
                   categoryOfProduct={this.state.categoryOfProduct} 
                   currencyLabel={this.state.currencyLabel} 
                   products={this.state.products} 
-                  productStyle={this.productStyle}
+                  productMarginsStyle={this.productMarginsStyle}
                 />} 
               />
               <Route path="/product/:id" component={() => 
@@ -297,6 +313,7 @@ class App extends React.Component {
                   changeProductMainImageURL={this.changeProductMainImageURL} 
                   productMainImageURL={this.state.productMainImageURL} 
                   chooseProductAttribute={this.chooseProductAttribute}
+                  chosenProductAttributes={this.state.chosenProductAttributes}
                   addProductToCart={this.addProductToCart}
                 />} 
               />
@@ -308,6 +325,7 @@ class App extends React.Component {
                   currencyLabel={this.state.currencyLabel}
                   currencySymbol={this.state.currencySymbol}
                   chooseProductAttribute={this.chooseProductAttribute}
+                  chosenProductAttributes={this.state.chosenProductAttributes}
                   addProductToCart={this.addProductToCart}
                   removeProductFromCart={this.removeProductFromCart}
                   inCartProductsQty={this.inCartProductsQty}

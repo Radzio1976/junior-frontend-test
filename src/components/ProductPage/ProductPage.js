@@ -2,6 +2,7 @@ import React from 'react';
 import {withRouter} from 'react-router-dom';
 import gql from "graphql-tag";
 import { Query } from "react-apollo";
+import "./ProductPage.css";
 
 import ProductImages from './ProductImages';
 import ProductDescription from './ProductDescription';
@@ -40,18 +41,18 @@ query getProduct ($id: String!) {
 class ProductPage extends React.Component {    
     render() {
       const id = this.props.history.location.pathname.substring(9);
-      const {currencyLabel, changeProductMainImageURL, productMainImageURL, chooseProductAttribute, addProductToCart} = this.props;
+      const {currencyLabel, changeProductMainImageURL, productMainImageURL, chooseProductAttribute, chosenProductAttributes, addProductToCart} = this.props;
         return(
           <Query query={GET_PRODUCT} variables={{id}}>
           {({ loading, error, data }) => {
             if (loading) return null;
             if (error) return `Error! ${error}`;
             const product = data.product;
-            console.log(product);
+            //console.log(product);
             return (
-              <div id="ProductBox" style={{display: "flex"}}>
+              <div id="ProductBox">
               <ProductImages product={product} changeProductMainImageURL={changeProductMainImageURL} productMainImageURL={productMainImageURL} />
-              <ProductDescription product={product} currencyLabel={currencyLabel} chooseProductAttribute={chooseProductAttribute} addProductToCart={addProductToCart} />
+              <ProductDescription product={product} currencyLabel={currencyLabel} chooseProductAttribute={chooseProductAttribute} chosenProductAttributes={chosenProductAttributes} addProductToCart={addProductToCart} />
             </div>
             );
           }}

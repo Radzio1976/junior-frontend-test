@@ -15,6 +15,7 @@ class Cart extends React.Component {
             currencyLabel, 
             currencySymbol, 
             chooseProductAttribute, 
+            chosenProductAttributes,
             addProductToCart, 
             removeProductFromCart, 
             uniqueProductsInCart, 
@@ -38,7 +39,7 @@ class Cart extends React.Component {
                                         <ProductBrand product={product} />
                                         <ProductName product={product} />
                                         <ProductPrice product={product} currencyLabel={currencyLabel} />
-                                        <ProductAttributes product={product} chooseProductAttribute={chooseProductAttribute} />
+                                        <ProductAttributes product={product} chooseProductAttribute={chooseProductAttribute} chosenProductAttributes={chosenProductAttributes}/>
                                     </div>
                                     <div className="cart-product-images-and-add-remove">
                                         <CartProductAddRemove 

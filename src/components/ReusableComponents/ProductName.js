@@ -5,7 +5,7 @@ class ProductName extends React.Component {
         const product = this.props.product;
         return(
             <div className="product-name-container">
-                <h3>{product.name}</h3>
+                <h4>{product.name}</h4>
             </div>
         )
     };
