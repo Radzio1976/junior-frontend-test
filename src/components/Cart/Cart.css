@@ -1,0 +1,181 @@
+#Cart {
+    padding-top: 100px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+#Cart .cart-title-container {
+    border-bottom: 1px solid #E5E5E5;
+    padding-bottom: 55px;
+}
+
+#Cart .cart-title-container h2 {
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 40px;
+}
+
+#Cart .cart-product-box {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #E5E5E5;
+    padding-top: 24px;
+    padding-bottom: 24px;
+}
+
+#Cart .cart-product-description .product-brand-container h3 {
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 27px;
+    margin-bottom: 16px;
+}
+
+#Cart .cart-product-description .product-name-container h4 {
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 27px;
+    margin-bottom: 20px;
+}
+
+#Cart .cart-product-description .product-price-container h3 {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 24px;
+}
+
+#Cart .cart-product-description .product-attribute-name {
+    font-family: 'Roboto Condensed';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 18px;
+    text-transform: uppercase;
+    margin-bottom: 7px;
+}
+
+#Cart .cart-product-description .product-attribute-values {
+    display: flex;
+    margin-bottom: 24px;
+}
+
+#Cart .cart-product-description .product-attribute-value {
+    border: 1px solid black;
+    cursor: pointer;
+    padding: 13px 14px;
+    margin-right: 12px;
+}
+
+#Cart .cart-product-description .product-attribute-value p {
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 18px;
+    text-transform: uppercase;
+}
+
+#Cart .cart-product-images-and-add-remove {
+    display: flex;
+    height: 288px;
+}
+
+#Cart .cart-product-images-and-add-remove .cart-product-add-remove {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#Cart .cart-product-images-and-add-remove .cart-product-add-remove .cart-product-add-button, #Cart .cart-product-images-and-add-remove .cart-product-add-remove .cart-product-remove-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 45px;
+    width: 45px;
+    border: 1px solid #1D1F22;
+    font-size: 50px;
+    font-weight: 100;
+    cursor: pointer;
+}
+
+#Cart .cart-product-images-and-add-remove .cart-product-add-remove .cart-product-add-button:hover, #Cart .cart-product-images-and-add-remove .cart-product-add-remove .cart-product-remove-button:hover {
+    background-color: #1D1F22;
+    color: #FFF;
+}
+
+#Cart .cart-product-images-and-add-remove .cart-product-add-remove p {
+    text-align: center;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 160%;
+}
+
+#Cart .cart-product-images-wrapper {
+    margin-left: 24px;
+    height: 100%;
+}
+
+#Cart .cart-product-images-wrapper img {
+    width: 200px;
+    height: 100%;
+} 
+
+#Cart .cart-product-images .cart-product-image-prev-next-button {
+    display: flex;
+    position: relative;
+    top: -40px;
+    right: -124px;
+}
+
+#Cart .cart-product-images .cart-product-image-prev-next-button div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 8px;
+    font-size: 22px;
+    height: 24px;
+    width: 24px;
+    background: rgba(0, 0, 0, 0.73);
+    color: #FFF;
+    cursor: pointer;
+} 
+
+#Cart .cart-product-images .cart-product-image-prev-next-button div:hover {
+    height: 22px;
+    width: 22px;
+} 
+
+#Cart .cart-product-images .cart-product-image-prev-next-button span {
+    margin-bottom: 4px;
+}
+
+#Cart .cart-summary-container {
+    padding-top: 32px;
+}
+
+#Cart .cart-summary-container p {
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 28px;
+}
+
+#Cart .cart-summary-container span {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 24px;
+}
+
+#Cart .cart-summary-container button {
+    width: 279px;
+    height: 43px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    background: #5ECE7B;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 120%;
+    color: #FFF;
+    text-transform: uppercase;
+}
+

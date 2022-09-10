@@ -1,13 +1,15 @@
 import React from "react";
+import PlusImage from '../../images/plus.png';
+import MinusImage from '../../images/minus.png';
 
 class CartProductAddRemove extends React.Component {
     render() {
         const {product, addProductToCart, removeProductFromCart, inCartProductsQty} = this.props;
         return(
             <div className="cart-product-add-remove">
-            <p onClick={() => addProductToCart(product)}>Add</p>
-            <p>{inCartProductsQty(product.id)}</p>
-            <p onClick={() => removeProductFromCart(product.id)}>Remove</p>
+                <div onClick={() => addProductToCart(product)} className="cart-product-add-button">+</div>
+                <p>{inCartProductsQty(product.id)}</p>
+            <div onClick={() => removeProductFromCart(product.id)} className="cart-product-remove-button">-</div>
         </div>
         )
     };

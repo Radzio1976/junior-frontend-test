@@ -5,23 +5,22 @@ class CartProductImages extends React.Component {
         const {product, productIndex, displayedImages, prevProductImage, nextProductImage} = this.props;
         return(
             <div className="cart-product-images">
-            <div className="cart-product-images-wrapper">
-                {
-                    product.gallery.map((image, imageIndex, array) => {
+                <div className="cart-product-images-wrapper">
+                    {
+                        product.gallery.map((image, imageIndex, array) => {
                         return(
                             <React.Fragment key={imageIndex}>
                             <img src={image} alt={product.id} style={{
-                                display: imageIndex === displayedImages[productIndex] ? "block" : "none",
-                                width: "100px", 
-                                marginRight: "10px", 
-                                border: "1px solid black"}} 
+                                display: imageIndex === displayedImages[productIndex] ? "block" : "none"
+                            }}
                             />
                             <div className="cart-product-image-prev-next-button" style={{
-                                display: imageIndex === displayedImages[productIndex] ? "block" : "none"
+                                display: imageIndex === displayedImages[productIndex] ? "flex" : "none",
+                                visibility: array.length > 1 ? "visible" : "hidden"
                             }}>
-                            <p onClick={() => prevProductImage(imageIndex, productIndex, array)}>Prev</p>
-                            <p onClick={() => nextProductImage(imageIndex, productIndex, array)}>Next</p>
-                        </div>
+                                <div onClick={() => prevProductImage(imageIndex, productIndex, array)}><span>&#60;</span></div>
+                                <div onClick={() => nextProductImage(imageIndex, productIndex, array)}><span>&#62;</span></div>
+                            </div>
                         </React.Fragment>
                         )
                     })

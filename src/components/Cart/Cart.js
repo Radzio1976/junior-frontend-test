@@ -1,4 +1,5 @@
 import React from 'react';
+import './Cart.css';
 
 import ProductBrand from '../ReusableComponents/ProductBrand';
 import ProductName from '../ReusableComponents/ProductName';
@@ -28,7 +29,7 @@ class Cart extends React.Component {
         return(
             <div id="Cart">
                 <div className="cart-title-container">
-                    <h3>Cart</h3>
+                    <h2>Cart</h2>
                 </div>
                 <div className="cart-products-container">
                     {
@@ -62,9 +63,10 @@ class Cart extends React.Component {
                     }
                 </div>
                 <div className="cart-summary-container">
-                    <p>Tax 21%: {currencySymbol}{(total * 0.21).toFixed(2)}</p>
-                    <p>Quantity: {cart.length}</p>
-                    <p>Total: {currencySymbol}{total.toFixed(2)}</p>
+                    <p>Tax 21%: <span>{currencySymbol}{(total * 0.21).toFixed(2)}</span></p>
+                    <p>Quantity: <span>{cart.length}</span></p>
+                    <p>Total: <span>{currencySymbol}{total.toFixed(2)}</span></p>
+                    <button>Order</button>
                 </div>
             </div>
         )
