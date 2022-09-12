@@ -1,5 +1,4 @@
 import React from 'react';
-import './Cart.css';
 
 import ProductBrand from '../ReusableComponents/ProductBrand';
 import ProductName from '../ReusableComponents/ProductName';
@@ -8,7 +7,7 @@ import ProductAttributes from '../ReusableComponents/ProductAttributes';
 import CartProductAddRemove from '../ReusableComponents/CartProductAddRemove';
 import CartProductImages from '../ReusableComponents/CartProductImages';
 
-class Cart extends React.Component {
+class MyBag extends React.Component {
     render() {
         const {
             cart, 
@@ -25,24 +24,27 @@ class Cart extends React.Component {
             prevProductImage,
             nextProductImage
         } = this.props;
-
         return(
-            <div id="Cart">
-                <div className="cart-title-container">
-                    <h2>Cart</h2>
+            <div className="my-bag">
+                <div className="my-bag-title-container">
+                    <h2>My bag. <span>{cart.length} items</span></h2>
                 </div>
                 <div className="cart-products-container">
                     {
                         uniqueProductsInCart().map((product, productIndex) => {
                             return(
-                                <div key={product.id} className="cart-product-box">
-                                    <div className="cart-product-description">
+                                <div key={product.id} className="my-bag-product-box">
+                                    <div className="my-bag-product-description">
                                         <ProductBrand product={product} />
                                         <ProductName product={product} />
                                         <ProductPrice product={product} currencyLabel={currencyLabel} />
-                                        <ProductAttributes product={product} chooseProductAttribute={chooseProductAttribute} chosenProductAttributes={chosenProductAttributes}/>
+                                        <ProductAttributes 
+                                        product={product} 
+                                        chooseProductAttribute={chooseProductAttribute} 
+                                        chosenProductAttributes={chosenProductAttributes}
+                                        />
                                     </div>
-                                    <div className="cart-product-images-and-add-remove">
+                                    <div className="my-bag-product-images-and-add-remove">
                                         <CartProductAddRemove 
                                             product={product}
                                             addProductToCart={addProductToCart}
@@ -62,15 +64,12 @@ class Cart extends React.Component {
                         })
                     }
                 </div>
-                <div className="cart-summary-container">
-                    <p>Tax 21%: <span>{currencySymbol}{(total * 0.21).toFixed(2)}</span></p>
-                    <p>Quantity: <span>{cart.length}</span></p>
+                <div className="my-bag-summary-container">
                     <p>Total: <span>{currencySymbol}{total.toFixed(2)}</span></p>
-                    <button>Order</button>
                 </div>
             </div>
         )
-    }
-}
+    };
+};
 
-export default Cart;
+export default MyBag;

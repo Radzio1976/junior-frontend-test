@@ -1,11 +1,12 @@
 #ProductBox {
     display: flex;
+    width: 1440px;
+    margin: 0 auto;
     padding-top: 73px;
 }
 
 .product-images-container {
     display: flex;
-    margin-left: 97px;
     width: 50%;
 }
 

@@ -23,7 +23,6 @@ class LeftNav extends React.Component {
                     {({loading, data}) => {
                         if (loading) return "Loading...";
                         const categories = data.categories;
-                        console.log(categories)
                         return categories.map((category, i) => {
                             return(
                                 <li 

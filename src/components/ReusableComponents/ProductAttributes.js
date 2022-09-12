@@ -3,8 +3,6 @@ import React from 'react';
 class ProductAttributes extends React.Component {
     render() {
         const {product, chooseProductAttribute, chosenProductAttributes} = this.props;
-        //console.log(product)
-        console.log(chosenProductAttributes)
         return(
             <div className="product-attributes-container">
             {

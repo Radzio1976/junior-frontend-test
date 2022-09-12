@@ -27,6 +27,7 @@ class App extends React.Component {
     currencySymbol: "$",
     productMainImageURL: "",
     chosenProductAttributes: [],
+    myBagVisibility: false,
     cart: [],
     total: 0,
     displayedImages: [] 
@@ -282,13 +283,35 @@ class App extends React.Component {
       return {marginLeft: "20px"}
   }
   
-}
+  }
+
+  showMyBag = () => {
+    let myBagVisibility = this.state.myBagVisibility;
+    
+    myBagVisibility === false ? myBagVisibility = true : myBagVisibility = false;
+
+    this.setState({
+      myBagVisibility
+    });
+  };
 
   render() {
-    console.log(this.state.chosenProductAttributes)
     return(
       <ApolloProvider client={client}>
         <div id="App">
+          {this.state.myBagVisibility ? 
+          <div onClick={
+            () => this.showMyBag()} 
+            style={{
+              backgroundColor: "rgba(57, 55, 72, 0.22)", 
+              position: "absolute", 
+              top: "79px", 
+              bottom: "0", 
+              height: "100%", 
+              left: "0", 
+              right: "0", 
+              zIndex: "1"
+              }}></div> : null}
           <BrowserRouter>
             <Header 
               sortProductsByCategory={this.sortProductsByCategory} 
@@ -296,7 +319,19 @@ class App extends React.Component {
               changeCurrency={this.changeCurrency} 
               currencyLabel={this.state.currencyLabel} 
               currencySymbol={this.state.currencySymbol}
+              showMyBag={this.showMyBag}
+              myBagVisibility={this.state.myBagVisibility}
               cart={this.state.cart}
+              total={this.state.total} 
+              chooseProductAttribute={this.chooseProductAttribute}
+              chosenProductAttributes={this.state.chosenProductAttributes}
+              addProductToCart={this.addProductToCart} 
+              removeProductFromCart={this.removeProductFromCart}
+              uniqueProductsInCart={this.uniqueProductsInCart} 
+              inCartProductsQty={this.inCartProductsQty}
+              displayedImages={this.state.displayedImages}
+              prevProductImage={this.prevProductImage}
+              nextProductImage={this.nextProductImage}
               />
             <Switch>
               <Route path="/" exact component={() => 

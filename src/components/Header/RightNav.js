@@ -4,6 +4,7 @@ import { Query } from "react-apollo";
 import gql from "graphql-tag";
 
 import './Header.css';
+import MyBag from './MyBag';
 import Basket from '../../images/basket.png';
 
 const currencies = gql`
@@ -17,7 +18,24 @@ query Currencies {
 
 class RightNav extends React.Component {
     render() {
-        const {changeCurrency, currency, currencySymbol, cart} = this.props;
+        const {
+            changeCurrency, 
+            currency, 
+            currencySymbol, 
+            showMyBag, 
+            myBagVisibility, 
+            cart, 
+            total,
+            uniqueProductsInCart,
+            chooseProductAttribute,
+            chosenProductAttributes,
+            inCartProductsQty,
+            displayedImages,
+            addProductToCart,
+            removeProductFromCart,
+            prevProductImage,
+            nextProductImage
+        } = this.props;
         return(
             <nav className="right-nav">
                 <div className="currency-switch">
@@ -35,10 +53,25 @@ class RightNav extends React.Component {
                         </Query>
                     </select>
                 </div>
-                <div className="cart-icon">
+                <div className="cart-icon" onClick={() => showMyBag()}>
                     {cart.length > 0 ?<p className="products-quantity-icon">{cart.length}</p> : null}
                     <img src={Basket} alt="basket" />
                 </div>
+                {myBagVisibility && cart.length > 0 ? 
+                <MyBag 
+                cart={cart}
+                total={total}
+                uniqueProductsInCart={uniqueProductsInCart} 
+                chosenProductAttributes={chosenProductAttributes} 
+                inCartProductsQty={inCartProductsQty} 
+                displayedImages={displayedImages}
+                chooseProductAttribute={chooseProductAttribute}
+                addProductToCart={addProductToCart}
+                removeProductFromCart={removeProductFromCart}
+                prevProductImage={prevProductImage}
+                nextProductImage={nextProductImage}
+                currencySymbol={currencySymbol}
+                /> : null}
             </nav>
         )
     };

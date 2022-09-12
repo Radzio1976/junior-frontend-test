@@ -1,4 +1,6 @@
 #ProductsPage {
+    width: 1440px;
+    margin: 0 auto;
     padding-left: 100px;
     padding-right: 100px;
 }

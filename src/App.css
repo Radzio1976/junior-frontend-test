@@ -1,4 +1,8 @@
 #App {
-  width: 1440px;
   margin: 0 auto;
+}
+
+html {
+  min-height:100%;
+  position: relative;
 }
