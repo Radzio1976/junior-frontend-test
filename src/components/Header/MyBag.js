@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
 import ProductBrand from '../ReusableComponents/ProductBrand';
 import ProductName from '../ReusableComponents/ProductName';
@@ -12,6 +13,9 @@ class MyBag extends React.Component {
         const {
             cart, 
             total, 
+            slug,
+            showMyBag,
+            myBagVisibility,
             currencyLabel, 
             currencySymbol, 
             chooseProductAttribute, 
@@ -27,7 +31,7 @@ class MyBag extends React.Component {
         return(
             <div className="my-bag">
                 <div className="my-bag-title-container">
-                    <h2>My bag. <span>{cart.length} items</span></h2>
+                    <h2>My bag, <span>{cart.length} items</span></h2>
                 </div>
                 <div className="cart-products-container">
                     {
@@ -37,7 +41,7 @@ class MyBag extends React.Component {
                                     <div className="my-bag-product-description">
                                         <ProductBrand product={product} />
                                         <ProductName product={product} />
-                                        <ProductPrice product={product} currencyLabel={currencyLabel} />
+                                        <ProductPrice product={product} currencyLabel={currencyLabel} myBagVisibility={myBagVisibility} />
                                         <ProductAttributes 
                                         product={product} 
                                         chooseProductAttribute={chooseProductAttribute} 
@@ -67,9 +71,16 @@ class MyBag extends React.Component {
                 <div className="my-bag-summary-container">
                     <p>Total: <span>{currencySymbol}{total.toFixed(2)}</span></p>
                 </div>
+                <div className="my-bag-view-bag-and-check-out-buttons">
+                    <button className="my-bag-view-bag-button" onClick={() => {
+                        this.props.history.push("/cart");
+                        showMyBag(slug);
+                        }}>View bag</button>
+                    <button className="my-bag-check-out-button">Check out</button>
+                </div>
             </div>
         )
     };
 };
 
-export default MyBag;
+export default withRouter(MyBag);

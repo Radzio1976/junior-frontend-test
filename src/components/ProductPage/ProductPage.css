@@ -17,19 +17,16 @@
     overflow: auto;
 }
 
-.product-thumbnails-container::-webkit-scrollbar-track
-{
+.product-thumbnails-container::-webkit-scrollbar-track {
   border-radius: 5px;
 }
 
-.product-thumbnails-container::-webkit-scrollbar
-{
+.product-thumbnails-container::-webkit-scrollbar {
   width: 7px;
   background-color: #FFF;
 }
 
-.product-thumbnails-container::-webkit-scrollbar-thumb
-{
+.product-thumbnails-container::-webkit-scrollbar-thumb {
   border-radius: 5px;
   background-color: #FFF;
 }

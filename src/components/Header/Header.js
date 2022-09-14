@@ -13,6 +13,7 @@ class Header extends React.Component {
             categoryOfProduct, 
             changeCurrency, 
             currency, 
+            currencyLabel,
             currencySymbol, 
             showMyBag, 
             myBagVisibility, 
@@ -37,6 +38,7 @@ class Header extends React.Component {
                 <Logo />
                 <RightNav 
                 currency={currency} 
+                currencyLabel={currencyLabel}
                 currencySymbol={currencySymbol} 
                 changeCurrency={changeCurrency} 
                 cart={cart} 

@@ -273,23 +273,24 @@ class App extends React.Component {
   productMarginsStyle = (index) => {
     if (index % 3 === 0) {
       return {marginRight: "20px"}
-  }
-  
-  if (index % 3 === 1) {
-      return {marginLeft: "20px", marginRight: "20px"}
-  }
-  
-  if (index % 3 === 2) {
-      return {marginLeft: "20px"}
-  }
-  
-  }
-
-  showMyBag = () => {
-    let myBagVisibility = this.state.myBagVisibility;
+    }
     
-    myBagVisibility === false ? myBagVisibility = true : myBagVisibility = false;
+    if (index % 3 === 1) {
+        return {marginLeft: "20px", marginRight: "20px"}
+    }
+    
+    if (index % 3 === 2) {
+        return {marginLeft: "20px"}
+    }  
+  }
 
+  showMyBag = (slug) => {
+    let {cart, myBagVisibility} = this.state;
+
+    if (slug !== "cart" && cart.length > 0) {
+      myBagVisibility === false ? myBagVisibility = true : myBagVisibility = false;
+    } 
+  
     this.setState({
       myBagVisibility
     });

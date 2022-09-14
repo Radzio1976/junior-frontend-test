@@ -86,3 +86,193 @@
     right: 0px;
     overflow: auto;
 }
+  
+  .my-bag::-webkit-scrollbar {
+    width: 0px;
+  }
+
+.my-bag .my-bag-title-container {
+    margin-bottom: 32px;
+}
+
+.my-bag .my-bag-title-container h2 {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 160%;
+}
+
+.my-bag .my-bag-title-container span {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 160%;
+}
+
+.my-bag .my-bag-product-box {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+.my-bag .my-bag-product-description {
+    width: 136px;
+    margin-right: 4px;
+}
+
+.my-bag .product-brand-container h3, .my-bag .product-name-container h4 {
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 160%;
+}
+
+.my-bag .product-price-container .product-price-symbol-and-amount {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 160%;
+}
+
+.my-bag .product-attributes-container .product-attribute-name {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+}
+
+.my-bag .product-attributes-container .product-attribute-values {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 136px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.my-bag .product-attributes-container .product-attribute-value {
+    display: flex;
+    justify-content: center;
+    border: 1px solid black;
+    cursor: pointer;
+    padding: 1px 3px;
+    height: 24px;
+    min-width: 24px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 160%;
+}
+
+.my-bag-product-images-and-add-remove {
+    display: flex;
+    height: 190px;
+}
+
+.my-bag .cart-product-add-remove {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    margin-right: 8px;
+}
+
+.my-bag .cart-product-add-remove div {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    width: 24px;
+    height: 24px;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+.my-bag .cart-product-images {
+    width: 121px;
+}
+
+.my-bag .cart-product-images-wrapper {
+    height: 100%;
+}
+
+.my-bag .cart-product-images-wrapper img {
+    height: 100%;
+    width: 100%;
+}
+
+.my-bag .cart-product-images .cart-product-image-prev-next-button {
+    display: flex;
+    position: relative;
+    top: -23px;
+    right: -74px;
+}
+
+.my-bag .cart-product-images .cart-product-image-prev-next-button div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 4px;
+    font-size: 14px;
+    height: 16px;
+    width: 16px;
+    background: rgba(0, 0, 0, 0.73);
+    color: #FFF;
+    cursor: pointer;
+} 
+
+.my-bag .cart-product-images .cart-product-image-prev-next-button div:hover {
+    height: 18px;
+    width: 18px;
+} 
+
+.my-bag .cart-product-images .cart-product-image-prev-next-button span {
+    margin-bottom: 4px;
+}
+
+.my-bag .my-bag-summary-container p {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 18px;
+}
+
+.my-bag .my-bag-summary-container span {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 18px;
+}
+
+.my-bag .my-bag-view-bag-and-check-out-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.my-bag .my-bag-view-bag-and-check-out-buttons button {
+    width: 140px;
+    height: 43px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    background: #5ECE7B;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 120%;
+    color: #FFF;
+    text-transform: uppercase;
+}
+
+.my-bag .my-bag-view-bag-and-check-out-buttons .my-bag-view-bag-button {
+    background-color: #FFF;
+    border: 1px solid black;
+    color: black;
+}
+
+
+
+
+
