@@ -2,7 +2,11 @@ import React from 'react';
 
 class ProductImages extends React.Component {
     render() {
-        const {product, changeProductMainImageURL, productMainImageURL} = this.props;
+        const {
+            product, 
+            changeProductMainImageURL, 
+            productMainImageURL
+        } = this.props;
         return(
             <div className="product-images-container">
             <div className="product-thumbnails-container">

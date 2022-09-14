@@ -5,7 +5,7 @@ import gql from "graphql-tag";
 
 import './Header.css';
 
-const productsCategories = gql`
+const GET_PRODUCTS_CATEGORIES = gql`
 query ProductsCategories {
 	categories {
     name
@@ -19,7 +19,7 @@ class LeftNav extends React.Component {
         return(
             <nav className="left-nav">
             <ul>
-                <Query query={productsCategories}>
+                <Query query={GET_PRODUCTS_CATEGORIES}>
                     {({loading, data}) => {
                         if (loading) return "Loading...";
                         const categories = data.categories;

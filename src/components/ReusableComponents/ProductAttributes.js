@@ -2,7 +2,11 @@ import React from 'react';
 
 class ProductAttributes extends React.Component {
     render() {
-        const {product, chooseProductAttribute, chosenProductAttributes} = this.props;
+        const {
+            product, 
+            chooseProductAttribute, 
+            chosenProductAttributes
+        } = this.props;
         return(
             <div className="product-attributes-container">
             {

@@ -41,18 +41,34 @@ query getProduct ($id: String!) {
 class ProductPage extends React.Component {    
     render() {
       const id = this.props.history.location.pathname.substring(9);
-      const {currencyLabel, changeProductMainImageURL, productMainImageURL, chooseProductAttribute, chosenProductAttributes, addProductToCart} = this.props;
+      const {
+        currencyLabel, 
+        changeProductMainImageURL, 
+        productMainImageURL, 
+        chooseProductAttribute, 
+        chosenProductAttributes, 
+        addProductToCart
+      } = this.props;
         return(
           <Query query={GET_PRODUCT} variables={{id}}>
           {({ loading, error, data }) => {
             if (loading) return null;
             if (error) return `Error! ${error}`;
             const product = data.product;
-            //console.log(product);
             return (
               <div id="ProductBox">
-              <ProductImages product={product} changeProductMainImageURL={changeProductMainImageURL} productMainImageURL={productMainImageURL} />
-              <ProductDescription product={product} currencyLabel={currencyLabel} chooseProductAttribute={chooseProductAttribute} chosenProductAttributes={chosenProductAttributes} addProductToCart={addProductToCart} />
+              <ProductImages 
+                product={product} 
+                changeProductMainImageURL={changeProductMainImageURL} 
+                productMainImageURL={productMainImageURL} 
+              />
+              <ProductDescription 
+                product={product} 
+                currencyLabel={currencyLabel} 
+                chooseProductAttribute={chooseProductAttribute} 
+                chosenProductAttributes={chosenProductAttributes} 
+                addProductToCart={addProductToCart} 
+              />
             </div>
             );
           }}

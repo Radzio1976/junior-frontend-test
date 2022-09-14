@@ -8,7 +8,7 @@ class CategorySection extends React.Component {
             <h2>{categoryOfProduct}</h2>
           </section>
         )
-    }
+    };
 };
 
 export default CategorySection;

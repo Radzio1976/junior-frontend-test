@@ -8,7 +8,7 @@ import './Header.css';
 import MyBag from './MyBag';
 import Basket from '../../images/basket.png';
 
-const currencies = gql`
+const CURRENCIES = gql`
 query Currencies {
 	currencies {
     label
@@ -39,14 +39,14 @@ class RightNav extends React.Component {
             prevProductImage,
             nextProductImage
         } = this.props;
-        console.log(myBagVisibility)
         return(
             <nav className="right-nav">
                 <div className="currency-switch">
                     <select type="text" name="currency" onChange={(e) => changeCurrency(e.target.name, e.target.value)} value={currency} >
-                        <Query query={currencies}>
-                            {({loading, data}) => {
-                                if (loading) return "Loading...";
+                        <Query query={CURRENCIES}>
+                            {({loading, error, data}) => {
+                                if (loading) return null;
+                                if (error) return `Error! ${error}`;
                                 const currencies = data.currencies;
                                 return currencies.map((currency, i) => {
                                     return(

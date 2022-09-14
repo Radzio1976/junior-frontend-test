@@ -124,7 +124,6 @@ class App extends React.Component {
     } 
 
     if ((chosenAttributes.findIndex(el => el.id === value.product.id) !== -1 && chosenAttributes.length > 0)) {
-      console.log("Jest atrybut ale nie znaleziono atrybutu z innego produktu")
       const index = chosenAttributes.findIndex(el => el.name === attributesObj.name);
       if (index !== -1) {
           chosenAttributes.splice(index, 1);

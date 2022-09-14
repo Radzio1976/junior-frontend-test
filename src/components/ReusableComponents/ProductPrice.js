@@ -4,7 +4,11 @@ import {withRouter} from 'react-router-dom';
 class ProductPrice extends React.Component {
     render() {
         const slug = this.props.history.location.pathname.substring(1);
-        const {product, currencyLabel, myBagVisibility} = this.props;
+        const {
+            product, 
+            currencyLabel, 
+            myBagVisibility
+        } = this.props;
         return(
             <div className="product-price-container">
             <h3 style={{

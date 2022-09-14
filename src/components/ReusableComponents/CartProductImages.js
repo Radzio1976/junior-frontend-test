@@ -2,7 +2,13 @@ import React from "react";
 
 class CartProductImages extends React.Component {
     render() {
-        const {product, productIndex, displayedImages, prevProductImage, nextProductImage} = this.props;
+        const {
+            product, 
+            productIndex, 
+            displayedImages, 
+            prevProductImage, 
+            nextProductImage
+        } = this.props;
         return(
             <div className="cart-product-images">
                 <div className="cart-product-images-wrapper">
