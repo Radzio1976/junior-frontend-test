@@ -1,6 +1,6 @@
 #ProductBox {
     display: flex;
-    width: 1440px;
+    width: 1240px;
     margin: 0 auto;
     padding-top: 73px;
 }
@@ -8,6 +8,7 @@
 .product-images-container {
     display: flex;
     width: 50%;
+    margin-right: 115px;
 }
 
 .product-thumbnails-container {
@@ -17,18 +18,8 @@
     overflow: auto;
 }
 
-.product-thumbnails-container::-webkit-scrollbar-track {
-  border-radius: 5px;
-}
-
 .product-thumbnails-container::-webkit-scrollbar {
-  width: 7px;
-  background-color: #FFF;
-}
-
-.product-thumbnails-container::-webkit-scrollbar-thumb {
-  border-radius: 5px;
-  background-color: #FFF;
+  width: 0px;
 }
 
 .product-thumbnails-container img {

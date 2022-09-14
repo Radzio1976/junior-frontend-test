@@ -79,7 +79,7 @@ class App extends React.Component {
       });
   };
 
-  // Function to change category of products on Products Page
+  // Function that supports changing category of products on Products Page
   sortProductsByCategory = (category) => {
     let products = this.state.productsMainBase;
     this.setState({
@@ -91,9 +91,10 @@ class App extends React.Component {
       this.setState({
         products: filteredProducts
       })
-    })
+    });
   };
 
+  // Function that supports changing currency
   changeCurrency = (key, value) => {
     this.setState({
       [key]: value,
@@ -104,21 +105,21 @@ class App extends React.Component {
     });
   };
 
+  // Function that supports changing main product image on Product Page
   changeProductMainImageURL = (url) => {
     this.setState({
       productMainImageURL: url
     });
   };
 
+  // Function that supports changing product attributes
   chooseProductAttribute = (value) => {
-    console.log(value)
     let chosenProductAttributes = this.state.chosenProductAttributes;
-    let chosenAttributes = chosenProductAttributes
+    let chosenAttributes = chosenProductAttributes;
 
     const attributesObj = {id: value.product.id, name: value.attr.name, displayValue: value.value.displayValue, value: value.value.value};
 
     if (chosenAttributes.length === 0) {
-      console.log("Brak atrybutu")
       chosenAttributes.push(attributesObj);
     } 
 
@@ -134,7 +135,6 @@ class App extends React.Component {
     }
 
     if ((chosenAttributes.findIndex(el => el.id === value.product.id) === -1 && chosenAttributes.length > 0)) {
-      console.log("Znaleziono atrybut z innego produktu")
       chosenAttributes = [];
       chosenAttributes.push(attributesObj);
     }
@@ -144,6 +144,7 @@ class App extends React.Component {
     });      
   };
 
+  // Function that supports adding new product to Cart
   addProductToCart = (product) => {
     const chosenProductAttributes = this.state.chosenProductAttributes;
     const currencyLabel = this.state.currencyLabel;
@@ -174,7 +175,7 @@ class App extends React.Component {
     };
   };
 
-  
+  // Function that supports removing product from Cart
   removeProductFromCart = (productID) => {
     let {currencyLabel, cart, total} = this.state;
     let index = 0;
@@ -197,8 +198,7 @@ class App extends React.Component {
     };
   };
   
-  
-
+  // Function that supports updating of total amount of all products in Cart
   getTotal = (currencyLabel) => {
     const cart = this.state.cart;
     let sum = 0;
@@ -214,6 +214,7 @@ class App extends React.Component {
     });
   };
 
+  // Function that creates array of unique products in Cart
   uniqueProductsInCart = () => {
     let cart = this.state.cart;
     const uniqueProductsInCart = Array.from(new Set(cart.map(product => product.id)))
@@ -223,6 +224,7 @@ class App extends React.Component {
     return uniqueProductsInCart;
   };
 
+  // Function that returns quantity of every unique product in Cart
   inCartProductsQty = (productID) => {
     const cart = this.state.cart;
     let qty = 0;
@@ -235,6 +237,7 @@ class App extends React.Component {
     return qty;
   };
 
+  // Function that creates array with first indexes of every product images
   getCartImagesIndexes = () => {
     const displayedImages = this.state.displayedImages;
 
@@ -246,6 +249,7 @@ class App extends React.Component {
      });
   };
 
+  // Function that supports back to the previous product image in Cart
   prevProductImage = (imageIndex, productIndex) => {
     let displayedImages = this.state.displayedImages;
 
@@ -258,6 +262,7 @@ class App extends React.Component {
     } else return;
   };
 
+  // Function that supports go to the next product image in Cart
   nextProductImage = (imageIndex, productIndex, array) => {
     let displayedImages = this.state.displayedImages;
 
@@ -270,6 +275,7 @@ class App extends React.Component {
     } else return;
   };
 
+  // Function that returns values of margins of every products column in Products Page
   productMarginsStyle = (index) => {
     if (index % 3 === 0) {
       return {marginRight: "20px"}
@@ -284,6 +290,7 @@ class App extends React.Component {
     }  
   }
 
+  // Function that supports showing of MyBag component
   showMyBag = (slug) => {
     let {cart, myBagVisibility} = this.state;
 
