@@ -27,7 +27,8 @@ class ProductDescription extends React.Component {
                 <div className="product-add-to-cart-button-container">
                     {product.inStock === true ? <button onClick={() => addProductToCart(product)}>Add to cart</button> : null}
                 </div>
-                <div className="product-desc-container" dangerouslySetInnerHTML={{__html: product.description}}>
+                <div className="product-desc-container">
+                    <p>{product.description.replace("<p>", "").replace("</p>", "")}</p>
                 </div>
             </div>
         )
