@@ -1,4 +1,5 @@
 import React from 'react';
+import {withRouter} from 'react-router-dom';
 import './ProductsPage.css';
 
 import CategorySection from './CategorySection';
@@ -24,4 +25,4 @@ class ProductsPage extends React.Component {
     };
 };
 
-export default ProductsPage;
+export default withRouter(ProductsPage);

@@ -47,6 +47,12 @@ class App extends React.Component {
     })
   };
 
+  resetProductsCategory = () => {
+    this.setState({
+      categoryOfProduct: "all"
+    })
+  }
+
   // Function that supports changing currency
   changeCurrency = (key, value) => {
     this.setState({
@@ -276,6 +282,7 @@ class App extends React.Component {
             <Header 
               sortProductsByCategory={this.sortProductsByCategory} // ?????
               categoryOfProduct={this.state.categoryOfProduct}
+              resetProductsCategory={this.resetProductsCategory}
               changeCurrency={this.changeCurrency} 
               currencyLabel={this.state.currencyLabel} 
               currencySymbol={this.state.currencySymbol}
@@ -295,6 +302,13 @@ class App extends React.Component {
               />
             <Switch>
               <Route path="/" exact component={() => 
+                <ProductsPage 
+                  categoryOfProduct="all" 
+                  currencyLabel={this.state.currencyLabel} 
+                  productMarginsStyle={this.productMarginsStyle}
+                  />}
+                />
+              <Route path="/:category" exact component={() => 
                 <ProductsPage 
                   categoryOfProduct={this.state.categoryOfProduct} 
                   currencyLabel={this.state.currencyLabel} 

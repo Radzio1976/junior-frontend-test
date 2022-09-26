@@ -1,4 +1,5 @@
 import React from 'react';
+import {withRouter} from 'react-router-dom';
 
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
@@ -15,7 +16,7 @@ query ProductsCategories {
 
 class LeftNav extends React.Component {
     render() {
-        const categoryOfProduct = this.props.categoryOfProduct
+        const categoryOfProduct = this.props.categoryOfProduct;
         return(
             <nav className="left-nav">
             <ul>
@@ -27,7 +28,10 @@ class LeftNav extends React.Component {
                             return(
                                 <li 
                                 key={i} 
-                                onClick={() => this.props.sortProductsByCategory(category.name)} 
+                                onClick={() => {
+                                    this.props.sortProductsByCategory(category.name);
+                                    this.props.history.push(`/${category.name}`);
+                                    }}
                                 style={{
                                     color: categoryOfProduct === category.name ? "#5ECE7B": "black",
                                     borderBottom: categoryOfProduct === category.name ? "2px solid #5ECE7B" : "none",
@@ -43,4 +47,4 @@ class LeftNav extends React.Component {
     };
 };
 
-export default LeftNav;
+export default withRouter(LeftNav);

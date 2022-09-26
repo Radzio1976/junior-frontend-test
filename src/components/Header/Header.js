@@ -11,6 +11,7 @@ class Header extends React.Component {
         const {
             sortProductsByCategory, 
             categoryOfProduct, 
+            resetProductsCategory,
             changeCurrency, 
             currency, 
             currencyLabel,
@@ -35,7 +36,7 @@ class Header extends React.Component {
                 sortProductsByCategory={sortProductsByCategory} 
                 categoryOfProduct={categoryOfProduct} 
                 />
-                <Logo />
+                <Logo resetProductsCategory={resetProductsCategory} />
                 <RightNav 
                 currency={currency} 
                 currencyLabel={currencyLabel}
