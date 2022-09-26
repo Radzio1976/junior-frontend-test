@@ -3,7 +3,6 @@ import {BrowserRouter, Switch, Route} from 'react-router-dom';
 
 import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "react-apollo";
-import gql from "graphql-tag";
 
 import "./App.css";
 import "./index.css";
@@ -19,8 +18,6 @@ const client = new ApolloClient({
 
 class App extends React.Component {
   state = {
-    productsMainBase: [],
-    products: [],
     categoryOfProduct: "all",
     currency: "",
     currencyLabel: "USD",
@@ -41,57 +38,13 @@ class App extends React.Component {
       this.uniqueProductsInCart();
       this.getCartImagesIndexes();
     })
-
-    client
-        .query({
-          query: gql`
-          query GetProduts {
-            category {
-              products {
-                id
-                name
-                inStock
-                gallery
-                description
-                category
-                attributes {
-                  id
-                  name
-                  type
-                }
-                prices {
-                  currency {
-                    label
-                    symbol
-                  }
-                  amount
-                }
-                brand
-              }
-            }
-          }`,
-      })
-      .then((result) => {
-        this.setState({
-          productsMainBase: result.data.category.products,
-          products: result.data.category.products
-        })
-      });
   };
 
   // Function that supports changing category of products on Products Page
   sortProductsByCategory = (category) => {
-    let products = this.state.productsMainBase;
     this.setState({
       categoryOfProduct: category
-    }, () => {
-      const filteredProducts = products.filter(product => {
-        return this.state.categoryOfProduct !== "all" ? product.category === this.state.categoryOfProduct : product
-    });
-      this.setState({
-        products: filteredProducts
-      })
-    });
+    })
   };
 
   // Function that supports changing currency
@@ -321,7 +274,7 @@ class App extends React.Component {
               }}></div> : null}
           <BrowserRouter>
             <Header 
-              sortProductsByCategory={this.sortProductsByCategory} 
+              sortProductsByCategory={this.sortProductsByCategory} // ?????
               categoryOfProduct={this.state.categoryOfProduct}
               changeCurrency={this.changeCurrency} 
               currencyLabel={this.state.currencyLabel} 
@@ -345,13 +298,11 @@ class App extends React.Component {
                 <ProductsPage 
                   categoryOfProduct={this.state.categoryOfProduct} 
                   currencyLabel={this.state.currencyLabel} 
-                  products={this.state.products} 
                   productMarginsStyle={this.productMarginsStyle}
                 />} 
               />
               <Route path="/product/:id" component={() => 
                 <ProductPage 
-                  productsMainBase={this.state.productsMainBase} 
                   currencyLabel={this.state.currencyLabel} 
                   changeProductMainImageURL={this.changeProductMainImageURL} 
                   productMainImageURL={this.state.productMainImageURL} 
