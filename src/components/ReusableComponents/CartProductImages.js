@@ -16,10 +16,7 @@ class CartProductImages extends React.Component {
                         product.gallery.map((image, imageIndex, array) => {
                         return(
                             <React.Fragment key={imageIndex}>
-                            <img src={image} alt={product.id} style={{
-                                display: imageIndex === displayedImages[productIndex] ? "block" : "none"
-                            }}
-                            />
+                            {imageIndex === displayedImages[productIndex] ? <img src={image} alt={product.id}/> : null}
                             <div className="cart-product-image-prev-next-button" style={{
                                 display: imageIndex === displayedImages[productIndex] ? "flex" : "none",
                                 visibility: array.length > 1 ? "visible" : "hidden"

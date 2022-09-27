@@ -187,23 +187,26 @@
 }
 
 .my-bag .cart-product-images {
+    position: relative;
+    overflow: hidden;
     width: 121px;
 }
 
 .my-bag .cart-product-images-wrapper {
+    display: flex;
+    justify-content: center;
     height: 100%;
 }
 
 .my-bag .cart-product-images-wrapper img {
     height: 100%;
-    width: 100%;
 }
 
 .my-bag .cart-product-images .cart-product-image-prev-next-button {
     display: flex;
-    position: relative;
-    top: -23px;
-    right: -74px;
+    position: absolute;
+    top: 164px;
+    right: 10px;
 }
 
 .my-bag .cart-product-images .cart-product-image-prev-next-button div {

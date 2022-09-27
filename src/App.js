@@ -308,7 +308,7 @@ class App extends React.Component {
                   productMarginsStyle={this.productMarginsStyle}
                   />}
                 />
-              <Route path="/:category" exact component={() => 
+              <Route path="/category/:category" exact component={() => 
                 <ProductsPage 
                   categoryOfProduct={this.state.categoryOfProduct} 
                   currencyLabel={this.state.currencyLabel} 
@@ -325,7 +325,7 @@ class App extends React.Component {
                   addProductToCart={this.addProductToCart}
                 />} 
               />
-              <Route path="/cart" component={() => 
+              <Route path="/cart" exact component={() => 
                 <Cart 
                   cart={this.state.cart}
                   uniqueProductsInCart={this.uniqueProductsInCart} 

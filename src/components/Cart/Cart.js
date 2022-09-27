@@ -25,7 +25,7 @@ class Cart extends React.Component {
             prevProductImage,
             nextProductImage
         } = this.props;
-
+        console.log(total)
         return(
             <div id="Cart">
                 <div className="cart-title-container">

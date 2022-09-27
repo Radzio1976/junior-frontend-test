@@ -31,9 +31,14 @@
 
 .product-image-container {
     position: relative;
+    text-align: center;
     width: 356px;
     height: 338px;
     margin: 0 auto;
+}
+
+.product-image-container img {
+    height: 100%;
 }
 
 .product-out-of-stock {
@@ -47,11 +52,6 @@
     font-weight: 400;
     font-size: 24px;
     line-height: 160%;
-}
-
-.product-box img {
-    height: 100%;
-    width: 100%;
 }
 
 .product-name-and-price-container {

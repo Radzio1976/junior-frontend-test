@@ -30,7 +30,7 @@ class LeftNav extends React.Component {
                                 key={i} 
                                 onClick={() => {
                                     this.props.sortProductsByCategory(category.name);
-                                    this.props.history.push(`/${category.name}`);
+                                    this.props.history.push(`/category/${category.name}`);
                                     }}
                                 style={{
                                     color: categoryOfProduct === category.name ? "#5ECE7B": "black",
