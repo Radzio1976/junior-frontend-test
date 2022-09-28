@@ -9,6 +9,7 @@ class CartProductImages extends React.Component {
             prevProductImage, 
             nextProductImage
         } = this.props;
+        console.log(displayedImages);
         return(
             <div className="cart-product-images">
                 <div className="cart-product-images-wrapper">

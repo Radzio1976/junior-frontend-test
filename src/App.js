@@ -126,6 +126,8 @@ class App extends React.Component {
         this.setState({
             cart,
             chosenProductAttributes: []
+        }, () => {
+          this.getCartImagesIndexes();
         });
     });
     } else {
