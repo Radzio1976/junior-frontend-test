@@ -39,6 +39,7 @@ class RightNav extends React.Component {
             prevProductImage,
             nextProductImage
         } = this.props;
+        console.log(myBagVisibility)
         return(
             <nav className="right-nav">
                 <div className="currency-switch">

@@ -6,3 +6,14 @@ html {
   min-height:100%;
   position: relative;
 }
+
+.my-bag-background {
+  background-color: rgba(57, 55, 72, 0.22); 
+  position: absolute; 
+  top: 79px; 
+  bottom: 0;
+  height: 100%; 
+  left: 0;
+  right: 0; 
+  z-index: 1;
+}

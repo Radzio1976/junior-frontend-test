@@ -151,7 +151,8 @@ class App extends React.Component {
       };
       
       this.setState({
-        cart
+        cart,
+        myBagVisibility: cart.length === 0 ? false : true
       });
     };
   };
@@ -254,7 +255,9 @@ class App extends React.Component {
 
     if (slug !== "cart" && cart.length > 0) {
       myBagVisibility === false ? myBagVisibility = true : myBagVisibility = false;
-    } 
+    } else {
+      myBagVisibility = false;
+    }
   
     this.setState({
       myBagVisibility
@@ -262,22 +265,14 @@ class App extends React.Component {
   };
 
   render() {
+    console.log(this.state.cart.length)
     return(
       <ApolloProvider client={client}>
         <div id="App">
           {this.state.myBagVisibility ? 
-          <div onClick={
-            () => this.showMyBag()} 
-            style={{
-              backgroundColor: "rgba(57, 55, 72, 0.22)", 
-              position: "absolute", 
-              top: "79px", 
-              bottom: "0", 
-              height: "100%", 
-              left: "0", 
-              right: "0", 
-              zIndex: "1"
-              }}></div> : null}
+          <div className="my-bag-background"
+            onClick={
+            () => this.showMyBag()}></div> : null}
           <BrowserRouter>
             <Header 
               sortProductsByCategory={this.sortProductsByCategory} // ?????
