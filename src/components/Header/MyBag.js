@@ -22,8 +22,6 @@ class MyBag extends React.Component {
             chosenProductAttributes,
             addProductToCart, 
             removeProductFromCart, 
-            uniqueProductsInCart, 
-            inCartProductsQty, 
             displayedImages,
             prevProductImage,
             nextProductImage
@@ -35,7 +33,7 @@ class MyBag extends React.Component {
                 </div>
                 <div className="cart-products-container">
                     {
-                        uniqueProductsInCart().map((product, productIndex) => {
+                        cart.map((product, productIndex) => {
                             return(
                                 <div key={product.id} className="my-bag-product-box">
                                     <div className="my-bag-product-description">
@@ -53,7 +51,6 @@ class MyBag extends React.Component {
                                             product={product}
                                             addProductToCart={addProductToCart}
                                             removeProductFromCart={removeProductFromCart}
-                                            inCartProductsQty={inCartProductsQty} 
                                         />
                                         <CartProductImages
                                             product={product} 

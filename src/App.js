@@ -35,7 +35,6 @@ class App extends React.Component {
       cart: JSON.parse(localStorage.getItem("addedProducts")) === null ? [] : JSON.parse(localStorage.getItem("addedProducts"))
     }, () => {
       this.getTotal(this.state.currencyLabel);
-      this.uniqueProductsInCart();
       this.getCartImagesIndexes();
     })
   };
@@ -194,77 +193,12 @@ class App extends React.Component {
     });
   };
 
-  // Function that creates array of unique products in Cart
-  uniqueProductsInCart = () => {
-    let cart = this.state.cart;
-    let uniqueProductsInCart = [];
-    //let arrayOfAttributesStrings = [];
-
-    /*
-    Array.from(new Set(cart.map(product => product.chosenAttributes.forEach((attr, i) => {
-      if (stringOfAttributes.includes(Object.entries(attr).toString()) === false) {
-        stringOfAttributes = stringOfAttributes + Object.entries(attr).toString();
-      }
-      console.log(stringOfAttributes)
-    }))))
-    */
-   /*
-    cart.forEach(product => {
-      let stringOfAttributes = "";
-      product.chosenAttributes.forEach(attr => {
-      
-      if (stringOfAttributes.includes(Object.entries(attr).toString()) === false) {
-        stringOfAttributes = stringOfAttributes + Object.entries(attr).toString();
-      }
-
-
-      })
-      arrayOfAttributesStrings.push(stringOfAttributes);
-      console.log(arrayOfAttributesStrings)
-    });
-
-    const uniqueProductsInCart = Array.from (new Set(arrayOfAttributesStrings.map(item => {
-      return item
-    })));
-    console.log(uniqueProductsInCart)
-    */
-    //cart.forEach(product => {
-    //  console.log(`${product.id} ${(stringOfAttributes.split(product.id).length-1) / product.chosenAttributes.length}`)
-    //})
-    
-    //.map(attr => {
-    //  return cart.find(product => attr.includes(product.id) && attr.includes(product.chosenAttributes[0].displayValue))
-    //})
-
-    /*
-    const uniqueProductsInCart = Array.from(new Set(cart.map(product => product.id)))
-    .map(id => {
-      return cart.find(product => product.id === id);
-    });
-    */
-    uniqueProductsInCart = cart;
-
-    return uniqueProductsInCart;
-  };
-
-  // Function that returns quantity of every unique product in Cart
-  inCartProductsQty = (productID) => {
-    const cart = this.state.cart;
-    let qty = 0;
-
-    cart.forEach(product => {
-      if (product.id === productID) {
-        qty += 1;
-      };
-    });
-    return qty;
-  };
-
   // Function that creates array with first indexes of every product images
   getCartImagesIndexes = () => {
+    const cart = this.state.cart;
     const displayedImages = this.state.displayedImages;
 
-     for (let i=0; i<this.uniqueProductsInCart().length; i++) {
+     for (let i=0; i<cart.length; i++) {
         displayedImages.push(0);
      }
      this.setState({
@@ -352,8 +286,6 @@ class App extends React.Component {
               chosenProductAttributes={this.state.chosenProductAttributes}
               addProductToCart={this.addProductToCart} 
               removeProductFromCart={this.removeProductFromCart}
-              uniqueProductsInCart={this.uniqueProductsInCart} 
-              inCartProductsQty={this.inCartProductsQty}
               displayedImages={this.state.displayedImages}
               prevProductImage={this.prevProductImage}
               nextProductImage={this.nextProductImage}
@@ -386,7 +318,6 @@ class App extends React.Component {
               <Route path="/cart" exact component={() => 
                 <Cart 
                   cart={this.state.cart}
-                  uniqueProductsInCart={this.uniqueProductsInCart} 
                   total={this.state.total} 
                   currencyLabel={this.state.currencyLabel}
                   currencySymbol={this.state.currencySymbol}
@@ -394,7 +325,6 @@ class App extends React.Component {
                   chosenProductAttributes={this.state.chosenProductAttributes}
                   addProductToCart={this.addProductToCart}
                   removeProductFromCart={this.removeProductFromCart}
-                  inCartProductsQty={this.inCartProductsQty}
                   prevProductImage={this.prevProductImage}
                   nextProductImage={this.nextProductImage}
                   displayedImages={this.state.displayedImages}

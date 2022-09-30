@@ -19,14 +19,11 @@ class Cart extends React.Component {
             chosenProductAttributes,
             addProductToCart, 
             removeProductFromCart, 
-            uniqueProductsInCart, 
-            inCartProductsQty, 
             displayedImages,
             prevProductImage,
             nextProductImage
         } = this.props;
         console.log(cart);
-        console.log(uniqueProductsInCart());
         return(
             <div id="Cart">
                 <div className="cart-title-container">
@@ -48,7 +45,6 @@ class Cart extends React.Component {
                                             product={product}
                                             addProductToCart={addProductToCart}
                                             removeProductFromCart={removeProductFromCart}
-                                            inCartProductsQty={inCartProductsQty} 
                                         />
                                         <CartProductImages
                                             product={product} 

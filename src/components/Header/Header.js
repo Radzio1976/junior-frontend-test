@@ -24,8 +24,6 @@ class Header extends React.Component {
             chosenProductAttributes,
             addProductToCart, 
             removeProductFromCart, 
-            uniqueProductsInCart, 
-            inCartProductsQty, 
             displayedImages,
             prevProductImage,
             nextProductImage
@@ -46,9 +44,7 @@ class Header extends React.Component {
                 total={total}
                 showMyBag={showMyBag} 
                 myBagVisibility={myBagVisibility}
-                uniqueProductsInCart={uniqueProductsInCart}
                 chosenProductAttributes={chosenProductAttributes} 
-                inCartProductsQty={inCartProductsQty}
                 displayedImages={displayedImages}
                 chooseProductAttribute={chooseProductAttribute}
                 addProductToCart={addProductToCart}
