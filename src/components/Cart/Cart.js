@@ -25,6 +25,7 @@ class Cart extends React.Component {
             prevProductImage,
             nextProductImage
         } = this.props;
+        console.log(cart);
         console.log(uniqueProductsInCart());
         return(
             <div id="Cart">
@@ -33,9 +34,9 @@ class Cart extends React.Component {
                 </div>
                 <div className="cart-products-container">
                     {
-                        uniqueProductsInCart().map((product, productIndex) => {
+                        cart.map((product, productIndex) => {
                             return(
-                                <div key={product.id} className="cart-product-box">
+                                <div key={productIndex} className="cart-product-box">
                                     <div className="cart-product-description">
                                         <ProductBrand product={product} />
                                         <ProductName product={product} />

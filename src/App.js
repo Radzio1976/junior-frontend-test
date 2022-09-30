@@ -102,6 +102,17 @@ class App extends React.Component {
     });      
   };
 
+  getAttributesString = (arrayOfAttributes) => {
+    let attributesString = "";
+    arrayOfAttributes.forEach((attr) => {
+      if (attributesString.includes(Object.entries(attr).toString()) === false) {
+        attributesString += Object.entries(attr).toString();
+      }
+    });
+
+    return attributesString;
+  };
+
   // Function that supports adding new product to Cart
   addProductToCart = (product) => {
     const chosenProductAttributes = this.state.chosenProductAttributes;
@@ -113,14 +124,22 @@ class App extends React.Component {
         cart: JSON.parse(localStorage.getItem("addedProducts")) === null ? [] : JSON.parse(localStorage.getItem("addedProducts"))
     }, () => {
         let cart = this.state.cart;
+        const productIndex = cart.map(item => this.getAttributesString(item.chosenAttributes)).indexOf(this.getAttributesString(product.chosenAttributes));
 
         if (cart === []) {
+          product.qty = 1;
             cart.push(product);
             localStorage.setItem("addedProducts", JSON.stringify(cart));
         } else {
+          if (productIndex === -1) {
+            product.qty = 1;
             cart.push(product);
             localStorage.setItem("addedProducts", JSON.stringify(cart));
-            this.getTotal(currencyLabel);;
+            this.getTotal(currencyLabel);
+          } else {
+            cart[productIndex].qty = cart[productIndex].qty + 1;
+            localStorage.setItem("addedProducts", JSON.stringify(cart));
+          }
         };
 
         this.setState({
@@ -178,10 +197,53 @@ class App extends React.Component {
   // Function that creates array of unique products in Cart
   uniqueProductsInCart = () => {
     let cart = this.state.cart;
+    let uniqueProductsInCart = [];
+    //let arrayOfAttributesStrings = [];
+
+    /*
+    Array.from(new Set(cart.map(product => product.chosenAttributes.forEach((attr, i) => {
+      if (stringOfAttributes.includes(Object.entries(attr).toString()) === false) {
+        stringOfAttributes = stringOfAttributes + Object.entries(attr).toString();
+      }
+      console.log(stringOfAttributes)
+    }))))
+    */
+   /*
+    cart.forEach(product => {
+      let stringOfAttributes = "";
+      product.chosenAttributes.forEach(attr => {
+      
+      if (stringOfAttributes.includes(Object.entries(attr).toString()) === false) {
+        stringOfAttributes = stringOfAttributes + Object.entries(attr).toString();
+      }
+
+
+      })
+      arrayOfAttributesStrings.push(stringOfAttributes);
+      console.log(arrayOfAttributesStrings)
+    });
+
+    const uniqueProductsInCart = Array.from (new Set(arrayOfAttributesStrings.map(item => {
+      return item
+    })));
+    console.log(uniqueProductsInCart)
+    */
+    //cart.forEach(product => {
+    //  console.log(`${product.id} ${(stringOfAttributes.split(product.id).length-1) / product.chosenAttributes.length}`)
+    //})
+    
+    //.map(attr => {
+    //  return cart.find(product => attr.includes(product.id) && attr.includes(product.chosenAttributes[0].displayValue))
+    //})
+
+    /*
     const uniqueProductsInCart = Array.from(new Set(cart.map(product => product.id)))
     .map(id => {
       return cart.find(product => product.id === id);
     });
+    */
+    uniqueProductsInCart = cart;
+
     return uniqueProductsInCart;
   };
 
@@ -267,7 +329,6 @@ class App extends React.Component {
   };
 
   render() {
-    console.log(this.state.cart.length)
     return(
       <ApolloProvider client={client}>
         <div id="App">
