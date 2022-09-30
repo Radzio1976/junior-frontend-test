@@ -136,7 +136,6 @@ class App extends React.Component {
             product.qty = 1;
             cart.push(product);
             localStorage.setItem("addedProducts", JSON.stringify(cart));
-            this.getTotal(currencyLabel);
           } else {
             cart[productIndex].qty = cart[productIndex].qty + 1;
             localStorage.setItem("addedProducts", JSON.stringify(cart));
@@ -149,6 +148,7 @@ class App extends React.Component {
         }, () => {
           this.getCartImagesIndexes();
           this.getProductsInCartQty();
+          this.getTotal(currencyLabel);
         });
     });
     } else {
@@ -201,7 +201,7 @@ class App extends React.Component {
     cart.forEach(product => {
       sum += product.prices.filter(price => {
         return price.currency.label === currencyLabel;
-      })[0].amount;
+      })[0].amount * product.qty;
     });
 
     this.setState({
