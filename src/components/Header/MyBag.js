@@ -35,7 +35,7 @@ class MyBag extends React.Component {
                     {
                         cart.map((product, productIndex) => {
                             return(
-                                <div key={product.id} className="my-bag-product-box">
+                                <div key={productIndex} className="my-bag-product-box">
                                     <div className="my-bag-product-description">
                                         <ProductBrand product={product} />
                                         <ProductName product={product} />

@@ -28,6 +28,7 @@ class RightNav extends React.Component {
             showMyBag, 
             myBagVisibility, 
             cart, 
+            productsInCartQty,
             total,
             chooseProductAttribute,
             chosenProductAttributes,
@@ -56,7 +57,7 @@ class RightNav extends React.Component {
                     </select>
                 </div>
                 <div className="cart-icon" onClick={() => showMyBag(slug)}>
-                    {cart.length > 0 ?<p className="products-quantity-icon">{cart.length}</p> : null}
+                    {productsInCartQty > 0 ?<p className="products-quantity-icon">{productsInCartQty}</p> : null}
                     <img src={Basket} alt="basket" />
                 </div>
                 {myBagVisibility ?

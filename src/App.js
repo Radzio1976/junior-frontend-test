@@ -26,6 +26,7 @@ class App extends React.Component {
     chosenProductAttributes: [],
     myBagVisibility: false,
     cart: [],
+    productsInCartQty: 0,
     total: 0,
     displayedImages: [] 
   }
@@ -34,6 +35,7 @@ class App extends React.Component {
     this.setState({
       cart: JSON.parse(localStorage.getItem("addedProducts")) === null ? [] : JSON.parse(localStorage.getItem("addedProducts"))
     }, () => {
+      this.getProductsInCartQty();
       this.getTotal(this.state.currencyLabel);
       this.getCartImagesIndexes();
     })
@@ -146,6 +148,7 @@ class App extends React.Component {
             chosenProductAttributes: []
         }, () => {
           this.getCartImagesIndexes();
+          this.getProductsInCartQty();
         });
     });
     } else {
@@ -175,6 +178,19 @@ class App extends React.Component {
         myBagVisibility: cart.length === 0 ? false : true
       });
     };
+  };
+
+  getProductsInCartQty = () => {
+    const cart = this.state.cart;
+    let productsQuantity = 0;
+
+    cart.forEach(product => {
+      productsQuantity += product.qty;
+    });
+
+    this.setState({
+      productsInCartQty: productsQuantity
+    })
   };
   
   // Function that supports updating of total amount of all products in Cart
@@ -281,6 +297,7 @@ class App extends React.Component {
               showMyBag={this.showMyBag}
               myBagVisibility={this.state.myBagVisibility}
               cart={this.state.cart}
+              productsInCartQty={this.state.productsInCartQty}
               total={this.state.total} 
               chooseProductAttribute={this.chooseProductAttribute}
               chosenProductAttributes={this.state.chosenProductAttributes}

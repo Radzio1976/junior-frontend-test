@@ -19,6 +19,7 @@ class Header extends React.Component {
             showMyBag, 
             myBagVisibility, 
             cart,
+            productsInCartQty,
             total, 
             chooseProductAttribute, 
             chosenProductAttributes,
@@ -41,6 +42,7 @@ class Header extends React.Component {
                 currencySymbol={currencySymbol} 
                 changeCurrency={changeCurrency} 
                 cart={cart} 
+                productsInCartQty={productsInCartQty}
                 total={total}
                 showMyBag={showMyBag} 
                 myBagVisibility={myBagVisibility}
