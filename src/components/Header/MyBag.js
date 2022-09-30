@@ -49,6 +49,7 @@ class MyBag extends React.Component {
                                     <div className="my-bag-product-images-and-add-remove">
                                         <CartProductAddRemove 
                                             product={product}
+                                            productIndex={productIndex}
                                             addProductToCart={addProductToCart}
                                             removeProductFromCart={removeProductFromCart}
                                         />

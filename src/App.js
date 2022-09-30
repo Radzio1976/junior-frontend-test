@@ -158,6 +158,30 @@ class App extends React.Component {
 
   // Function that supports removing product from Cart
   removeProductFromCart = (productID) => {
+    console.log(productID);
+    let {currencyLabel, cart} = this.state;
+
+    let productToRemove = cart.find((product, index) => {
+      return index === productID;
+    })
+    console.log(productToRemove);
+
+    if (productToRemove.qty > 1) {
+      productToRemove.qty = productToRemove.qty - 1;
+      localStorage.setItem("addedProducts", JSON.stringify(cart));
+    } else {
+      cart.splice(productID, 1);
+      localStorage.setItem("addedProducts", JSON.stringify(cart));
+    }
+
+    this.setState({
+      cart
+    }, () => {
+      this.getTotal(currencyLabel);
+      this.getProductsInCartQty();
+    })
+
+    /*
     let {currencyLabel, cart, total} = this.state;
     let index = 0;
 
@@ -170,14 +194,16 @@ class App extends React.Component {
         localStorage.removeItem("addedProducts")
       } else {
         localStorage.setItem("addedProducts", JSON.stringify(cart));
-        this.getTotal(currencyLabel);
       };
       
       this.setState({
         cart,
         myBagVisibility: cart.length === 0 ? false : true
+      }, () => {
+        this.getTotal(currencyLabel);
       });
     };
+    */
   };
 
   getProductsInCartQty = () => {

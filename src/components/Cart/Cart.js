@@ -43,6 +43,7 @@ class Cart extends React.Component {
                                     <div className="cart-product-images-and-add-remove">
                                         <CartProductAddRemove 
                                             product={product}
+                                            productIndex={productIndex}
                                             addProductToCart={addProductToCart}
                                             removeProductFromCart={removeProductFromCart}
                                         />
