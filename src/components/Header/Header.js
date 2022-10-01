@@ -24,7 +24,7 @@ class Header extends React.Component {
             chooseProductAttribute, 
             chosenProductAttributes,
             addProductFromProductPage, 
-            removeProductFromCart, 
+            removeProductFromCartOrMyBag, 
             displayedImages,
             prevProductImage,
             nextProductImage
@@ -50,7 +50,7 @@ class Header extends React.Component {
                 displayedImages={displayedImages}
                 chooseProductAttribute={chooseProductAttribute}
                 addProductFromProductPage={addProductFromProductPage}
-                removeProductFromCart={removeProductFromCart}
+                removeProductFromCartOrMyBag={removeProductFromCartOrMyBag}
                 prevProductImage={prevProductImage}
                 nextProductImage={nextProductImage}
                 />

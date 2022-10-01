@@ -157,7 +157,7 @@ class App extends React.Component {
   };
 
   // Function that supports removing product from Cart
-  removeProductFromCart = (productID) => {
+  removeProductFromCartOrMyBag = (productID) => {
     console.log(productID);
     let {currencyLabel, cart} = this.state;
 
@@ -304,7 +304,7 @@ class App extends React.Component {
               chooseProductAttribute={this.chooseProductAttribute}
               chosenProductAttributes={this.state.chosenProductAttributes}
               addProductFromProductPage={this.addProductFromProductPage} 
-              removeProductFromCart={this.removeProductFromCart}
+              removeProductFromCartOrMyBag={this.removeProductFromCartOrMyBag}
               displayedImages={this.state.displayedImages}
               prevProductImage={this.prevProductImage}
               nextProductImage={this.nextProductImage}
@@ -343,7 +343,7 @@ class App extends React.Component {
                   chooseProductAttribute={this.chooseProductAttribute}
                   chosenProductAttributes={this.state.chosenProductAttributes}
                   addProductFromProductPage={this.addProductFromProductPage}
-                  removeProductFromCart={this.removeProductFromCart}
+                  removeProductFromCartOrMyBag={this.removeProductFromCartOrMyBag}
                   prevProductImage={this.prevProductImage}
                   nextProductImage={this.nextProductImage}
                   displayedImages={this.state.displayedImages}

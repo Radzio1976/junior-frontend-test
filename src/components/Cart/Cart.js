@@ -18,7 +18,7 @@ class Cart extends React.Component {
             chooseProductAttribute, 
             chosenProductAttributes,
             addProductFromProductPage, 
-            removeProductFromCart, 
+            removeProductFromCartOrMyBag, 
             displayedImages,
             prevProductImage,
             nextProductImage
@@ -49,7 +49,7 @@ class Cart extends React.Component {
                                             product={product}
                                             productIndex={productIndex}
                                             addProductFromProductPage={addProductFromProductPage}
-                                            removeProductFromCart={removeProductFromCart}
+                                            removeProductFromCartOrMyBag={removeProductFromCartOrMyBag}
                                         />
                                         <CartProductImages
                                             product={product} 

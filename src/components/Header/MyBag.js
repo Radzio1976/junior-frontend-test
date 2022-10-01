@@ -21,7 +21,7 @@ class MyBag extends React.Component {
             chooseProductAttribute, 
             chosenProductAttributes,
             addProductFromProductPage, 
-            removeProductFromCart, 
+            removeProductFromCartOrMyBag, 
             displayedImages,
             prevProductImage,
             nextProductImage
@@ -51,7 +51,7 @@ class MyBag extends React.Component {
                                             product={product}
                                             productIndex={productIndex}
                                             addProductFromProductPage={addProductFromProductPage}
-                                            removeProductFromCart={removeProductFromCart}
+                                            removeProductFromCartOrMyBag={removeProductFromCartOrMyBag}
                                         />
                                         <CartProductImages
                                             product={product} 
