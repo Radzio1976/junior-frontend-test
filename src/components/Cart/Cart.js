@@ -4,6 +4,7 @@ import './Cart.css';
 import ProductBrand from '../ReusableComponents/ProductBrand';
 import ProductName from '../ReusableComponents/ProductName';
 import ProductPrice from '../ReusableComponents/ProductPrice';
+import CartAndMyBagAttributes from '../ReusableComponents/CartAndMyBagAttributes';
 import ProductAttributes from '../ReusableComponents/ProductAttributes';
 import CartProductAddRemove from '../ReusableComponents/CartProductAddRemove';
 import CartProductImages from '../ReusableComponents/CartProductImages';
@@ -38,7 +39,11 @@ class Cart extends React.Component {
                                         <ProductBrand product={product} />
                                         <ProductName product={product} />
                                         <ProductPrice product={product} currencyLabel={currencyLabel} />
-                                        <ProductAttributes product={product} chooseProductAttribute={chooseProductAttribute} chosenProductAttributes={chosenProductAttributes}/>
+                                        <CartAndMyBagAttributes 
+                                            product={product} 
+                                            chooseProductAttribute={chooseProductAttribute} 
+                                            chosenProductAttributes={chosenProductAttributes}
+                                        />
                                     </div>
                                     <div className="cart-product-images-and-add-remove">
                                         <CartProductAddRemove 

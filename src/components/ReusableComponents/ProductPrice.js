@@ -24,7 +24,7 @@ class ProductPrice extends React.Component {
                             display: currencyLabel === price.currency.label ? "block" : "none",
                             paddingTop: "12px",
                             paddingBottom: "12px"
-                        }}>{price.currency.symbol}{price.amount}</h3>
+                        }}>{price.currency.symbol}{price.amount * product.qty}</h3>
                     )
                 })
             }

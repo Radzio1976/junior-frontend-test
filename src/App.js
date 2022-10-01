@@ -180,30 +180,6 @@ class App extends React.Component {
       this.getTotal(currencyLabel);
       this.getProductsInCartQty();
     })
-
-    /*
-    let {currencyLabel, cart, total} = this.state;
-    let index = 0;
-
-    index = cart.findIndex(product => product.id === productID);
-    if (index === -1) {
-      return
-    } else {
-      cart.splice(index, 1);
-      if (total === 0) {
-        localStorage.removeItem("addedProducts")
-      } else {
-        localStorage.setItem("addedProducts", JSON.stringify(cart));
-      };
-      
-      this.setState({
-        cart,
-        myBagVisibility: cart.length === 0 ? false : true
-      }, () => {
-        this.getTotal(currencyLabel);
-      });
-    };
-    */
   };
 
   getProductsInCartQty = () => {

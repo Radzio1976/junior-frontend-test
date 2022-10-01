@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom';
 import ProductBrand from '../ReusableComponents/ProductBrand';
 import ProductName from '../ReusableComponents/ProductName';
 import ProductPrice from '../ReusableComponents/ProductPrice';
+import CartAndMyBagAttributes from '../ReusableComponents/CartAndMyBagAttributes';
 import ProductAttributes from '../ReusableComponents/ProductAttributes';
 import CartProductAddRemove from '../ReusableComponents/CartProductAddRemove';
 import CartProductImages from '../ReusableComponents/CartProductImages';
@@ -40,7 +41,7 @@ class MyBag extends React.Component {
                                         <ProductBrand product={product} />
                                         <ProductName product={product} />
                                         <ProductPrice product={product} currencyLabel={currencyLabel} myBagVisibility={myBagVisibility} />
-                                        <ProductAttributes 
+                                        <CartAndMyBagAttributes 
                                         product={product} 
                                         chooseProductAttribute={chooseProductAttribute} 
                                         chosenProductAttributes={chosenProductAttributes}
