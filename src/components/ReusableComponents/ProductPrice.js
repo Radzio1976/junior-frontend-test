@@ -9,6 +9,7 @@ class ProductPrice extends React.Component {
             currencyLabel, 
             myBagVisibility
         } = this.props;
+        console.log(product.qty)
         return(
             <div className="product-price-container">
             <h3 style={{
@@ -24,7 +25,7 @@ class ProductPrice extends React.Component {
                             display: currencyLabel === price.currency.label ? "block" : "none",
                             paddingTop: "12px",
                             paddingBottom: "12px"
-                        }}>{price.currency.symbol}{price.amount * product.qty}</h3>
+                        }}>{price.currency.symbol}{product.qty !== undefined ? price.amount * product.qty : price.amount}</h3>
                     )
                 })
             }

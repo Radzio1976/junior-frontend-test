@@ -12,7 +12,7 @@ class ProductDescription extends React.Component {
             currencyLabel, 
             chooseProductAttribute, 
             chosenProductAttributes, 
-            addProductToCart
+            addProductFromProductPage
         } = this.props;
         return(
             <div className="product-description-container">
@@ -25,7 +25,7 @@ class ProductDescription extends React.Component {
                 />
                 <ProductPrice product={product} currencyLabel={currencyLabel} />
                 <div className="product-add-to-cart-button-container">
-                    {product.inStock === true ? <button onClick={() => addProductToCart(product)}>Add to cart</button> : null}
+                    {product.inStock === true ? <button onClick={() => addProductFromProductPage(product)}>Add to cart</button> : null}
                 </div>
                 <div className="product-desc-container">
                     <p>{product.description.replace("<p>", "").replace("</p>", "")}</p>

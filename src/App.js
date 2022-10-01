@@ -115,7 +115,7 @@ class App extends React.Component {
   };
 
   // Function that supports adding new product to Cart
-  addProductToCart = (product) => {
+  addProductFromProductPage = (product) => {
     const chosenProductAttributes = this.state.chosenProductAttributes;
     const currencyLabel = this.state.currencyLabel;
     if (chosenProductAttributes.length === product.attributes.length) {
@@ -303,7 +303,7 @@ class App extends React.Component {
               total={this.state.total} 
               chooseProductAttribute={this.chooseProductAttribute}
               chosenProductAttributes={this.state.chosenProductAttributes}
-              addProductToCart={this.addProductToCart} 
+              addProductFromProductPage={this.addProductFromProductPage} 
               removeProductFromCart={this.removeProductFromCart}
               displayedImages={this.state.displayedImages}
               prevProductImage={this.prevProductImage}
@@ -331,7 +331,7 @@ class App extends React.Component {
                   productMainImageURL={this.state.productMainImageURL} 
                   chooseProductAttribute={this.chooseProductAttribute}
                   chosenProductAttributes={this.state.chosenProductAttributes}
-                  addProductToCart={this.addProductToCart}
+                  addProductFromProductPage={this.addProductFromProductPage}
                 />} 
               />
               <Route path="/cart" exact component={() => 
@@ -342,7 +342,7 @@ class App extends React.Component {
                   currencySymbol={this.state.currencySymbol}
                   chooseProductAttribute={this.chooseProductAttribute}
                   chosenProductAttributes={this.state.chosenProductAttributes}
-                  addProductToCart={this.addProductToCart}
+                  addProductFromProductPage={this.addProductFromProductPage}
                   removeProductFromCart={this.removeProductFromCart}
                   prevProductImage={this.prevProductImage}
                   nextProductImage={this.nextProductImage}

@@ -5,8 +5,7 @@ import ProductBrand from '../ReusableComponents/ProductBrand';
 import ProductName from '../ReusableComponents/ProductName';
 import ProductPrice from '../ReusableComponents/ProductPrice';
 import CartAndMyBagAttributes from '../ReusableComponents/CartAndMyBagAttributes';
-import ProductAttributes from '../ReusableComponents/ProductAttributes';
-import CartProductAddRemove from '../ReusableComponents/CartProductAddRemove';
+import CartAndMyBagAddRemove from '../ReusableComponents/CartAndMyBagAddRemove';
 import CartProductImages from '../ReusableComponents/CartProductImages';
 
 class Cart extends React.Component {
@@ -18,7 +17,7 @@ class Cart extends React.Component {
             currencySymbol, 
             chooseProductAttribute, 
             chosenProductAttributes,
-            addProductToCart, 
+            addProductFromProductPage, 
             removeProductFromCart, 
             displayedImages,
             prevProductImage,
@@ -46,10 +45,10 @@ class Cart extends React.Component {
                                         />
                                     </div>
                                     <div className="cart-product-images-and-add-remove">
-                                        <CartProductAddRemove 
+                                        <CartAndMyBagAddRemove 
                                             product={product}
                                             productIndex={productIndex}
-                                            addProductToCart={addProductToCart}
+                                            addProductFromProductPage={addProductFromProductPage}
                                             removeProductFromCart={removeProductFromCart}
                                         />
                                         <CartProductImages
