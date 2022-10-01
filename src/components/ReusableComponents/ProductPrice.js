@@ -9,7 +9,6 @@ class ProductPrice extends React.Component {
             currencyLabel, 
             myBagVisibility
         } = this.props;
-        console.log(product.qty)
         return(
             <div className="product-price-container">
             <h3 style={{

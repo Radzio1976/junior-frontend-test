@@ -156,6 +156,25 @@ class App extends React.Component {
     };
   };
 
+  addProductFromCartOrMyBag = (productID) => {
+    let {currencyLabel, cart} = this.state;
+
+    let productToAdd = cart.find((product, index) => {
+      return index === productID;
+    })
+    console.log(productToAdd);
+
+    productToAdd.qty = productToAdd.qty + 1;
+    localStorage.setItem("addedProducts", JSON.stringify(cart));
+
+    this.setState({
+      cart
+    }, () => {
+      this.getTotal(currencyLabel);
+      this.getProductsInCartQty();
+    })
+  }
+
   // Function that supports removing product from Cart
   removeProductFromCartOrMyBag = (productID) => {
     console.log(productID);
@@ -303,7 +322,7 @@ class App extends React.Component {
               total={this.state.total} 
               chooseProductAttribute={this.chooseProductAttribute}
               chosenProductAttributes={this.state.chosenProductAttributes}
-              addProductFromProductPage={this.addProductFromProductPage} 
+              addProductFromCartOrMyBag={this.addProductFromCartOrMyBag}
               removeProductFromCartOrMyBag={this.removeProductFromCartOrMyBag}
               displayedImages={this.state.displayedImages}
               prevProductImage={this.prevProductImage}
@@ -342,7 +361,7 @@ class App extends React.Component {
                   currencySymbol={this.state.currencySymbol}
                   chooseProductAttribute={this.chooseProductAttribute}
                   chosenProductAttributes={this.state.chosenProductAttributes}
-                  addProductFromProductPage={this.addProductFromProductPage}
+                  addProductFromCartOrMyBag={this.addProductFromCartOrMyBag}
                   removeProductFromCartOrMyBag={this.removeProductFromCartOrMyBag}
                   prevProductImage={this.prevProductImage}
                   nextProductImage={this.nextProductImage}

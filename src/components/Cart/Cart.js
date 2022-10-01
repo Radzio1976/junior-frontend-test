@@ -17,7 +17,7 @@ class Cart extends React.Component {
             currencySymbol, 
             chooseProductAttribute, 
             chosenProductAttributes,
-            addProductFromProductPage, 
+            addProductFromCartOrMyBag,
             removeProductFromCartOrMyBag, 
             displayedImages,
             prevProductImage,
@@ -48,7 +48,7 @@ class Cart extends React.Component {
                                         <CartAndMyBagAddRemove 
                                             product={product}
                                             productIndex={productIndex}
-                                            addProductFromProductPage={addProductFromProductPage}
+                                            addProductFromCartOrMyBag={addProductFromCartOrMyBag}
                                             removeProductFromCartOrMyBag={removeProductFromCartOrMyBag}
                                         />
                                         <CartProductImages

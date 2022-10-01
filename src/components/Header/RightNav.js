@@ -33,7 +33,7 @@ class RightNav extends React.Component {
             chooseProductAttribute,
             chosenProductAttributes,
             displayedImages,
-            addProductFromProductPage,
+            addProductFromCartOrMyBag,
             removeProductFromCartOrMyBag,
             prevProductImage,
             nextProductImage
@@ -70,7 +70,7 @@ class RightNav extends React.Component {
                 chosenProductAttributes={chosenProductAttributes} 
                 displayedImages={displayedImages}
                 chooseProductAttribute={chooseProductAttribute}
-                addProductFromProductPage={addProductFromProductPage}
+                addProductFromCartOrMyBag={addProductFromCartOrMyBag}
                 removeProductFromCartOrMyBag={removeProductFromCartOrMyBag}
                 prevProductImage={prevProductImage}
                 nextProductImage={nextProductImage}

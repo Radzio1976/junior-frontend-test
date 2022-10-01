@@ -5,12 +5,12 @@ class CartAndMyBagAddRemove extends React.Component {
         const {
             product, 
             productIndex,
-            addProductFromProductPage, 
+            addProductFromCartOrMyBag,
             removeProductFromCartOrMyBag, 
         } = this.props;
         return(
             <div className="cart-product-add-remove">
-                <div onClick={() => addProductFromProductPage(product)} className="cart-product-add-button">+</div>
+                <div onClick={() => addProductFromCartOrMyBag(productIndex)} className="cart-product-add-button">+</div>
                 <p>{product.qty}</p>
             <div onClick={() => removeProductFromCartOrMyBag(productIndex)} className="cart-product-remove-button">-</div>
         </div>
