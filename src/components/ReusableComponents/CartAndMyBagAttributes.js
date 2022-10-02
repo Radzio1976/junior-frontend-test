@@ -2,7 +2,10 @@ import React from 'react';
 
 class CartAndMyBagAttributes extends React.Component {
     render() {
-        const product = this.props.product;
+        const {
+            product,
+            cartAndMyBagAttributesStyle
+         } = this.props;
         return(
             <div className="product-attributes-container">
             {
@@ -17,11 +20,7 @@ class CartAndMyBagAttributes extends React.Component {
                                             <div 
                                             key={value.id} 
                                             className="product-attribute-value" 
-                                            style={{
-                                                    backgroundColor: attr.name !== "Color" && product.chosenAttributes.find(el => el.value === value.value && el.name === attr.name) ? "black" : value.value,
-                                                    color: product.chosenAttributes.find(el => el.value === value.value && el.name === attr.name) ? "white" : "black",
-                                                    border: attr.name === "Color" && product.chosenAttributes.find(el => el.value === value.value) ? "2px solid black" : "1px solid black"
-                                            }}
+                                            style={cartAndMyBagAttributesStyle(product, attr, value)}
                                             >
                                                 {attr.name !== "Color" ? <p>{value.value}</p> : ""}
                                             </div>

@@ -19,7 +19,8 @@ class Cart extends React.Component {
             removeProductFromCartOrMyBag, 
             displayedImages,
             prevProductImage,
-            nextProductImage
+            nextProductImage,
+            cartAndMyBagAttributesStyle
         } = this.props;
         return(
             <div id="Cart">
@@ -37,6 +38,7 @@ class Cart extends React.Component {
                                         <ProductPrice product={product} currencyLabel={currencyLabel} />
                                         <CartAndMyBagAttributes 
                                             product={product} 
+                                            cartAndMyBagAttributesStyle={cartAndMyBagAttributesStyle}
                                         />
                                     </div>
                                     <div className="cart-product-images-and-add-remove">

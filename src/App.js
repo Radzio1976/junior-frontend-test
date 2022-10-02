@@ -306,6 +306,14 @@ class App extends React.Component {
       return {opacity: product.inStock === false ? "0.5" : "1"};
     }
 
+    cartAndMyBagAttributesStyle = (product, attr, value) => {
+      return {
+        backgroundColor: attr.name !== "Color" && product.chosenAttributes.find(el => el.value === value.value && el.name === attr.name) ? "black" : value.value,
+        color: product.chosenAttributes.find(el => el.value === value.value && el.name === attr.name) ? "white" : "black",
+        border: attr.name === "Color" && product.chosenAttributes.find(el => el.value === value.value) ? "2px solid black" : "1px solid black"
+      }
+    }
+
   render() {
     return(
       <ApolloProvider client={client}>
@@ -333,6 +341,7 @@ class App extends React.Component {
               prevProductImage={this.prevProductImage}
               nextProductImage={this.nextProductImage}
               leftNavMenuStyle={this.leftNavMenuStyle}
+              cartAndMyBagAttributesStyle={this.cartAndMyBagAttributesStyle}
               />
             <Switch>
               <Route path="/" exact component={() => 
@@ -372,6 +381,7 @@ class App extends React.Component {
                   prevProductImage={this.prevProductImage}
                   nextProductImage={this.nextProductImage}
                   displayedImages={this.state.displayedImages}
+                  cartAndMyBagAttributesStyle={this.cartAndMyBagAttributesStyle}
                 />} 
               />
             </Switch>
