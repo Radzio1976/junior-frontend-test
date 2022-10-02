@@ -266,21 +266,6 @@ class App extends React.Component {
     } else return;
   };
 
-  // Function that returns values of margins of every products column in Products Page
-  productMarginsStyle = (index) => {
-    if (index % 3 === 0) {
-      return {marginRight: "20px"}
-    }
-    
-    if (index % 3 === 1) {
-        return {marginLeft: "20px", marginRight: "20px"}
-    }
-    
-    if (index % 3 === 2) {
-        return {marginLeft: "20px"}
-    }  
-  }
-
   // Function that supports showing of MyBag component
   showMyBag = (slug) => {
     let {cart, myBagVisibility} = this.state;
@@ -295,6 +280,27 @@ class App extends React.Component {
       myBagVisibility
     });
   };
+
+    // Function that returns values of margins of every products column in Products Page
+    productMarginsStyle = (index) => {
+      if (index % 3 === 0) {
+        return {marginRight: "20px"}
+      }
+      
+      if (index % 3 === 1) {
+          return {marginLeft: "20px", marginRight: "20px"}
+      }
+      
+      if (index % 3 === 2) {
+          return {marginLeft: "20px"}
+      }  
+    }
+
+    leftNavMenuStyle = (categoryOfProduct, category) => {
+      return {color: categoryOfProduct === category.name ? "#5ECE7B": "black",
+      borderBottom: categoryOfProduct === category.name ? "2px solid #5ECE7B" : "none",
+      paddingBottom: categoryOfProduct === category.name ? "30px" : "none"};
+    };
 
   render() {
     return(
@@ -322,6 +328,7 @@ class App extends React.Component {
               displayedImages={this.state.displayedImages}
               prevProductImage={this.prevProductImage}
               nextProductImage={this.nextProductImage}
+              leftNavMenuStyle={this.leftNavMenuStyle}
               />
             <Switch>
               <Route path="/" exact component={() => 

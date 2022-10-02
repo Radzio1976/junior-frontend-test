@@ -16,7 +16,10 @@ query ProductsCategories {
 
 class LeftNav extends React.Component {
     render() {
-        const categoryOfProduct = this.props.categoryOfProduct;
+        const {
+            categoryOfProduct,
+            leftNavMenuStyle
+        } = this.props;
         return(
             <nav className="left-nav">
             <ul>
@@ -32,11 +35,7 @@ class LeftNav extends React.Component {
                                     this.props.sortProductsByCategory(category.name);
                                     this.props.history.push(`/category/${category.name}`);
                                     }}
-                                style={{
-                                    color: categoryOfProduct === category.name ? "#5ECE7B": "black",
-                                    borderBottom: categoryOfProduct === category.name ? "2px solid #5ECE7B" : "none",
-                                    paddingBottom: categoryOfProduct === category.name ? "30px" : "none"
-                                }}><h1>{category.name}</h1></li>
+                                style={leftNavMenuStyle(categoryOfProduct, category)}><h1>{category.name}</h1></li>
                             )
                         })
                     }}

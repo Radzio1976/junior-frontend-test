@@ -25,13 +25,15 @@ class Header extends React.Component {
             removeProductFromCartOrMyBag, 
             displayedImages,
             prevProductImage,
-            nextProductImage
+            nextProductImage,
+            leftNavMenuStyle
         } = this.props;
         return(
             <header id="Header">
                 <LeftNav 
                 sortProductsByCategory={sortProductsByCategory} 
                 categoryOfProduct={categoryOfProduct} 
+                leftNavMenuStyle={leftNavMenuStyle}
                 />
                 <Logo resetProductsCategory={resetProductsCategory} />
                 <RightNav 
