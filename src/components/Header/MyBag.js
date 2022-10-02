@@ -18,8 +18,6 @@ class MyBag extends React.Component {
             myBagVisibility,
             currencyLabel, 
             currencySymbol, 
-            chooseProductAttribute, 
-            chosenProductAttributes,
             addProductFromCartOrMyBag,
             removeProductFromCartOrMyBag, 
             displayedImages,
@@ -39,11 +37,13 @@ class MyBag extends React.Component {
                                     <div className="my-bag-product-description">
                                         <ProductBrand product={product} />
                                         <ProductName product={product} />
-                                        <ProductPrice product={product} currencyLabel={currencyLabel} myBagVisibility={myBagVisibility} />
+                                        <ProductPrice 
+                                            product={product} 
+                                            currencyLabel={currencyLabel} 
+                                            myBagVisibility={myBagVisibility} 
+                                        />
                                         <CartAndMyBagAttributes 
-                                        product={product} 
-                                        chooseProductAttribute={chooseProductAttribute} 
-                                        chosenProductAttributes={chosenProductAttributes}
+                                            product={product} 
                                         />
                                     </div>
                                     <div className="my-bag-product-images-and-add-remove">

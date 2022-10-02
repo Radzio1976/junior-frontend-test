@@ -2,11 +2,7 @@ import React from 'react';
 
 class CartAndMyBagAttributes extends React.Component {
     render() {
-        const {
-            product, 
-            chooseProductAttribute, 
-            chosenProductAttributes
-        } = this.props;
+        const product = this.props.product;
         return(
             <div className="product-attributes-container">
             {
@@ -22,11 +18,10 @@ class CartAndMyBagAttributes extends React.Component {
                                             key={value.id} 
                                             className="product-attribute-value" 
                                             style={{
-                                                    backgroundColor: attr.name !== "Color" && chosenProductAttributes.find(el => el.value === value.value && el.name === attr.name) ? "black" : attr.name === "Color" ? `${value.value}` : "white",
-                                                    color: chosenProductAttributes.find(el => el.value === value.value && el.name === attr.name) ? "white" : "black",
-                                                    border: attr.name === "Color" && chosenProductAttributes.find(el => el.value === value.value) ? "2px solid black" : "1px solid black"
+                                                    backgroundColor: attr.name !== "Color" && product.chosenAttributes.find(el => el.value === value.value && el.name === attr.name) ? "black" : value.value,
+                                                    color: product.chosenAttributes.find(el => el.value === value.value && el.name === attr.name) ? "white" : "black",
+                                                    border: attr.name === "Color" && product.chosenAttributes.find(el => el.value === value.value) ? "2px solid black" : "1px solid black"
                                             }}
-                                            onClick={() => chooseProductAttribute({product, attr, value})}
                                             >
                                                 {attr.name !== "Color" ? <p>{value.value}</p> : ""}
                                             </div>

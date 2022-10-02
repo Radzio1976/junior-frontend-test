@@ -15,15 +15,12 @@ class Cart extends React.Component {
             total, 
             currencyLabel, 
             currencySymbol, 
-            chooseProductAttribute, 
-            chosenProductAttributes,
             addProductFromCartOrMyBag,
             removeProductFromCartOrMyBag, 
             displayedImages,
             prevProductImage,
             nextProductImage
         } = this.props;
-        console.log(cart);
         return(
             <div id="Cart">
                 <div className="cart-title-container">
@@ -40,8 +37,6 @@ class Cart extends React.Component {
                                         <ProductPrice product={product} currencyLabel={currencyLabel} />
                                         <CartAndMyBagAttributes 
                                             product={product} 
-                                            chooseProductAttribute={chooseProductAttribute} 
-                                            chosenProductAttributes={chosenProductAttributes}
                                         />
                                     </div>
                                     <div className="cart-product-images-and-add-remove">

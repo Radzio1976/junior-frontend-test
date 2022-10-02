@@ -30,8 +30,6 @@ class RightNav extends React.Component {
             cart, 
             productsInCartQty,
             total,
-            chooseProductAttribute,
-            chosenProductAttributes,
             displayedImages,
             addProductFromCartOrMyBag,
             removeProductFromCartOrMyBag,
@@ -67,9 +65,7 @@ class RightNav extends React.Component {
                 slug={slug}
                 showMyBag={showMyBag}
                 myBagVisibility={myBagVisibility}
-                chosenProductAttributes={chosenProductAttributes} 
                 displayedImages={displayedImages}
-                chooseProductAttribute={chooseProductAttribute}
                 addProductFromCartOrMyBag={addProductFromCartOrMyBag}
                 removeProductFromCartOrMyBag={removeProductFromCartOrMyBag}
                 prevProductImage={prevProductImage}
