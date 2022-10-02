@@ -12,7 +12,8 @@ class ProductDescription extends React.Component {
             currencyLabel, 
             chooseProductAttribute, 
             chosenProductAttributes, 
-            addProductFromProductPage
+            addProductFromProductPage,
+            productAttributesStyle
         } = this.props;
         return(
             <div className="product-description-container">
@@ -22,6 +23,7 @@ class ProductDescription extends React.Component {
                     product={product} 
                     chooseProductAttribute={chooseProductAttribute} 
                     chosenProductAttributes={chosenProductAttributes} 
+                    productAttributesStyle={productAttributesStyle}
                 />
                 <ProductPrice product={product} currencyLabel={currencyLabel} />
                 <div className="product-add-to-cart-button-container">

@@ -47,7 +47,8 @@ class ProductPage extends React.Component {
         productMainImageURL, 
         chooseProductAttribute, 
         chosenProductAttributes, 
-        addProductFromProductPage
+        addProductFromProductPage,
+        productAttributesStyle
       } = this.props;
         return(
           <Query query={GET_PRODUCT} variables={{id}}>
@@ -68,6 +69,7 @@ class ProductPage extends React.Component {
                 chooseProductAttribute={chooseProductAttribute} 
                 chosenProductAttributes={chosenProductAttributes} 
                 addProductFromProductPage={addProductFromProductPage} 
+                productAttributesStyle={productAttributesStyle}
               />
             </div>
             );

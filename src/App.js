@@ -321,6 +321,14 @@ class App extends React.Component {
       }
     }
 
+    productAttributesStyle = (attr, chosenProductAttributes, value) => {
+      return {
+        backgroundColor: attr.name !== "Color" && chosenProductAttributes.find(el => el.value === value.value && el.name === attr.name) ? "black" : attr.name === "Color" ? `${value.value}` : "white",
+        color: chosenProductAttributes.find(el => el.value === value.value && el.name === attr.name) ? "white" : "black",
+        border: attr.name === "Color" && chosenProductAttributes.find(el => el.value === value.value) ? "2px solid black" : "1px solid black"
+      }
+    }
+
   render() {
     return(
       <ApolloProvider client={client}>
@@ -376,6 +384,7 @@ class App extends React.Component {
                   chooseProductAttribute={this.chooseProductAttribute}
                   chosenProductAttributes={this.state.chosenProductAttributes}
                   addProductFromProductPage={this.addProductFromProductPage}
+                  productAttributesStyle={this.productAttributesStyle}
                 />} 
               />
               <Route path="/cart" exact component={() => 
