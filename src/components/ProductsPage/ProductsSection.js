@@ -30,7 +30,8 @@ class ProductsSection extends React.Component {
       const {
         currencyLabel, 
         productMarginsStyle,
-        categoryOfProduct
+        categoryOfProduct,
+        productBoxImageOpacityStyle
       } = this.props;
       const input = categoryOfProduct;
         return(
@@ -49,6 +50,7 @@ class ProductsSection extends React.Component {
                     currencyLabel={currencyLabel} 
                     index={index} 
                     productMarginsStyle={productMarginsStyle} 
+                    productBoxImageOpacityStyle={productBoxImageOpacityStyle}
                     key={product.id} 
                   />
                 )

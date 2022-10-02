@@ -10,7 +10,8 @@ class ProductsPage extends React.Component {
       const {
         categoryOfProduct, 
         currencyLabel, 
-        productMarginsStyle
+        productMarginsStyle,
+        productBoxImageOpacityStyle
       } = this.props;
         return(
         <div id="ProductsPage">
@@ -19,6 +20,7 @@ class ProductsPage extends React.Component {
             categoryOfProduct={categoryOfProduct} 
             currencyLabel={currencyLabel} 
             productMarginsStyle={productMarginsStyle} 
+            productBoxImageOpacityStyle={productBoxImageOpacityStyle}
           />
         </div>
         )

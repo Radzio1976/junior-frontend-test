@@ -285,22 +285,26 @@ class App extends React.Component {
     productMarginsStyle = (index) => {
       if (index % 3 === 0) {
         return {marginRight: "20px"}
-      }
+      };
       
       if (index % 3 === 1) {
           return {marginLeft: "20px", marginRight: "20px"}
-      }
+      };
       
       if (index % 3 === 2) {
           return {marginLeft: "20px"}
-      }  
-    }
+      } ; 
+    };
 
     leftNavMenuStyle = (categoryOfProduct, category) => {
       return {color: categoryOfProduct === category.name ? "#5ECE7B": "black",
       borderBottom: categoryOfProduct === category.name ? "2px solid #5ECE7B" : "none",
       paddingBottom: categoryOfProduct === category.name ? "30px" : "none"};
     };
+
+    productBoxImageOpacityStyle = (product) => {
+      return {opacity: product.inStock === false ? "0.5" : "1"};
+    }
 
   render() {
     return(
@@ -336,6 +340,7 @@ class App extends React.Component {
                   categoryOfProduct="all" 
                   currencyLabel={this.state.currencyLabel} 
                   productMarginsStyle={this.productMarginsStyle}
+                  productBoxImageOpacityStyle={this.productBoxImageOpacityStyle}
                   />}
                 />
               <Route path="/category/:category" exact component={() => 
@@ -343,6 +348,7 @@ class App extends React.Component {
                   categoryOfProduct={this.state.categoryOfProduct} 
                   currencyLabel={this.state.currencyLabel} 
                   productMarginsStyle={this.productMarginsStyle}
+                  productBoxImageOpacityStyle={this.productBoxImageOpacityStyle}
                 />} 
               />
               <Route path="/product/:id" component={() => 
