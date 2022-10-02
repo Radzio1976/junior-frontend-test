@@ -76,6 +76,11 @@
     text-transform: uppercase;
 }
 
+#Cart .product-price-symbol-and-amount {
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
 #Cart .cart-product-images-and-add-remove {
     display: flex;
     height: 288px;

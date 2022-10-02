@@ -311,23 +311,32 @@ class App extends React.Component {
         backgroundColor: attr.name !== "Color" && product.chosenAttributes.find(el => el.value === value.value && el.name === attr.name) ? "black" : value.value,
         color: product.chosenAttributes.find(el => el.value === value.value && el.name === attr.name) ? "white" : "black",
         border: attr.name === "Color" && product.chosenAttributes.find(el => el.value === value.value) ? "2px solid black" : "1px solid black"
-      }
-    }
+      };
+    };
 
     cartProductImagesStyle = (imageIndex, displayedImages, productIndex, array) => {
       return {
         display: imageIndex === displayedImages[productIndex] ? "flex" : "none",
         visibility: array.length > 1 ? "visible" : "hidden"
-      }
-    }
+      };
+    };
 
     productAttributesStyle = (attr, chosenProductAttributes, value) => {
       return {
         backgroundColor: attr.name !== "Color" && chosenProductAttributes.find(el => el.value === value.value && el.name === attr.name) ? "black" : attr.name === "Color" ? `${value.value}` : "white",
         color: chosenProductAttributes.find(el => el.value === value.value && el.name === attr.name) ? "white" : "black",
         border: attr.name === "Color" && chosenProductAttributes.find(el => el.value === value.value) ? "2px solid black" : "1px solid black"
-      }
-    }
+      };
+    };
+
+    productPriceNameVisibilityStyle = (slug, myBagVisibility) => {
+      return {
+        visibility: slug === "cart" ? "hidden" : "visible",
+        height: slug === "cart" ? "0" : "",
+        marginBottom: slug === "cart" ? "0" : "10px",
+        display: myBagVisibility === true ? "none" : "block"
+      };
+    };
 
   render() {
     return(
@@ -358,6 +367,7 @@ class App extends React.Component {
               leftNavMenuStyle={this.leftNavMenuStyle}
               cartAndMyBagAttributesStyle={this.cartAndMyBagAttributesStyle}
               cartProductImagesStyle={this.cartProductImagesStyle}
+              productPriceNameVisibilityStyle={this.productPriceNameVisibilityStyle}
               />
             <Switch>
               <Route path="/" exact component={() => 
@@ -385,6 +395,7 @@ class App extends React.Component {
                   chosenProductAttributes={this.state.chosenProductAttributes}
                   addProductFromProductPage={this.addProductFromProductPage}
                   productAttributesStyle={this.productAttributesStyle}
+                  productPriceNameVisibilityStyle={this.productPriceNameVisibilityStyle}
                 />} 
               />
               <Route path="/cart" exact component={() => 
@@ -400,6 +411,7 @@ class App extends React.Component {
                   displayedImages={this.state.displayedImages}
                   cartAndMyBagAttributesStyle={this.cartAndMyBagAttributesStyle}
                   cartProductImagesStyle={this.cartProductImagesStyle}
+                  productPriceNameVisibilityStyle={this.productPriceNameVisibilityStyle}
                   
                 />} 
               />

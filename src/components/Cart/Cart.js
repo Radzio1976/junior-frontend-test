@@ -21,7 +21,8 @@ class Cart extends React.Component {
             prevProductImage,
             nextProductImage,
             cartAndMyBagAttributesStyle,
-            cartProductImagesStyle
+            cartProductImagesStyle,
+            productPriceNameVisibilityStyle
         } = this.props;
         return(
             <div id="Cart">
@@ -36,7 +37,11 @@ class Cart extends React.Component {
                                     <div className="cart-product-description">
                                         <ProductBrand product={product} />
                                         <ProductName product={product} />
-                                        <ProductPrice product={product} currencyLabel={currencyLabel} />
+                                        <ProductPrice 
+                                            product={product} 
+                                            currencyLabel={currencyLabel} 
+                                            productPriceNameVisibilityStyle={productPriceNameVisibilityStyle}
+                                            />
                                         <CartAndMyBagAttributes 
                                             product={product} 
                                             cartAndMyBagAttributesStyle={cartAndMyBagAttributesStyle}

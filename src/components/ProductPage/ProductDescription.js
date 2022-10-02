@@ -13,8 +13,10 @@ class ProductDescription extends React.Component {
             chooseProductAttribute, 
             chosenProductAttributes, 
             addProductFromProductPage,
-            productAttributesStyle
+            productAttributesStyle,
+            productPriceNameVisibilityStyle
         } = this.props;
+        console.log(productPriceNameVisibilityStyle)
         return(
             <div className="product-description-container">
                 <ProductBrand product={product} />
@@ -25,7 +27,11 @@ class ProductDescription extends React.Component {
                     chosenProductAttributes={chosenProductAttributes} 
                     productAttributesStyle={productAttributesStyle}
                 />
-                <ProductPrice product={product} currencyLabel={currencyLabel} />
+                <ProductPrice 
+                    product={product} 
+                    currencyLabel={currencyLabel} 
+                    productPriceNameVisibilityStyle={productPriceNameVisibilityStyle}
+                />
                 <div className="product-add-to-cart-button-container">
                     {product.inStock === true ? <button onClick={() => addProductFromProductPage(product)}>Add to cart</button> : null}
                 </div>

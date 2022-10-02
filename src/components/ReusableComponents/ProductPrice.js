@@ -7,24 +7,18 @@ class ProductPrice extends React.Component {
         const {
             product, 
             currencyLabel, 
-            myBagVisibility
+            myBagVisibility,
+            productPriceNameVisibilityStyle
         } = this.props;
         return(
             <div className="product-price-container">
-            <h3 style={{
-                visibility: slug === "cart" ? "hidden" : "visible",
-                height: slug === "cart" ? "0" : "",
-                marginBottom: slug === "cart" ? "0" : "10px",
-                display: myBagVisibility === true ? "none" : "block", 
-                }}>Price:</h3>
+            <h3 style={productPriceNameVisibilityStyle(slug, myBagVisibility)}>Price:</h3>
             {
             product.prices.map((price, i) => {
                     return(
-                        <h3 className="product-price-symbol-and-amount" key={i} style={{
-                            display: currencyLabel === price.currency.label ? "block" : "none",
-                            paddingTop: "12px",
-                            paddingBottom: "12px"
-                        }}>{price.currency.symbol}{product.qty !== undefined ? price.amount * product.qty : price.amount}</h3>
+                        <>
+                        {currencyLabel === price.currency.label ? <h3 className="product-price-symbol-and-amount" key={i}>{price.currency.symbol}{product.qty !== undefined ? (price.amount * product.qty).toFixed(2) : price.amount.toFixed(2)}</h3> : null}
+                        </>
                     )
                 })
             }
@@ -34,3 +28,7 @@ class ProductPrice extends React.Component {
 };
 
 export default withRouter(ProductPrice);
+
+/*
+                            display: currencyLabel === price.currency.label ? "block" : "none",
+                            */
