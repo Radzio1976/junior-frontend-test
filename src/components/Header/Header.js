@@ -27,7 +27,8 @@ class Header extends React.Component {
             prevProductImage,
             nextProductImage,
             leftNavMenuStyle,
-            cartAndMyBagAttributesStyle
+            cartAndMyBagAttributesStyle,
+            cartProductImagesStyle
         } = this.props;
         return(
             <header id="Header">
@@ -53,6 +54,7 @@ class Header extends React.Component {
                 prevProductImage={prevProductImage}
                 nextProductImage={nextProductImage}
                 cartAndMyBagAttributesStyle={cartAndMyBagAttributesStyle}
+                cartProductImagesStyle={cartProductImagesStyle}
                 />
             </header>
         )

@@ -314,6 +314,13 @@ class App extends React.Component {
       }
     }
 
+    cartProductImagesStyle = (imageIndex, displayedImages, productIndex, array) => {
+      return {
+        display: imageIndex === displayedImages[productIndex] ? "flex" : "none",
+        visibility: array.length > 1 ? "visible" : "hidden"
+      }
+    }
+
   render() {
     return(
       <ApolloProvider client={client}>
@@ -342,6 +349,7 @@ class App extends React.Component {
               nextProductImage={this.nextProductImage}
               leftNavMenuStyle={this.leftNavMenuStyle}
               cartAndMyBagAttributesStyle={this.cartAndMyBagAttributesStyle}
+              cartProductImagesStyle={this.cartProductImagesStyle}
               />
             <Switch>
               <Route path="/" exact component={() => 
@@ -382,6 +390,8 @@ class App extends React.Component {
                   nextProductImage={this.nextProductImage}
                   displayedImages={this.state.displayedImages}
                   cartAndMyBagAttributesStyle={this.cartAndMyBagAttributesStyle}
+                  cartProductImagesStyle={this.cartProductImagesStyle}
+                  
                 />} 
               />
             </Switch>
