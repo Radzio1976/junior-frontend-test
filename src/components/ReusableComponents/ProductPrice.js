@@ -16,9 +16,9 @@ class ProductPrice extends React.Component {
             {
             product.prices.map((price, i) => {
                     return(
-                        <>
+                        <React.Fragment key={i}>
                         {currencyLabel === price.currency.label ? <h3 className="product-price-symbol-and-amount" key={i}>{price.currency.symbol}{product.qty !== undefined ? (price.amount * product.qty).toFixed(2) : price.amount.toFixed(2)}</h3> : null}
-                        </>
+                        </React.Fragment>
                     )
                 })
             }

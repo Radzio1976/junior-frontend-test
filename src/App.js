@@ -72,6 +72,12 @@ class App extends React.Component {
     });
   };
 
+  resetProductMainImageURL = () => {
+    this.setState({
+      productMainImageURL: ""
+    });
+  }
+
   // Function that supports changing product attributes
   chooseProductAttribute = (value) => {
     let chosenProductAttributes = this.state.chosenProductAttributes;
@@ -374,6 +380,7 @@ class App extends React.Component {
                 <ProductsPage 
                   categoryOfProduct="all" 
                   currencyLabel={this.state.currencyLabel} 
+                  resetProductMainImageURL={this.resetProductMainImageURL}
                   productMarginsStyle={this.productMarginsStyle}
                   productBoxImageOpacityStyle={this.productBoxImageOpacityStyle}
                   />}
@@ -382,6 +389,7 @@ class App extends React.Component {
                 <ProductsPage 
                   categoryOfProduct={this.state.categoryOfProduct} 
                   currencyLabel={this.state.currencyLabel} 
+                  resetProductMainImageURL={this.resetProductMainImageURL}
                   productMarginsStyle={this.productMarginsStyle}
                   productBoxImageOpacityStyle={this.productBoxImageOpacityStyle}
                 />} 

@@ -7,11 +7,20 @@ class ProductBox extends React.Component {
           product, 
           currencyLabel, 
           index, 
+          resetProductMainImageURL,
           productMarginsStyle,
           productBoxImageOpacityStyle
         } = this.props;
         return(
-            <div className="product-box" key={product.id} onClick={() => this.props.history.push(`/product/${product.id}`)} style={productMarginsStyle(index)}>
+            <div 
+              className="product-box" 
+              key={product.id} 
+              onClick={
+                () => {
+                  this.props.history.push(`/product/${product.id}`);
+                  resetProductMainImageURL();
+                  }} 
+              style={productMarginsStyle(index)}>
             <div className="product-image-container">
               {product.inStock === false ? <p className="product-out-of-stock">out of stock</p> : null}
               <img src={product.gallery[0]} alt={product.name} style={productBoxImageOpacityStyle(product)} />

@@ -16,7 +16,6 @@ class ProductDescription extends React.Component {
             productAttributesStyle,
             productPriceNameVisibilityStyle
         } = this.props;
-        console.log(productPriceNameVisibilityStyle)
         return(
             <div className="product-description-container">
                 <ProductBrand product={product} />
