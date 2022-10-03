@@ -28,7 +28,3 @@ class ProductPrice extends React.Component {
 };
 
 export default withRouter(ProductPrice);
-
-/*
-                            display: currencyLabel === price.currency.label ? "block" : "none",
-                            */

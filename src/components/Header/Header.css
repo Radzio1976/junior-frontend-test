@@ -151,7 +151,6 @@
     display: flex;
     justify-content: center;
     border: 1px solid black;
-    cursor: pointer;
     padding: 1px 3px;
     height: 24px;
     min-width: 24px;

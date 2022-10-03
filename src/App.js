@@ -38,21 +38,21 @@ class App extends React.Component {
       this.getProductsInCartQty();
       this.getTotal(this.state.currencyLabel);
       this.getCartImagesIndexes();
-    })
+    });
   };
 
-  // Function that supports changing category of products on Products Page
+  // Functions that supports changing category of products on Products Page
   sortProductsByCategory = (category) => {
     this.setState({
       categoryOfProduct: category
-    })
+    });
   };
 
   resetProductsCategory = () => {
     this.setState({
       categoryOfProduct: "all"
-    })
-  }
+    });
+  };
 
   // Function that supports changing currency
   changeCurrency = (key, value) => {
@@ -65,7 +65,7 @@ class App extends React.Component {
     });
   };
 
-  // Function that supports changing main product image on Product Page
+  // Functions that supports changing main product image on Product Page
   changeProductMainImageURL = (url) => {
     this.setState({
       productMainImageURL: url
@@ -76,7 +76,7 @@ class App extends React.Component {
     this.setState({
       productMainImageURL: ""
     });
-  }
+  };
 
   // Function that supports changing product attributes
   chooseProductAttribute = (value) => {
@@ -97,7 +97,7 @@ class App extends React.Component {
       } else {
           chosenAttributes.push(attributesObj);
       };
-    }
+    };
 
     if ((chosenAttributes.findIndex(el => el.id === value.product.id) === -1 && chosenAttributes.length > 0)) {
       chosenAttributes = [];
@@ -109,12 +109,13 @@ class App extends React.Component {
     });      
   };
 
+  // Function which change array of attributes to string
   getAttributesString = (arrayOfAttributes) => {
     let attributesString = "";
     arrayOfAttributes.forEach((attr) => {
       if (attributesString.includes(Object.entries(attr).toString()) === false) {
         attributesString += Object.entries(attr).toString();
-      }
+      };
     });
 
     return attributesString;
@@ -162,6 +163,7 @@ class App extends React.Component {
     };
   };
 
+  // Function that supports adding new product to Cart from CartPage or MyBag
   addProductFromCartOrMyBag = (productID) => {
     let {currencyLabel, cart} = this.state;
 
@@ -177,8 +179,8 @@ class App extends React.Component {
     }, () => {
       this.getTotal(currencyLabel);
       this.getProductsInCartQty();
-    })
-  }
+    });
+  };
 
   // Function that supports removing product from Cart
   removeProductFromCartOrMyBag = (productID) => {
@@ -204,6 +206,7 @@ class App extends React.Component {
     })
   };
 
+  // Function which calculate quantity of products added to Cart
   getProductsInCartQty = () => {
     const cart = this.state.cart;
     let productsQuantity = 0;
@@ -214,7 +217,7 @@ class App extends React.Component {
 
     this.setState({
       productsInCartQty: productsQuantity
-    })
+    });
   };
   
   // Function that supports updating of total amount of all products in Cart
@@ -280,7 +283,7 @@ class App extends React.Component {
       myBagVisibility === false ? myBagVisibility = true : myBagVisibility = false;
     } else {
       myBagVisibility = false;
-    }
+    };
   
     this.setState({
       myBagVisibility
@@ -299,27 +302,33 @@ class App extends React.Component {
       
       if (index % 3 === 2) {
           return {marginLeft: "20px"}
-      } ; 
+      }; 
     };
 
+    // Function that creates CSS style of LeftNav with categories when category of products was changed
     leftNavMenuStyle = (categoryOfProduct, category) => {
-      return {color: categoryOfProduct === category.name ? "#5ECE7B": "black",
-      borderBottom: categoryOfProduct === category.name ? "2px solid #5ECE7B" : "none",
-      paddingBottom: categoryOfProduct === category.name ? "30px" : "none"};
+      return {
+        color: categoryOfProduct === category.name ? "#5ECE7B": "black",
+        borderBottom: categoryOfProduct === category.name ? "2px solid #5ECE7B" : "none",
+        paddingBottom: categoryOfProduct === category.name ? "30px" : "none"
+      };
     };
 
+    // Functon that changes opacity of product image on ProductsPage when product is out of stock
     productBoxImageOpacityStyle = (product) => {
       return {opacity: product.inStock === false ? "0.5" : "1"};
     }
 
+    // Function that shows which attributes of added product to Cart was selected
     cartAndMyBagAttributesStyle = (product, attr, value) => {
       return {
-        backgroundColor: attr.name !== "Color" && product.chosenAttributes.find(el => el.value === value.value && el.name === attr.name) ? "black" : value.value,
+        backgroundColor: attr.name !== "Color" && product.chosenAttributes.find(el => el.value === value.value && el.name === attr.name) ? "black" : "white",
         color: product.chosenAttributes.find(el => el.value === value.value && el.name === attr.name) ? "white" : "black",
         border: attr.name === "Color" && product.chosenAttributes.find(el => el.value === value.value) ? "2px solid black" : "1px solid black"
       };
     };
 
+    // Function that controls which image of product in Cart is visible
     cartProductImagesStyle = (imageIndex, displayedImages, productIndex, array) => {
       return {
         display: imageIndex === displayedImages[productIndex] ? "flex" : "none",
@@ -327,6 +336,7 @@ class App extends React.Component {
       };
     };
 
+    // Functon that controls showing which attribute was selected in ProductPage
     productAttributesStyle = (attr, chosenProductAttributes, value) => {
       return {
         backgroundColor: attr.name !== "Color" && chosenProductAttributes.find(el => el.value === value.value && el.name === attr.name) ? "black" : attr.name === "Color" ? `${value.value}` : "white",
@@ -335,6 +345,7 @@ class App extends React.Component {
       };
     };
 
+    // Function that controls when "Price:" is visible
     productPriceNameVisibilityStyle = (slug, myBagVisibility) => {
       return {
         visibility: slug === "cart" ? "hidden" : "visible",
@@ -354,7 +365,7 @@ class App extends React.Component {
             () => this.showMyBag()}></div> : null}
           <BrowserRouter>
             <Header 
-              sortProductsByCategory={this.sortProductsByCategory} // ?????
+              sortProductsByCategory={this.sortProductsByCategory}
               categoryOfProduct={this.state.categoryOfProduct}
               resetProductsCategory={this.resetProductsCategory}
               changeCurrency={this.changeCurrency} 
@@ -409,6 +420,7 @@ class App extends React.Component {
               <Route path="/cart" exact component={() => 
                 <Cart 
                   cart={this.state.cart}
+                  productsInCartQty={this.state.productsInCartQty}
                   total={this.state.total} 
                   currencyLabel={this.state.currencyLabel}
                   currencySymbol={this.state.currencySymbol}

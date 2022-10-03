@@ -12,6 +12,7 @@ class MyBag extends React.Component {
     render() {
         const {
             cart, 
+            productsInCartQty,
             total, 
             slug,
             showMyBag,
@@ -30,7 +31,7 @@ class MyBag extends React.Component {
         return(
             <div className="my-bag">
                 <div className="my-bag-title-container">
-                    <h2>My bag, <span>{cart.length} item{`${cart.length === 1 ? "" : "s"}`}</span></h2>
+                    <h2>My bag, <span>{productsInCartQty} item{`${productsInCartQty === 1 ? "" : "s"}`}</span></h2>
                 </div>
                 <div className="cart-products-container">
                     {

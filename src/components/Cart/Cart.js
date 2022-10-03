@@ -12,6 +12,7 @@ class Cart extends React.Component {
     render() {
         const {
             cart, 
+            productsInCartQty,
             total, 
             currencyLabel, 
             currencySymbol, 
@@ -70,7 +71,7 @@ class Cart extends React.Component {
                 </div>
                 <div className="cart-summary-container">
                     <p>Tax 21%: <span>{currencySymbol}{(total * 0.21).toFixed(2)}</span></p>
-                    <p>Quantity: <span>{cart.length}</span></p>
+                    <p>Quantity: <span>{productsInCartQty}</span></p>
                     <p>Total: <span>{currencySymbol}{total.toFixed(2)}</span></p>
                     <button>Order</button>
                 </div>

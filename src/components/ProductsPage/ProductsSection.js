@@ -37,7 +37,7 @@ class ProductsSection extends React.Component {
       const input = categoryOfProduct;
         return(
           <Query query={GET_PRODUCTS_BY_CATEGORY} variables={{input}}>
-                      {({ loading, error, data }) => {
+            {({ loading, error, data }) => {
             if (loading) return null;
             if (error) return `Error! ${error}`;
             const productsByCategory = data.category.products;

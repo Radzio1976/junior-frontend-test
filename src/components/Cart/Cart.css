@@ -62,7 +62,6 @@
 
 #Cart .cart-product-description .product-attribute-value {
     border: 1px solid black;
-    cursor: pointer;
     padding: 13px 14px;
     margin-right: 12px;
 }

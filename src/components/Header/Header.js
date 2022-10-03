@@ -34,29 +34,29 @@ class Header extends React.Component {
         return(
             <header id="Header">
                 <LeftNav 
-                sortProductsByCategory={sortProductsByCategory} 
-                categoryOfProduct={categoryOfProduct} 
-                leftNavMenuStyle={leftNavMenuStyle}
+                    sortProductsByCategory={sortProductsByCategory} 
+                    categoryOfProduct={categoryOfProduct} 
+                    leftNavMenuStyle={leftNavMenuStyle}
                 />
                 <Logo resetProductsCategory={resetProductsCategory} />
                 <RightNav 
-                currency={currency} 
-                currencyLabel={currencyLabel}
-                currencySymbol={currencySymbol} 
-                changeCurrency={changeCurrency} 
-                cart={cart} 
-                productsInCartQty={productsInCartQty}
-                total={total}
-                showMyBag={showMyBag} 
-                myBagVisibility={myBagVisibility}
-                displayedImages={displayedImages}
-                addProductFromCartOrMyBag={addProductFromCartOrMyBag}
-                removeProductFromCartOrMyBag={removeProductFromCartOrMyBag}
-                prevProductImage={prevProductImage}
-                nextProductImage={nextProductImage}
-                cartAndMyBagAttributesStyle={cartAndMyBagAttributesStyle}
-                cartProductImagesStyle={cartProductImagesStyle}
-                productPriceNameVisibilityStyle={productPriceNameVisibilityStyle}
+                    currency={currency} 
+                    currencyLabel={currencyLabel}
+                    currencySymbol={currencySymbol} 
+                    changeCurrency={changeCurrency} 
+                    cart={cart} 
+                    productsInCartQty={productsInCartQty}
+                    total={total}
+                    showMyBag={showMyBag} 
+                    myBagVisibility={myBagVisibility}
+                    displayedImages={displayedImages}
+                    addProductFromCartOrMyBag={addProductFromCartOrMyBag}
+                    removeProductFromCartOrMyBag={removeProductFromCartOrMyBag}
+                    prevProductImage={prevProductImage}
+                    nextProductImage={nextProductImage}
+                    cartAndMyBagAttributesStyle={cartAndMyBagAttributesStyle}
+                    cartProductImagesStyle={cartProductImagesStyle}
+                    productPriceNameVisibilityStyle={productPriceNameVisibilityStyle}
                 />
             </header>
         )

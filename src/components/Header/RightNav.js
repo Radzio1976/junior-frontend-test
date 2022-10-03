@@ -64,6 +64,7 @@ class RightNav extends React.Component {
                 {myBagVisibility ?
                 <MyBag 
                 cart={cart}
+                productsInCartQty={productsInCartQty}
                 total={total}
                 slug={slug}
                 showMyBag={showMyBag}
