@@ -306,15 +306,6 @@ class App extends React.Component {
       }; 
     };
 
-    // Function that creates CSS style of LeftNav with categories when category of products was changed
-    leftNavMenuStyle = (categoryOfProduct, category) => {
-      return {
-        color: categoryOfProduct === category.name ? "#5ECE7B": "black",
-        borderBottom: categoryOfProduct === category.name ? "2px solid #5ECE7B" : "none",
-        paddingBottom: categoryOfProduct === category.name ? "30px" : "none"
-      };
-    };
-
     // Functon that changes opacity of product image on ProductsPage when product is out of stock
     productBoxImageOpacityStyle = (product) => {
       return {opacity: product.inStock === false ? "0.5" : "1"};
@@ -382,7 +373,6 @@ class App extends React.Component {
               displayedImages={this.state.displayedImages}
               prevProductImage={this.prevProductImage}
               nextProductImage={this.nextProductImage}
-              leftNavMenuStyle={this.leftNavMenuStyle}
               cartAndMyBagAttributesStyle={this.cartAndMyBagAttributesStyle}
               cartProductImagesStyle={this.cartProductImagesStyle}
               productPriceNameVisibilityStyle={this.productPriceNameVisibilityStyle}

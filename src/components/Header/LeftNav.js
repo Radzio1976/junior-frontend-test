@@ -16,10 +16,7 @@ query ProductsCategories {
 
 class LeftNav extends React.Component {
     render() {
-        const {
-            categoryOfProduct,
-            leftNavMenuStyle
-        } = this.props;
+        const categoryOfProduct = this.props.categoryOfProduct;
         return(
             <nav className="left-nav">
             <ul>
@@ -29,13 +26,12 @@ class LeftNav extends React.Component {
                         const categories = data.categories;
                         return categories.map((category, i) => {
                             return(
-                                <li 
+                                <li className={categoryOfProduct === category.name ? "left-nav-category-of-products-selected" : "left-nav-category-of-products-not-selected"}
                                 key={i} 
                                 onClick={() => {
                                     this.props.sortProductsByCategory(category.name);
                                     this.props.history.push(`/category/${category.name}`);
-                                    }}
-                                style={leftNavMenuStyle(categoryOfProduct, category)}><h1>{category.name}</h1></li>
+                                    }}><h1>{category.name}</h1></li>
                             )
                         })
                     }}

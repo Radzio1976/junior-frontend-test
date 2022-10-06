@@ -26,7 +26,6 @@ class Header extends React.Component {
             displayedImages,
             prevProductImage,
             nextProductImage,
-            leftNavMenuStyle,
             cartAndMyBagAttributesStyle,
             cartProductImagesStyle,
             productPriceNameVisibilityStyle
@@ -36,7 +35,6 @@ class Header extends React.Component {
                 <LeftNav 
                     sortProductsByCategory={sortProductsByCategory} 
                     categoryOfProduct={categoryOfProduct} 
-                    leftNavMenuStyle={leftNavMenuStyle}
                 />
                 <Logo resetProductsCategory={resetProductsCategory} />
                 <RightNav 
