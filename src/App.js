@@ -33,7 +33,8 @@ class App extends React.Component {
 
   componentDidMount() {
     this.setState({
-      cart: JSON.parse(localStorage.getItem("addedProducts")) === null ? [] : JSON.parse(localStorage.getItem("addedProducts"))
+      cart: JSON.parse(localStorage.getItem("addedProducts")) === null ? [] : JSON.parse(localStorage.getItem("addedProducts")),
+      categoryOfProduct: window.location.pathname.substring(10)
     }, () => {
       this.getProductsInCartQty();
       this.getTotal(this.state.currencyLabel);
@@ -396,7 +397,7 @@ class App extends React.Component {
                   productBoxImageOpacityStyle={this.productBoxImageOpacityStyle}
                   />}
                 />
-              <Route path="/category/:category" exact component={() => 
+              <Route path={`/category/:${this.state.categoryOfProduct}`} exact component={() => 
                 <ProductsPage 
                   categoryOfProduct={this.state.categoryOfProduct} 
                   currencyLabel={this.state.currencyLabel} 
