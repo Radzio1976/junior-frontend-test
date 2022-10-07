@@ -29,7 +29,6 @@ class ProductsSection extends React.Component {
     render() {
       const {
         currencyLabel, 
-        productMarginsStyle,
         categoryOfProduct,
         resetProductMainImageURL,
         productBoxImageOpacityStyle
@@ -51,7 +50,6 @@ class ProductsSection extends React.Component {
                     currencyLabel={currencyLabel} 
                     index={index} 
                     resetProductMainImageURL={resetProductMainImageURL}
-                    productMarginsStyle={productMarginsStyle} 
                     productBoxImageOpacityStyle={productBoxImageOpacityStyle}
                     key={product.id} 
                   />

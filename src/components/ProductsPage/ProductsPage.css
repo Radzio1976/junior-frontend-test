@@ -29,6 +29,19 @@
     padding-top: 15px;
 }
 
+.product-box-left-column-margin {
+    margin-right: 20px
+}
+
+.product-box-middle-column-margin {
+    margin-left: 20px;
+    margin-right: 20px
+}
+
+.product-box-right-column-margin {
+    margin-left: 20px;
+}
+
 .product-image-container {
     position: relative;
     text-align: center;

@@ -291,21 +291,6 @@ class App extends React.Component {
     });
   };
 
-    // Function that returns values of margins of every products column in Products Page
-    productMarginsStyle = (index) => {
-      if (index % 3 === 0) {
-        return {marginRight: "20px"}
-      };
-      
-      if (index % 3 === 1) {
-          return {marginLeft: "20px", marginRight: "20px"}
-      };
-      
-      if (index % 3 === 2) {
-          return {marginLeft: "20px"}
-      }; 
-    };
-
     // Functon that changes opacity of product image on ProductsPage when product is out of stock
     productBoxImageOpacityStyle = (product) => {
       return {opacity: product.inStock === false ? "0.5" : "1"};
@@ -383,7 +368,6 @@ class App extends React.Component {
                   categoryOfProduct="all" 
                   currencyLabel={this.state.currencyLabel} 
                   resetProductMainImageURL={this.resetProductMainImageURL}
-                  productMarginsStyle={this.productMarginsStyle}
                   productBoxImageOpacityStyle={this.productBoxImageOpacityStyle}
                   />}
                 />
@@ -392,7 +376,6 @@ class App extends React.Component {
                   categoryOfProduct={this.state.categoryOfProduct} 
                   currencyLabel={this.state.currencyLabel} 
                   resetProductMainImageURL={this.resetProductMainImageURL}
-                  productMarginsStyle={this.productMarginsStyle}
                   productBoxImageOpacityStyle={this.productBoxImageOpacityStyle}
                 />} 
               />
