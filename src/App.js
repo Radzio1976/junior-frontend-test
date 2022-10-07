@@ -291,11 +291,6 @@ class App extends React.Component {
     });
   };
 
-    // Functon that changes opacity of product image on ProductsPage when product is out of stock
-    productBoxImageOpacityStyle = (product) => {
-      return {opacity: product.inStock === false ? "0.5" : "1"};
-    }
-
     // Function that shows which attributes of added product to Cart was selected
     cartAndMyBagAttributesStyle = (product, attr, value) => {
       return {
@@ -368,7 +363,6 @@ class App extends React.Component {
                   categoryOfProduct="all" 
                   currencyLabel={this.state.currencyLabel} 
                   resetProductMainImageURL={this.resetProductMainImageURL}
-                  productBoxImageOpacityStyle={this.productBoxImageOpacityStyle}
                   />}
                 />
               <Route path={`/category/:${this.state.categoryOfProduct}`} exact component={() => 
@@ -376,7 +370,6 @@ class App extends React.Component {
                   categoryOfProduct={this.state.categoryOfProduct} 
                   currencyLabel={this.state.currencyLabel} 
                   resetProductMainImageURL={this.resetProductMainImageURL}
-                  productBoxImageOpacityStyle={this.productBoxImageOpacityStyle}
                 />} 
               />
               <Route path="/product/:id" component={() => 

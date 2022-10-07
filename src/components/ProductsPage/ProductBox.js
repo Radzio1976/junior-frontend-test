@@ -7,8 +7,7 @@ class ProductBox extends React.Component {
           product, 
           currencyLabel, 
           index, 
-          resetProductMainImageURL,
-          productBoxImageOpacityStyle
+          resetProductMainImageURL
         } = this.props;
         return(
             <div 
@@ -21,7 +20,7 @@ class ProductBox extends React.Component {
                   }}>
             <div className="product-image-container">
               {product.inStock === false ? <p className="product-out-of-stock">out of stock</p> : null}
-              <img src={product.gallery[0]} alt={product.name} style={productBoxImageOpacityStyle(product)} />
+              <img className={product.inStock === false ? "product-image-container-image-opacity-on" : "product-image-container-image-opacity-off"} src={product.gallery[0]} alt={product.name} />
             </div>
             <div className="product-name-and-price-container">
               <h3>{product.name}</h3>

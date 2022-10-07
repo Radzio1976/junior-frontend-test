@@ -10,7 +10,6 @@ class ProductsPage extends React.Component {
         categoryOfProduct, 
         currencyLabel, 
         resetProductMainImageURL,
-        productBoxImageOpacityStyle
       } = this.props;
         return(
         <div id="ProductsPage">
@@ -19,7 +18,6 @@ class ProductsPage extends React.Component {
             categoryOfProduct={categoryOfProduct} 
             currencyLabel={currencyLabel} 
             resetProductMainImageURL={resetProductMainImageURL}
-            productBoxImageOpacityStyle={productBoxImageOpacityStyle}
           />
         </div>
         )

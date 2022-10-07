@@ -50,6 +50,14 @@
     margin: 0 auto;
 }
 
+.product-image-container-image-opacity-on {
+    opacity: 0.5;
+}
+
+.product-image-container-image-opacity-off {
+    opacity: 1;
+}
+
 .product-image-container img {
     height: 100%;
 }
