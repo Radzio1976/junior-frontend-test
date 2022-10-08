@@ -223,6 +223,18 @@
     right: 10px;
 }
 
+.cart-product-image-prev-next-button-display-none {
+    display: none !important;
+}
+
+.cart-product-image-prev-next-button-visibility-visible {
+    visibility: visible;
+}
+
+.cart-product-image-prev-next-button-visibility-hidden {
+    visibility: hidden;
+}
+
 .my-bag .cart-product-images .cart-product-image-prev-next-button div {
     display: flex;
     justify-content: center;

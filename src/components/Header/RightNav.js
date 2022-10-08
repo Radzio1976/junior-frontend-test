@@ -36,7 +36,6 @@ class RightNav extends React.Component {
             prevProductImage,
             nextProductImage,
             cartAndMyBagAttributesStyle,
-            cartProductImagesStyle,
             productPriceNameVisibilityStyle
         } = this.props;
         return(
@@ -77,7 +76,6 @@ class RightNav extends React.Component {
                 currencyLabel={currencyLabel}
                 currencySymbol={currencySymbol}
                 cartAndMyBagAttributesStyle={cartAndMyBagAttributesStyle}
-                cartProductImagesStyle={cartProductImagesStyle}
                 productPriceNameVisibilityStyle={productPriceNameVisibilityStyle}
                 /> : null}
             </nav>

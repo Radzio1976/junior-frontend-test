@@ -298,14 +298,6 @@ class App extends React.Component {
       };
     };
 
-    // Function that controls which image of product in Cart is visible
-    cartProductImagesStyle = (imageIndex, displayedImages, productIndex, array) => {
-      return {
-        display: imageIndex === displayedImages[productIndex] ? "flex" : "none",
-        visibility: array.length > 1 ? "visible" : "hidden"
-      };
-    };
-
     // Functon that controls showing which attribute was selected in ProductPage
     productAttributesStyle = (attr, chosenProductAttributes, value) => {
       return {
@@ -352,7 +344,6 @@ class App extends React.Component {
               prevProductImage={this.prevProductImage}
               nextProductImage={this.nextProductImage}
               cartAndMyBagAttributesStyle={this.cartAndMyBagAttributesStyle}
-              cartProductImagesStyle={this.cartProductImagesStyle}
               productPriceNameVisibilityStyle={this.productPriceNameVisibilityStyle}
               />
             <Switch>
@@ -395,7 +386,6 @@ class App extends React.Component {
                   nextProductImage={this.nextProductImage}
                   displayedImages={this.state.displayedImages}
                   cartAndMyBagAttributesStyle={this.cartAndMyBagAttributesStyle}
-                  cartProductImagesStyle={this.cartProductImagesStyle}
                   productPriceNameVisibilityStyle={this.productPriceNameVisibilityStyle}
                   
                 />} 
