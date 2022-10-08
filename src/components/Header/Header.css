@@ -168,6 +168,14 @@
     line-height: 160%;
 }
 
+.product-attribute-value-color-white {
+    color: white !important;
+}
+
+.product-attribute-value-border-2px {
+    border: 2px solid black !important;
+}
+
 .my-bag-product-images-and-add-remove {
     display: flex;
     height: 190px;

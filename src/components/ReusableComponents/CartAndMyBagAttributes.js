@@ -19,7 +19,7 @@ class CartAndMyBagAttributes extends React.Component {
                                         return(
                                             <div 
                                             key={value.id} 
-                                            className="product-attribute-value" 
+                                            className={`product-attribute-value ${product.chosenAttributes.find(el => el.value === value.value && el.name === attr.name) ? "product-attribute-value-color-white" : ""} ${attr.name === "Color" && product.chosenAttributes.find(el => el.value === value.value) ? "product-attribute-value-border-2px" : ""}`}
                                             style={cartAndMyBagAttributesStyle(product, attr, value)}
                                             >
                                                 {attr.name !== "Color" ? <p>{value.value}</p> : ""}

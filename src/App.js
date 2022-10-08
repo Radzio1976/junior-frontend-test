@@ -294,9 +294,7 @@ class App extends React.Component {
     // Function that shows which attributes of added product to Cart was selected
     cartAndMyBagAttributesStyle = (product, attr, value) => {
       return {
-        backgroundColor: attr.name !== "Color" && product.chosenAttributes.find(el => el.value === value.value && el.name === attr.name) ? "black" : "white",
-        color: product.chosenAttributes.find(el => el.value === value.value && el.name === attr.name) ? "white" : "black",
-        border: attr.name === "Color" && product.chosenAttributes.find(el => el.value === value.value) ? "2px solid black" : "1px solid black"
+        backgroundColor: attr.name !== "Color" && product.chosenAttributes.find(el => el.value === value.value && el.name === attr.name) ? "black" : value.value
       };
     };
 
