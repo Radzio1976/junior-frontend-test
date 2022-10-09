@@ -80,6 +80,14 @@
     margin-right: 12px;
 }
 
+.product-attribute-value-color-white {
+    color: white;
+}
+
+.product-attribute-value-border-2px {
+    border: 2px solid black;
+}
+
 #ProductBox .product-attribute-value p {
     font-family: 'Source Sans Pro';
     font-style: normal;

@@ -21,7 +21,7 @@ class ProductAttributes extends React.Component {
                                         return(
                                             <div 
                                             key={value.id} 
-                                            className="product-attribute-value" 
+                                            className={`product-attribute-value ${chosenProductAttributes.find(el => el.value === value.value && el.name === attr.name) ? "product-attribute-value-color-white" : ""} ${attr.name === "Color" && chosenProductAttributes.find(el => el.value === value.value) ? "product-attribute-value-border-2px" : ""}`}
                                             style={productAttributesStyle(attr, chosenProductAttributes, value)}
                                             onClick={() => chooseProductAttribute({product, attr, value})}
                                             >
