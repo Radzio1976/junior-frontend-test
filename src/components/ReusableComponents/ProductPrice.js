@@ -1,18 +1,20 @@
 import React from 'react';
 import {withRouter} from 'react-router-dom';
 
+import "./DynamicCSSClasses.css";
+
 class ProductPrice extends React.Component {
     render() {
         const slug = this.props.history.location.pathname.substring(1);
         const {
             product, 
             currencyLabel, 
-            myBagVisibility,
-            productPriceNameVisibilityStyle
+            myBagVisibility
         } = this.props;
         return(
             <div className="product-price-container">
-            <h3 style={productPriceNameVisibilityStyle(slug, myBagVisibility)}>Price:</h3>
+            <h3 className={`${slug === "cart" ? "product-price-container-name-visibility-hidden product-price-container-name-height product-price-container-name-margin-bottom-0px" : "product-price-container-name-visibility-visible product-price-container-name-margin-bottom-10px"} ${myBagVisibility === true ? "product-price-container-name-display-none" : ""}`}
+            >Price:</h3>
             {
             product.prices.map((price, i) => {
                     return(

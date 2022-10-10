@@ -305,16 +305,6 @@ class App extends React.Component {
       };
     };
 
-    // Function that controls when "Price:" is visible
-    productPriceNameVisibilityStyle = (slug, myBagVisibility) => {
-      return {
-        visibility: slug === "cart" ? "hidden" : "visible",
-        height: slug === "cart" ? "0" : "",
-        marginBottom: slug === "cart" ? "0" : "10px",
-        display: myBagVisibility === true ? "none" : "block"
-      };
-    };
-
   render() {
     return(
       <ApolloProvider client={client}>
@@ -342,7 +332,6 @@ class App extends React.Component {
               prevProductImage={this.prevProductImage}
               nextProductImage={this.nextProductImage}
               cartAndMyBagAttributesStyle={this.cartAndMyBagAttributesStyle}
-              productPriceNameVisibilityStyle={this.productPriceNameVisibilityStyle}
               />
             <Switch>
               <Route path="/" exact component={() => 
@@ -368,7 +357,6 @@ class App extends React.Component {
                   chosenProductAttributes={this.state.chosenProductAttributes}
                   addProductFromProductPage={this.addProductFromProductPage}
                   productAttributesStyle={this.productAttributesStyle}
-                  productPriceNameVisibilityStyle={this.productPriceNameVisibilityStyle}
                 />} 
               />
               <Route path="/cart" exact component={() => 
@@ -383,9 +371,7 @@ class App extends React.Component {
                   prevProductImage={this.prevProductImage}
                   nextProductImage={this.nextProductImage}
                   displayedImages={this.state.displayedImages}
-                  cartAndMyBagAttributesStyle={this.cartAndMyBagAttributesStyle}
-                  productPriceNameVisibilityStyle={this.productPriceNameVisibilityStyle}
-                  
+                  cartAndMyBagAttributesStyle={this.cartAndMyBagAttributesStyle}                  
                 />} 
               />
             </Switch>
