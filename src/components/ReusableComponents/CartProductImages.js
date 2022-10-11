@@ -1,5 +1,7 @@
 import React from "react";
 
+import "./DynamicCSSClasses.css";
+
 class CartProductImages extends React.Component {
     render() {
         const {

@@ -1,5 +1,7 @@
 import React from 'react';
 
+import "./DynamicCSSClasses.css";
+
 class ProductAttributes extends React.Component {
     render() {
         const {

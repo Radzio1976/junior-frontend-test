@@ -168,14 +168,6 @@
     line-height: 160%;
 }
 
-.product-attribute-value-color-white {
-    color: white !important;
-}
-
-.product-attribute-value-border-2px {
-    border: 2px solid black !important;
-}
-
 .my-bag-product-images-and-add-remove {
     display: flex;
     height: 190px;
@@ -221,18 +213,6 @@
     position: absolute;
     top: 164px;
     right: 10px;
-}
-
-.cart-product-image-prev-next-button-display-none {
-    display: none !important;
-}
-
-.cart-product-image-prev-next-button-visibility-visible {
-    visibility: visible;
-}
-
-.cart-product-image-prev-next-button-visibility-hidden {
-    visibility: hidden;
 }
 
 .my-bag .cart-product-images .cart-product-image-prev-next-button div {

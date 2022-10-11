@@ -1,5 +1,7 @@
 import React from 'react';
 
+import "./DynamicCSSClasses.css";
+
 class CartAndMyBagAttributes extends React.Component {
     render() {
         const {

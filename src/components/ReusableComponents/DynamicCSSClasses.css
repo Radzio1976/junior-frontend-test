@@ -1,3 +1,31 @@
+.product-attribute-value-color-white {
+    color: white !important;
+}
+
+.product-attribute-value-border-2px {
+    border: 2px solid black !important;
+}
+
+.cart-product-image-prev-next-button-display-none {
+    display: none !important;
+}
+
+.cart-product-image-prev-next-button-visibility-visible {
+    visibility: visible;
+}
+
+.cart-product-image-prev-next-button-visibility-hidden {
+    visibility: hidden;
+}
+
+.product-attribute-value-color-white {
+    color: white;
+}
+
+.product-attribute-value-border-2px {
+    border: 2px solid black;
+}
+
 .product-price-container-name-visibility-hidden {
     visibility: hidden;
 }
